@@ -17,7 +17,7 @@ describe('make a speaking Url', function () {
 
     describe('testing uppercase string', function () {
 
-        var url = makeUrl("---This_Is_A_Test!!");
+        var url = makeUrl("__---This_Is_A_Test!!");
 
         it('should be a string with 14 chars', function () {
             url.should.be.a('string');
