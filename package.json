@@ -1,0 +1,39 @@
+{
+  "name": "speakingurl",
+  "version": "0.0.1",
+  "description": "make a speaking url from string",
+  "keywords": [
+    "speakingUrl",
+    "speaking Url",
+    "nice Url",
+    "static url",
+    "nice looking URL"],
+  "author": {
+    "name": "Sascha Droste",
+    "email": "sascha.droste@gmail.com",
+    "url": "https://plus.google.com/118215422942628160262/about"
+  },
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pid/node-speakingurl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pid/node-speakingurl/issues"
+  },
+  "licenses": [{
+    "type": "BSD",
+    "url": "https://raw.github.com/pid/puid/master/LICENCE"
+  }],
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
