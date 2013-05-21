@@ -1,7 +1,7 @@
 {
   "name": "speakingurl",
-  "version": "0.0.1",
-  "description": "make a speaking url from string",
+  "version": "0.1.0",
+  "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' from a string.",
   "keywords": [
     "speakingUrl",
     "speaking Url",
@@ -24,14 +24,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:pid/node-speakingurl.git"
+    "url": "git@github.com:pid/speakingurl.git"
   },
   "bugs": {
-    "url": "https://github.com/pid/node-speakingurl/issues"
+    "url": "https://github.com/pid/speakingurl/issues"
   },
   "licenses": [{
     "type": "BSD",
-    "url": "https://raw.github.com/pid/puid/master/LICENCE"
+    "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
   }],
   "engines": {
     "node": ">=0.8.0"
