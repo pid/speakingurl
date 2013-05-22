@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
+[![Build Status](https://drone.io/github.com/pid/speakingurl/status.png)](https://drone.io/github.com/pid/speakingurl/latest)
 
 # Speaking URL
 Generate of so called "static" or "nice-looking" or "SpeakingURL" from a string.
 
 
-Converting table taken from
+conversion table taken from
 https://github.com/yvg/js-replace-diacritics & https://github.com/dypsilon/js-replace-diacritics (AMD)
 
 ## Installation
