@@ -1,13 +1,14 @@
 {
   "name": "speakingurl",
-  "version": "0.1.2",
-  "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' from a string.",
+  "version": "0.1.4",
+  "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
   "keywords": [
     "speakingUrl",
     "speakingurl",
     "speaking Url",
     "nice Url",
     "static url",
+    "slug",
     "nice looking URL"],
   "author": {
     "name": "Sascha Droste",

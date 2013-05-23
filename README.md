@@ -1,12 +1,14 @@
-[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
-[![Build Status](https://drone.io/github.com/pid/speakingurl/status.png)](https://drone.io/github.com/pid/speakingurl/latest)
+[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
 
 # Speaking URL
-Generate of so called "static" or "nice-looking" or "SpeakingURL" from a string.
+Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
 
-conversion table taken from
-https://github.com/yvg/js-replace-diacritics & https://github.com/dypsilon/js-replace-diacritics (AMD)
+## Contribution
+The current state is definitely not complete - we need you to improve it! 
+
+started with the transformation table taken from https://github.com/dypsilon/js-replace-diacritics (AMD)
+
 
 ## Installation
 
@@ -30,20 +32,20 @@ $ npm test
         url, string;
 
     string = "Möchtest du eine schöne URL?";
-
-    url = makeUrl(string);
+    slug = makeUrl(string);
 
     console.log(url); // Output: moechtest-du-eine-schoene-url
 
+
     string = "Première neige repéré!!";
-    url = makeUrl(string);
+    slug = makeUrl(string);
 
     console.log(url); // Output: premiere-neige-repere
 
 ```
 
 ## License
-[BSD](https://github.com/pid/speakingurl/blob/master/LICENCE)
+[BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
 
 The BSD 3-Clause License (BSD3)
 
