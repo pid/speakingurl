@@ -28,19 +28,17 @@ $ npm test
 
 ```js
 
-    var makeUrl = require('speakingurl'),
+    var makeSlug = require('speakingurl'),
         url, string;
 
     string = "Möchtest du eine schöne URL?";
-    slug = makeUrl(string);
-
-    console.log(url); // Output: moechtest-du-eine-schoene-url
+    slug = makeSlug(string);
+    console.log(slug); // Output: moechtest-du-eine-schoene-url
 
 
     string = "Première neige repéré!!";
-    slug = makeUrl(string);
-
-    console.log(url); // Output: premiere-neige-repere
+    slug = makeSlug(string);
+    console.log(slug); // Output: premiere-neige-repere
 
 ```
 
