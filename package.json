@@ -8,8 +8,8 @@
     "speaking Url",
     "nice Url",
     "static url",
-    "nice looking URL"],
-    "slug",
+    "nice looking URL",
+    "slug"],
   "author": {
     "name": "Sascha Droste",
     "email": "sascha.droste@gmail.com",
