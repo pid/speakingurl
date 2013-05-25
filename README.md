@@ -17,7 +17,7 @@ $ npm install speakingurl
 
 ## Usage
 ### makeSlug(input, [options]);
-
+```
 input:      string to convert
 options:    config object
             default values:
@@ -29,6 +29,7 @@ options:    config object
                 smartTrim: 0          // 0 == don't trim, otherwise trim to max length,
                                          consider word boundaries 
             }
+```
 
 ## Examples
 
@@ -95,7 +96,9 @@ $ npm test
 
 ## Credits
 @simov https://github.com/simov/slugify
+
 @henrikjoreteg https://github.com/henrikjoreteg/slugger
+
 @Aaronontheweb https://github.com/Aaronontheweb/node-slugs
 
 ## License
