@@ -1,4 +1,5 @@
-![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
+[![Build Status](https://travis-ci.org/pid/speakingurl.png?branch=master)](https://travis-ci.org/pid/speakingurl)
+[![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
 
 # Speaking URL
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
