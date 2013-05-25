@@ -33,3 +33,10 @@ console.log(slug);
 slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 15});
 console.log(slug);
 // Output: "trim-sentence"
+
+// optionally allow RFC3986 conform url path with smart trim
+slug = makeSlug("Allow *RFC3986* characters like 'that'?", {rfc3986: true, smartTrim: 20} );
+console.log(slug);
+// Output: "allow-*rfc396*"
+
+//

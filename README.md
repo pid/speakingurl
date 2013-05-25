@@ -6,7 +6,7 @@ Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from
 
 Works in browser and node-server
 
-## Notes
+#### Notes
 In v0.1.x converting symbols is disabled, should be added in v0.2.x (see TODO)
 This is an early version, please check for your needs and give feedback to improve it.
 
@@ -19,16 +19,17 @@ $ npm install speakingurl
 ### makeSlug(input, [options]);
 ```
 input:      string to convert
-options:    config object
-            default values:
-            {
-                separator: '-',
-                maintainCase: false,
-                onlyBase64: true,     // set 'onlyBase64' or 'rfc3986', onlyBase64 is prioritized
-                rfc3986: false,       // if both is set to true ;-)
-                smartTrim: 0          // 0 == don't trim, otherwise trim to max length,
-                                         consider word boundaries 
-            }
+options:    config object (see below)
+
+    separator       default: '-'    char that replace the whitespaces
+    maintainCase    default: false  true == maintain case chars, false == convert all chars to lower case
+    onlyBase64      default: true   true == only Base64 chars are allowed, false == extended charsset ~RFC3986
+    rfc3986         default: false  true == allow chars allowed by ~RFC3986 for url path, false == Base64 chars
+    smartTrim       default: 0      0 == don't trim length, >0 == trim to max length while not breaking any words    
+
+    notes: 
+    - if you set 'onlyBase64' and 'rfc3986' to 'true', 'onlyBase64' is prioritized
+
 ```
 
 ## Examples
@@ -38,7 +39,7 @@ options:    config object
     var makeSlug = require('speakingurl'),
         slug;
 
-    slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt ?");
+    slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt !  ");
     console.log(slug);
     // Output: "das-ist-ein-schoener-titel-der-keine-wuensche-offen-laesst"
 
@@ -57,7 +58,7 @@ options:    config object
     // Output: "Do-not-convert-UPPERCASE-chars"
 
     // optionally trim to max length while not breaking any words
-    slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 19});
+    slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 15});
     console.log(slug);
     // Output: "trim-sentence"
 
@@ -66,7 +67,10 @@ options:    config object
     console.log(slug);
     // Output: "allow-*rfc396*-characters-like-'that'"
 
-
+    // optionally allow RFC3986 conform url path with smart trim
+    slug = makeSlug("Allow *RFC3986* characters like 'that'?", {rfc3986: true, smartTrim: 20} );
+    console.log(slug);
+    // Output: "allow-*rfc396*"
 
 ```
 
@@ -84,10 +88,11 @@ $ npm test
 - minified version for browser (grunt tasks)
 - publish v0.2.x
 - AMD/requirejs for browser
+- add to bower (see http://bower.io)
 - publish v0.3.x
 
 ## History
-- didn't find a solution for doing the job
+- didn't find a package for doing the job
 - developed my own solution until v0.1.5
 - found the right keyword I had looking for.... found npm-packages (see credits)
 - adopted the best from all
