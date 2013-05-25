@@ -30,6 +30,6 @@ console.log(slug);
 // Output: "Do-not-convert-UPPERCASE-chars"
 
 // optionally trim to max length while not breaking any words
-slug = makeSlug("Trim sentence to fit in length", {smartTrim: 15});
+slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 15});
 console.log(slug);
 // Output: "trim-sentence"
