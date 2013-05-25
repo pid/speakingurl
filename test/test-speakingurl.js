@@ -1,56 +1,73 @@
-var makeUrl = require('../lib/');
-require('should');
+var getSlug = require('../lib');
 
-describe('make a speaking Url', function () {
-
-    describe('testing string without transformation neccacary', function () {
-
-        var url = makeUrl("this-is-a-test");
-
-        it('should be a string with 14 chars', function () {
-            url.should.be.a('string');
-            url.should.have.length(14);
-            url.should.match(/[a-z0-9-]/);
-            url.should.be.equal('this-is-a-test');
-        });
+describe('getSlug misc', function () {
+    it('should separate with configured character, with non-Base64 separator', function () {
+        getSlug('Foo, Bar Baz', {separator: '*', maintainCase: false}).should.eql('foo,*bar*baz');
+        getSlug('Foo- Bar Baz', {separator: '*', maintainCase: false}).should.eql('foo-*bar*baz');
+        getSlug('Foo] Bar Baz', {separator: '*', maintainCase: false}).should.eql('foo*bar*baz');
     });
 
-    describe('testing uppercase string', function () {
-
-        var url = makeUrl("__---This_Is_A_Test!!");
-
-        it('should be a string with 14 chars', function () {
-            url.should.be.a('string');
-            url.should.have.length(14);
-            url.should.match(/[a-z0-9-]/);
-
-            url.should.be.equal('this-is-a-test');
-        });
+    it('should separate with configured character, with only Base64 characters allowed', function () {
+        getSlug('Foo, Bar Baz', {separator: '_', onlyBase64: true}).should.eql('foo_bar_baz');
+        getSlug('Foo- Bar Baz', {separator: '_', onlyBase64: true}).should.eql('foo-_bar_baz');
+        getSlug('Foo] Bar Baz', {separator: '_', onlyBase64: true}).should.eql('foo_bar_baz');
+    });
+ 
+     it('should separate with configured character, with RFC3986 characters allowed', function () {
+        getSlug('Foo, Bar Baz', {separator: '_', rfc3986: true}).should.eql('foo,_bar_baz');
+        getSlug('Foo- Bar Baz', {separator: '_', rfc3986: true}).should.eql('foo-_bar_baz');
+        getSlug('Foo] Bar Baz', {separator: '_', rfc3986: true}).should.eql('foo_bar_baz');
     });
 
-    describe('testing string with special characters', function () {
+    it('should separate with configured character, with smart trim', function () {
+        getSlug('Foobarbaz, Bar Baz', {separator: '_', smartTrim: 12}).should.eql('foobarbaz');
+        getSlug('Foobarbaz, Bar Baz', {separator: '_', smartTrim: 15}).should.eql('foobarbaz_bar');
+        getSlug(' Foobarbaz, Bar Baz', {separator: '_', smartTrim: 15}).should.eql('foobarbaz_bar');
+        getSlug('  Foobarbaz,    Bar Baz', {separator: '_', smartTrim: 15}).should.eql('foobarbaz_bar');
+    });
+    
 
-        var url = makeUrl("Check for special chars!\"§$%&/()=?`´*+'_-:.;.'");
-
-        it('should be a string with 23 chars', function () {
-            url.should.be.a('string');
-            url.should.have.length(23);
-            url.should.match(/[a-z0-9-]/);
-            url.should.be.equal('check-for-special-chars');
-
-        });
+    it('should maintain case characters, with non-Base64 separator', function () {
+        getSlug('Foo, Bar Baz', {maintainCase: true, separator: '*'}).should.eql('Foo,*Bar*Baz');
+        getSlug('Foo- Bar Baz', {maintainCase: true, separator: '*'}).should.eql('Foo-*Bar*Baz');
+        getSlug('Foo] Bar Baz', {maintainCase: true, separator: '*'}).should.eql('Foo*Bar*Baz');
     });
 
-    describe('testing unicode string', function () {
+    it('should maintain case characters, with only Base64 characters allowed', function () {
+        getSlug('Foo, Bar Baz', {maintainCase: true, onlyBase64: true}).should.eql('Foo-Bar-Baz');
+        getSlug('Foo- Bar Baz', {maintainCase: true, onlyBase64: true}).should.eql('Foo-Bar-Baz');
+        getSlug('Foo] Bar Baz', {maintainCase: true, onlyBase64: true}).should.eql('Foo-Bar-Baz');
+    });
+ 
+     it('should maintain case characters, with RFC3986 characters allowed', function () {
+        getSlug('Foo, Bar Baz', {maintainCase: true, rfc3986: true}).should.eql('Foo,-Bar-Baz');
+        getSlug('Foo- Bar Baz', {maintainCase: true, rfc3986: true}).should.eql('Foo-Bar-Baz');
+        getSlug('Foo] Bar Baz', {maintainCase: true, rfc3986: true}).should.eql('Foo-Bar-Baz');
+    });
 
-        var url = makeUrl("Première neige ”repéré”!!");
+    it('should maintain case characters, with smart trim', function () {
+        getSlug('Foobarbaz, Bar Baz', {maintainCase: true, smartTrim: 12}).should.eql('Foobarbaz');
+        getSlug('Foobarbaz, Bar Baz', {maintainCase: true, smartTrim: 15}).should.eql('Foobarbaz-Bar');
+        getSlug(' Foobarbaz, Bar Baz', {maintainCase: true, smartTrim: 15}).should.eql('Foobarbaz-Bar');
+        getSlug('  Foobarbaz,    Bar Baz', {maintainCase: true, smartTrim: 15}).should.eql('Foobarbaz-Bar');
+    });
 
-        it('should be a string with 21 chars', function () {
-            url.should.be.a('string');
-            url.should.have.length(21);
-            url.should.be.equal('premiere-neige-repere');
-
-        });
+    it('should prefer Base64 characters only', function () {
+        getSlug('Foo, Bar Baz', {rfc3986: true, onlyBase64: true}).should.eql('foo-bar-baz');
+        getSlug('Foo- Bar Baz', {rfc3986: true, onlyBase64: true}).should.eql('foo-bar-baz');
+        getSlug('Foo] Bar Baz', {rfc3986: true, onlyBase64: true}).should.eql('foo-bar-baz');
+        getSlug('Foo* Bar Baz', {rfc3986: true, onlyBase64: true}).should.eql('foo-bar-baz');
     });
 
 });
+
+
+
+            // {
+            //     separator: '-',
+            //     maintainCase: false,
+            //     onlyBase64: true,     // => RFC 3986 == false
+            //     rfc3986: false,       // set 'onlyBase64' or 'rfc3986', onlyBase64 is prioritized
+            //     smartTrim: 0          // 0 == don't trim, otherwise trim to max length,
+            //                              consider word boundaries 
+            // }

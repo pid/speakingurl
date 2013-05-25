@@ -2,6 +2,10 @@
 *.sublime-*
 node_modules/
 npm-debug.log
+*.old
+
+# dev temp testing scripts
+dev-*.js
 
 # Compiled source #
 ###################

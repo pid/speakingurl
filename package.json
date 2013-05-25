@@ -1,28 +1,29 @@
 {
   "name": "speakingurl",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
   "keywords": [
-    "speakingUrl",
-    "speakingurl",
-    "speaking Url",
-    "nice Url",
-    "static url",
-    "nice looking URL",
-    "slug"],
+      "slug",
+      "seo",
+      "url",
+      "speakingurl",
+      "nice url",
+      "static url",
+      "nice looking url"
+  ],
   "author": {
     "name": "Sascha Droste",
     "email": "sascha.droste@gmail.com",
     "url": "https://plus.google.com/118215422942628160262/about"
   },
-  "main": "index.js",
+  "main": "speakingurl",
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
     "should": "*"
   },
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -32,9 +33,10 @@
     "url": "https://github.com/pid/speakingurl/issues"
   },
   "licenses": [{
-    "type": "BSD",
-    "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
-  }],
+      "type": "MIT",
+      "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
+    }
+  ],
   "engines": {
     "node": ">=0.8.0"
   }

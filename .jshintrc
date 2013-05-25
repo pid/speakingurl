@@ -1,6 +1,6 @@
 { 
     "es5": true
-  , "strict": false
+  , "strict": true
   , "node": true
   , "browser": true
   , "jquery": true

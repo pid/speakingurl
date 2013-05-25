@@ -1,46 +1,101 @@
-[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
+![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
 
 # Speaking URL
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
+Works in browser and node-server
 
-## Contribution
-The current state is definitely not complete - we need you to improve it! 
-
-started with the transformation table taken from https://github.com/dypsilon/js-replace-diacritics (AMD)
-
+## Notes
+In v0.1.x converting symbols is disabled, should be added in v0.2.x (see TODO)
+This is an early version, please check for your needs and give feedback to improve it.
 
 ## Installation
-
 ```bash
 $ npm install speakingurl
 ```
 
-## Running tests
-
-[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
-
-```bash
-$ npm test
-```
-
 ## Usage
+### makeSlug(input, [options]);
+
+input:      string to convert
+options:    config object
+            default values:
+            {
+                separator: '-',
+                maintainCase: false,
+                onlyBase64: true,     // set 'onlyBase64' or 'rfc3986', onlyBase64 is prioritized
+                rfc3986: false,       // if both is set to true ;-)
+                smartTrim: 0          // 0 == don't trim, otherwise trim to max length,
+                                         consider word boundaries 
+            }
+
+## Examples
 
 ```js
 
     var makeSlug = require('speakingurl'),
-        url, string;
+        slug;
 
-    string = "Möchtest du eine schöne URL?";
-    slug = makeSlug(string);
-    console.log(slug); // Output: moechtest-du-eine-schoene-url
+    slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt ?");
+    console.log(slug);
+    // Output: "das-ist-ein-schoener-titel-der-keine-wuensche-offen-laesst"
+
+    slug = makeSlug("Première neige repéré!!");
+    console.log(slug);
+    // Output: "premiere-neige-repere"
+
+    // optionally use a different separator character
+    slug = makeSlug("Would you like another character?", {separator: '_'} );
+    console.log(slug);
+    // Output: "want_another_separator"
+
+    // optionally maintain case
+    slug = makeSlug("Do not convert UPPERCASE chars", {maintainCase: true});
+    console.log(slug);
+    // Output: "Do-not-convert-UPPERCASE-chars"
+
+    // optionally trim to max length while not breaking any words
+    slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 19});
+    console.log(slug);
+    // Output: "trim-sentence"
+
+    // optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
+    slug = makeSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
+    console.log(slug);
+    // Output: "allow-*rfc396*-characters-like-'that'"
 
 
-    string = "Première neige repéré!!";
-    slug = makeSlug(string);
-    console.log(slug); // Output: premiere-neige-repere
 
 ```
+
+## Running tests
+[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
+
+```shell
+$ npm test
+```
+
+## TODO
+- add converting symbols to corresponding word (en/de), adding new option ie. {'lang': 'en'}
+- change order with currency symbols ( input: "$30" => "30 Dollar")
+- more languages for symbols translations (need contributors)
+- minified version for browser (grunt tasks)
+- publish v0.2.x
+- AMD/requirejs for browser
+- publish v0.3.x
+
+## History
+- didn't find a solution for doing the job
+- developed my own solution until v0.1.5
+- found the right keyword I had looking for.... found npm-packages (see credits)
+- adopted the best from all
+- refactoring v0.1.5
+- published v0.1.6 (compatible with v0.1.5)
+
+## Credits
+@simov https://github.com/simov/slugify
+@henrikjoreteg https://github.com/henrikjoreteg/slugger
+@Aaronontheweb https://github.com/Aaronontheweb/node-slugs
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)

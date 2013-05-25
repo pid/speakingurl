@@ -1,20 +1,35 @@
-var makeUrl = require('../lib/'),
-    url, string;
+var makeSlug = require('../lib'),
+    slug;
 
-string = "Möchtest du eine schöne URL?";
+slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt?");
+console.log(slug);
+// Output: "moechtest-du-eine-schoene-url"
 
-url = makeUrl(string);
+slug = makeSlug("Première neige repéré!!");
+console.log(slug);
+// Output: "premiere-neige-repere"
 
-console.log(url);
+// optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
+slug = makeSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
+console.log(slug);
+// Output: "allow-*rfc396*-characters-like-'that'"
 
-string = "Première neige repéré!!";
-url = makeUrl(string);
+// if you choose a separator which is'nt a Base64 (/A-Za-z0-9_-/) character => rfc3986 == true
+slug = makeSlug("Choosing 'separator' to non Base64 char, rfc3986 chars are allowed at all", {separator: '*'} );
+console.log(slug);
+// Output: "choosing*'separator'*to*non*base64*char,*rfc3986*chars*are*allowed*at*all"
 
-console.log(url);
+// optionally use a different separator character
+slug = makeSlug("Would you like another seaprator?", {separator: '_'} );
+console.log(slug);
+// Output: "would_you_like_another_character"
 
-string = "---This Is A___”Test!!!!";
-url = makeUrl(string);
+// optionally maintain case
+slug = makeSlug("Don't convert UPPERCASE chars", {maintainCase: true});
+console.log(slug);
+// Output: "Do-not-convert-UPPERCASE-chars"
 
-console.log(url);
-
-
+// optionally trim to max length while not breaking any words
+slug = makeSlug("Trim sentence to fit in length", {smartTrim: 15});
+console.log(slug);
+// Output: "trim-sentence"
