@@ -32,6 +32,10 @@ describe('getSlug separator', function () {
         getSlug('___Foo Bar Baz___', {separator: '_'}).should.eql('foo_bar_baz');
     });
 
+    it('should remove trailing separator "*"', function () {
+        getSlug('C\'est un beau titre qui ne laisse rien à désirer !', {separator: '*'})
+            .should.eql('c\'est*un*beau*titre*qui*ne*laisse*rien*a*desirer*!');
+    });
 
 });
 

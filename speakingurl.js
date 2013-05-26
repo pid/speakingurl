@@ -114,9 +114,6 @@
         // trim whitspaces
         string = string.replace(/(^\s+|\s+$)/g, '');
 
-        // trim separators from start and end
-        string = string.replace(new RegExp('(^\\'+separator+'+|\\'+separator+'+$)', 'g'), '');
-
         for (i = 0,l = string.length; i < l; i++) {
 
             ch = string[i];
@@ -152,6 +149,9 @@
 
         // eliminate duplicate separator chars
         result = result.replace(new RegExp('\\'+separator+'+', 'g'), separator);
+
+        // trim separators from start and end
+        result = result.replace(new RegExp('(^\\'+separator+'+|\\'+separator+'+$)', 'g'), '');
 
         return result;
     }

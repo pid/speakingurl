@@ -11,9 +11,8 @@ This is an early version, please check for your needs and give feedback to impro
     $ npm install speakingurl
 
 ## Usage
-### makeSlug(input, [options]);
-```input```:      string to convert
-```options```:    config object (see below)
+### getSlug(input, [options]);
+```input```: string to convert; ```options```: config object (see below)
 
 * ```separator``` default: '-'    
     * char that replace the whitespaces
@@ -22,48 +21,49 @@ This is an early version, please check for your needs and give feedback to impro
     * false => convert all chars to lower case
 * ```rfc3986``` default: false 
     * true => allow chars according to ~RFC3986 for url path
-    * false => only Base64 chars allowed(/A-Za-z0-9-_/)
+    * false => only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```smartTrim``` default: 0  
     * 0 => don't trim length
     * >0 => trim to max length while not breaking any words    
 
-notes: if you set ```onlyBase64``` and ```rfc3986``` to ```true```, ```onlyBase64``` is prioritized
+notes: 
+- if you set the ```separator``` to a non-Base64 (/A-Za-z0-9-_/) char, ```rfc3986``` is set to ```true```
 
 ## Examples
 ```javascript
-var makeSlug = require('speakingurl'),
+var getSlug = require('speakingurl'),
     slug;
 
-slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt !  ");
+slug = getSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt !  ");
 console.log(slug);
 // Output: "das-ist-ein-schoener-titel-der-keine-wuensche-offen-laesst"
 
-slug = makeSlug("Première neige repéré!!");
+slug = getSlug("C'est un beau titre qui ne laisse rien à désirer !  ");
 console.log(slug);
-// Output: "premiere-neige-repere"
+// Output: "cest-un-beau-titre-qui-ne-laisse-rien-a-desirer"
 
 // optionally use a different separator character
-slug = makeSlug("Would you like another character?", {separator: '_'} );
+slug = getSlug("Would you like another character?", {separator: '_'} );
 console.log(slug);
 // Output: "want_another_separator"
 
 // optionally maintain case
-slug = makeSlug("Do not convert UPPERCASE chars", {maintainCase: true});
+slug = getSlug("Do not convert UPPERCASE chars", {maintainCase: true});
 console.log(slug);
 // Output: "Do-not-convert-UPPERCASE-chars"
 
 // optionally trim to max length while not breaking any words
-slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 16});
+slug = getSlug("Trim sentence ... to fit in length", {smartTrim: 16});
 console.log(slug);
 // Output: "trim-sentence-to"
 
 // optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
-slug = makeSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
+slug = getSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
 console.log(slug);
 // Output: "allow-*rfc396*-characters-like-'that'"
 
 ```
-## Running tests
+## Tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 ```shell
 $ npm test
@@ -72,7 +72,6 @@ $ npm test
 ## Credits
 - @simov https://github.com/simov/slugify
 - @henrikjoreteg https://github.com/henrikjoreteg/slugger
-- @Aaronontheweb https://github.com/Aaronontheweb/node-slugs
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
