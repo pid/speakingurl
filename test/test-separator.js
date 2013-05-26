@@ -33,8 +33,8 @@ describe('getSlug separator', function () {
     });
 
     it('should remove trailing separator "*"', function () {
-        getSlug('C\'est un beau titre qui ne laisse rien à désirer !', {separator: '*'})
-            .should.eql('c\'est*un*beau*titre*qui*ne*laisse*rien*a*desirer*!');
+        getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', {separator: '*'})
+            .should.eql('cest*un*beau*titre*qui*ne*laisse*rien*a*desirer');
     });
 
 });

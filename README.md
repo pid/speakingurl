@@ -4,8 +4,7 @@ Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from
 Works in browser and on node-server
 
 #### Notes
-In v0.1.x converting symbols is disabled, should be added in v0.2.x (see [Issues](https://github.com/pid/speakingurl/issues))
-This is an early version, please check for your needs and give feedback to improve it.
+Current published NPM package is in branch "v0.1.x" see current [README](https://npmjs.org/package/speakingurl) 
 
 ## Installation
     $ npm install speakingurl
@@ -19,48 +18,71 @@ This is an early version, please check for your needs and give feedback to impro
 * ```maintainCase``` default: false
     * true => maintain case chars
     * false => convert all chars to lower case
-* ```rfc3986``` default: false 
-    * true => allow chars according to ~RFC3986 for url path
+* ```uric``` default: false 
+    * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
+    * false => only Base64 chars allowed (/A-Za-z0-9-_/)
+* ```uric_no_slash``` default: false 
+    * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
+    * false => additionallyonly Base64 chars allowed (/A-Za-z0-9-_/)
+* ```mark``` default: false 
+    * true => additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```smartTrim``` default: 0  
     * 0 => don't trim length
-    * >0 => trim to max length while not breaking any words    
+    * >0 => trim to max length while not breaking any words 
 
-notes: 
-- if you set the ```separator``` to a non-Base64 (/A-Za-z0-9-_/) char, ```rfc3986``` is set to ```true```
+* ``options``` === 'string' = ```separator``` 
+    * allowed chars
+
+notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uric_no_slash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
 
 ## Examples
 ```javascript
 var getSlug = require('speakingurl'),
     slug;
 
-slug = getSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt !  ");
-console.log(slug);
-// Output: "das-ist-ein-schoener-titel-der-keine-wuensche-offen-laesst"
+var getSlug = require('../lib'),
+    slug;
 
-slug = getSlug("C'est un beau titre qui ne laisse rien à désirer !  ");
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug);
-// Output: "cest-un-beau-titre-qui-ne-laisse-rien-a-desirer"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen-bel-ete
 
-// optionally use a different separator character
-slug = getSlug("Would you like another character?", {separator: '_'} );
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", "*");
 console.log(slug);
-// Output: "want_another_separator"
+console.log("\n");
+// Output: schoener*titel*laesst*gruessen*bel*ete
 
-// optionally maintain case
-slug = getSlug("Do not convert UPPERCASE chars", {maintainCase: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: "_"});
 console.log(slug);
-// Output: "Do-not-convert-UPPERCASE-chars"
+console.log("\n");
+// Output: schoener_titel_laesst_gruessen_bel_ete
 
-// optionally trim to max length while not breaking any words
-slug = getSlug("Trim sentence ... to fit in length", {smartTrim: 16});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric: true});
 console.log(slug);
-// Output: "trim-sentence-to"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen?-bel-ete
 
-// optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
-slug = getSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric_no_slash: true});
 console.log(slug);
-// Output: "allow-*rfc396*-characters-like-'that'"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen?-bel-ete
+
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {mark: true});
+console.log(slug);
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen!-bel-ete-!
+
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {trim: 20});
+console.log(slug);
+console.log("\n");
+// Output: schoener-titel
+
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true});
+console.log(slug);
+console.log("\n");
+// Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
 ```
 ## Tests

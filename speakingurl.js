@@ -84,21 +84,16 @@
     //     '<': 'kleiner als', '>': 'groesser als',
     //     '∑': 'Summe von'
     // }
-
-    var whitespace = /\s+/g;
   
     var getSlug = function getSlug(string, opts) {
         
-        var maintainCase = opts && opts.maintainCase || false,
-            separator = opts && opts.separator || '-',
-            smartTrim = opts && opts.smartTrim,
-            language = opts && opts.language || 'en',
-            // default onyBase64 == true
-            onlyBase64 = opts && opts.rfc3986 && !opts.onlyBase64 ? false : true,
-            // if separator isn't a Base64 character, set onlyBase64 == false
-            onlyBase64 = onlyBase64 && /[^_-]/.test(separator) ? false : onlyBase64,
+        var maintainCase = typeof opts === 'object' && opts.maintainCase || false,
+            separator = typeof opts === 'object' && opts.separator || '-',
+            smartTrim = typeof opts === 'object' && opts.trim,
+            language = typeof opts === 'object' && opts.language || 'en',
             result = '',
             lucky,
+            allowedChars = [],
             i,
             ch,
             l;
@@ -106,6 +101,22 @@
         if (typeof string !== 'string') {
             return '';
         }
+ 
+        if (typeof opts === 'string') {
+            separator = opts;
+        } else if (typeof opts === 'object') {
+            if (opts.uric) {
+                allowedChars = allowedChars.concat([';', '?', ':', '@', '&', '=', '+', '$', ',', '/']);
+            }
+            if (opts.uric_no_slash) {
+                allowedChars = allowedChars.concat([';', '?', ':', '@', '&', '=', '+', '$', ',']);
+            }
+            if (opts.mark) {
+                allowedChars = allowedChars.concat(['.', '!', '~', '*', '\'', '(', ')']);
+            }    
+        }
+
+        allowedChars = (allowedChars.join('') + separator).replace(/[-\\^$*+?.()|[\]{}\/]/g, "\\$&") ;
 
         // if ( language !== 'en') {
         //     // TODO: merge language objects
@@ -122,17 +133,18 @@
                 ch = charMap[ch];
             }
 
-            if (onlyBase64) {
-                ch = ch.replace(/[^A-Za-z0-9_-\s]/g, ''); // allowed chars Base64 + space
-            } else {
-                ch = ch.replace(/[^\w\s\-\.\_~\!$\'\(\)\*\,\;:@]/g, ''); // allowed chars ~RFC 3986 + space
-            }
-
-            result += ch;
+            // add allowed chars 
+            result += ch.replace(new RegExp('[^A-Za-z0-9-_\\w\\s' + allowedChars + '-]','g'), '');
         }
-
-        result = result.replace(whitespace, separator);
-
+        
+        result = result
+            // eliminate duplicate separators
+            .replace(/\s+/g, separator)
+            // add separator
+            .replace(new RegExp( '\\' + separator + '+' ,'g'), separator)
+            // trim separators from start and end
+            .replace(new RegExp('(^\\' + separator + '+|\\' + separator + '+$)', 'g'), '');
+        
         if (smartTrim && result.length > smartTrim) {
 
             lucky = result.charAt(smartTrim) === separator;
@@ -147,11 +159,6 @@
             result = result.toLowerCase();
         }
 
-        // eliminate duplicate separator chars
-        result = result.replace(new RegExp('\\'+separator+'+', 'g'), separator);
-
-        // trim separators from start and end
-        result = result.replace(new RegExp('(^\\'+separator+'+|\\'+separator+'+$)', 'g'), '');
 
         return result;
     }

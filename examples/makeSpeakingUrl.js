@@ -1,42 +1,49 @@
 var getSlug = require('../lib'),
     slug;
 
-slug = getSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt!");
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug);
-// Output: "moechtest-du-eine-schoene-url"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen-bel-ete
 
-slug = getSlug("C'est un beau titre qui ne laisse rien à désirer!");
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", "*");
 console.log(slug);
-// Output: "cest-un-beau-titre-qui-ne-laisse-rien-a-desirer"
+console.log("\n");
+// Output: schoener*titel*laesst*gruessen*bel*ete
 
-// optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
-slug = getSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: "_"});
 console.log(slug);
-// Output: "allow-*rfc396*-characters-like-'that'"
+console.log("\n");
+// Output: schoener_titel_laesst_gruessen_bel_ete
 
-// if you choose a separator which is'nt a Base64 (/A-Za-z0-9_-/) character => rfc3986 == true
-slug = getSlug("Choosing 'separator' to non Base64 char, rfc3986 chars are allowed at all", {separator: '*'} );
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric: true});
 console.log(slug);
-// Output: "choosing*'separator'*to*non*base64*char,*rfc3986*chars*are*allowed*at*all"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen?-bel-ete
 
-// optionally use a different separator character
-slug = getSlug("Would you like another seaprator?", {separator: '_'} );
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric_no_slash: true});
 console.log(slug);
-// Output: "would_you_like_another_character"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen?-bel-ete
 
-// optionally maintain case
-slug = getSlug("Don't convert UPPERCASE chars", {maintainCase: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {mark: true});
 console.log(slug);
-// Output: "Do-not-convert-UPPERCASE-chars"
+console.log("\n");
+// Output: schoener-titel-laesst-gruessen!-bel-ete-!
 
-// optionally trim to max length while not breaking any words
-slug = getSlug("Trim sentence ... to fit in length", {smartTrim: 16});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {trim: 20});
 console.log(slug);
-// Output: "trim-sentence-to"
+console.log("\n");
+// Output: schoener-titel
 
-// optionally allow RFC3986 conform url path with smart trim
-slug = getSlug("Allow *RFC3986* characters like 'that'?", {rfc3986: true, smartTrim: 20} );
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true});
 console.log(slug);
-// Output: "allow-*rfc396*"
+console.log("\n");
+// Output: Schoener-Titel-laesst-gruessen-Bel-ete
+
+
+
+
+
 
 //
