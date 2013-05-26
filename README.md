@@ -11,7 +11,7 @@ Current published NPM package is in branch "v0.1.x" see current [README](https:/
 
 ## Usage
 ### getSlug(input, [options]);
-```input```: string to convert; ```options```: config object (see below)
+```input```: string to convert; ```options```: config object or separator string (see below)
 
 * ```separator``` default: '-'    
     * char that replace the whitespaces
