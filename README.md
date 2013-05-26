@@ -27,7 +27,7 @@ Current published NPM package is in branch "v0.1.x" see current [README](https:/
 * ```mark``` default: false 
     * true => additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```smartTrim``` default: 0  
+* ```trim``` default: 0
     * 0 => don't trim length
     * >0 => trim to max length while not breaking any words 
 
