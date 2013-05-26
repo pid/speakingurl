@@ -23,7 +23,7 @@ Current published NPM package is in branch "v0.1.x" see current [README](https:/
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```uric_no_slash``` default: false 
     * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
-    * false => additionallyonly Base64 chars allowed (/A-Za-z0-9-_/)
+    * false => only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```mark``` default: false 
     * true => additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
@@ -31,8 +31,7 @@ Current published NPM package is in branch "v0.1.x" see current [README](https:/
     * 0 => don't trim length
     * >0 => trim to max length while not breaking any words 
 
-* ``options``` === 'string' = ```separator``` 
-    * allowed chars
+* ```options``` === 'string' = ```separator``` 
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uric_no_slash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
 
