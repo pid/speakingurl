@@ -15,17 +15,17 @@ This is an early version, please check for your needs and give feedback to impro
 ```input```:      string to convert
 ```options```:    config object (see below)
 
-* ```separator```       default: '-'    
+* ```separator``` default: '-'    
     * char that replace the whitespaces
-* ```maintainCase```    default: false
+* ```maintainCase``` default: false
     * true => maintain case chars
     * false => convert all chars to lower case
-* ```rfc3986```         default: false 
-    * true => allow chars allowed by ~RFC3986 for url path
+* ```rfc3986``` default: false 
+    * true => allow chars according to ~RFC3986 for url path
     * false => only Base64 chars allowed(/A-Za-z0-9-_/)
-* ```smartTrim```       default: 0  
-    * 0 == don't trim length
-    * >0 == trim to max length while not breaking any words    
+* ```smartTrim``` default: 0  
+    * 0 => don't trim length
+    * >0 => trim to max length while not breaking any words    
 
 notes: if you set ```onlyBase64``` and ```rfc3986``` to ```true```, ```onlyBase64``` is prioritized
 
