@@ -1,7 +1,7 @@
 var makeSlug = require('../lib'),
     slug;
 
-slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt?");
+slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt!");
 console.log(slug);
 // Output: "moechtest-du-eine-schoene-url"
 
@@ -30,9 +30,9 @@ console.log(slug);
 // Output: "Do-not-convert-UPPERCASE-chars"
 
 // optionally trim to max length while not breaking any words
-slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 15});
+slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 16});
 console.log(slug);
-// Output: "trim-sentence"
+// Output: "trim-sentence-to"
 
 // optionally allow RFC3986 conform url path with smart trim
 slug = makeSlug("Allow *RFC3986* characters like 'that'?", {rfc3986: true, smartTrim: 20} );
