@@ -1,110 +1,78 @@
-[![Build Status](https://travis-ci.org/pid/speakingurl.png?branch=master)](https://travis-ci.org/pid/speakingurl)
-[![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
-
-# Speaking URL
+# Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
-Works in browser and node-server
+Works in browser and on node-server
 
 #### Notes
-In v0.1.x converting symbols is disabled, should be added in v0.2.x (see TODO)
+In v0.1.x converting symbols is disabled, should be added in v0.2.x (see [Issues](https://github.com/pid/speakingurl/issues))
 This is an early version, please check for your needs and give feedback to improve it.
 
 ## Installation
-```bash
-$ npm install speakingurl
-```
+    $ npm install speakingurl
 
 ## Usage
 ### makeSlug(input, [options]);
-```
-input:      string to convert
-options:    config object (see below)
+```input```:      string to convert
+```options```:    config object (see below)
 
-    separator       default: '-'    char that replace the whitespaces
-    maintainCase    default: false  true == maintain case chars, false == convert all chars to lower case
-    onlyBase64      default: true   true == only Base64 chars are allowed, false == extended charsset ~RFC3986
-    rfc3986         default: false  true == allow chars allowed by ~RFC3986 for url path, false == Base64 chars
-    smartTrim       default: 0      0 == don't trim length, >0 == trim to max length while not breaking any words    
+* ```separator```       default: '-'    
+    * char that replace the whitespaces
+* ```maintainCase```    default: false
+    * true => maintain case chars
+    * false => convert all chars to lower case
+* ```rfc3986```         default: false 
+    * true => allow chars allowed by ~RFC3986 for url path
+    * false => only Base64 chars allowed(/A-Za-z0-9-_/)
+* ```smartTrim```       default: 0  
+    * 0 == don't trim length
+    * >0 == trim to max length while not breaking any words    
 
-    notes: 
-    - if you set 'onlyBase64' and 'rfc3986' to 'true', 'onlyBase64' is prioritized
-
-```
+notes: if you set ```onlyBase64``` and ```rfc3986``` to ```true```, ```onlyBase64``` is prioritized
 
 ## Examples
+```javascript
+var makeSlug = require('speakingurl'),
+    slug;
 
-```js
+slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt !  ");
+console.log(slug);
+// Output: "das-ist-ein-schoener-titel-der-keine-wuensche-offen-laesst"
 
-    var makeSlug = require('speakingurl'),
-        slug;
+slug = makeSlug("Première neige repéré!!");
+console.log(slug);
+// Output: "premiere-neige-repere"
 
-    slug = makeSlug("Das ist ein schöner Titel, der keine Wünsche offen läßt !  ");
-    console.log(slug);
-    // Output: "das-ist-ein-schoener-titel-der-keine-wuensche-offen-laesst"
+// optionally use a different separator character
+slug = makeSlug("Would you like another character?", {separator: '_'} );
+console.log(slug);
+// Output: "want_another_separator"
 
-    slug = makeSlug("Première neige repéré!!");
-    console.log(slug);
-    // Output: "premiere-neige-repere"
+// optionally maintain case
+slug = makeSlug("Do not convert UPPERCASE chars", {maintainCase: true});
+console.log(slug);
+// Output: "Do-not-convert-UPPERCASE-chars"
 
-    // optionally use a different separator character
-    slug = makeSlug("Would you like another character?", {separator: '_'} );
-    console.log(slug);
-    // Output: "want_another_separator"
+// optionally trim to max length while not breaking any words
+slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 16});
+console.log(slug);
+// Output: "trim-sentence-to"
 
-    // optionally maintain case
-    slug = makeSlug("Do not convert UPPERCASE chars", {maintainCase: true});
-    console.log(slug);
-    // Output: "Do-not-convert-UPPERCASE-chars"
-
-    // optionally trim to max length while not breaking any words
-    slug = makeSlug("Trim sentence ... to fit in length", {smartTrim: 15});
-    console.log(slug);
-    // Output: "trim-sentence"
-
-    // optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
-    slug = makeSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
-    console.log(slug);
-    // Output: "allow-*rfc396*-characters-like-'that'"
-
-    // optionally allow RFC3986 conform url path with smart trim
-    slug = makeSlug("Allow *RFC3986* characters like 'that'?", {rfc3986: true, smartTrim: 20} );
-    console.log(slug);
-    // Output: "allow-*rfc396*"
+// optionally allow RFC3986 conform url path, default base64 /A-Za-z0-9_-/
+slug = makeSlug("Allow *RFC396* characters like 'that'?", {rfc3986: true} );
+console.log(slug);
+// Output: "allow-*rfc396*-characters-like-'that'"
 
 ```
-
 ## Running tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
-
 ```shell
 $ npm test
 ```
 
-## TODO
-- add converting symbols to corresponding word (en/de), adding new option ie. {'lang': 'en'}
-- change order with currency symbols ( input: "$30" => "30 Dollar")
-- more languages for symbols translations (need contributors)
-- minified version for browser (grunt tasks)
-- publish v0.2.x
-- AMD/requirejs for browser
-- add to bower (see http://bower.io)
-- publish v0.3.x
-
-## History
-- didn't find a package for doing the job
-- developed my own solution until v0.1.5
-- found the right keyword I had looking for.... found npm-packages (see credits)
-- adopted the best from all
-- refactoring v0.1.5
-- published v0.1.6 (compatible with v0.1.5)
-
 ## Credits
-@simov https://github.com/simov/slugify
-
-@henrikjoreteg https://github.com/henrikjoreteg/slugger
-
-@Aaronontheweb https://github.com/Aaronontheweb/node-slugs
+- @simov https://github.com/simov/slugify
+- @henrikjoreteg https://github.com/henrikjoreteg/slugger
+- @Aaronontheweb https://github.com/Aaronontheweb/node-slugs
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
