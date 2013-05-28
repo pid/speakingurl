@@ -73,9 +73,9 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: tr
 console.log(slug);
 // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
-slug = getSlug("Schöner & Titel läßt grüßen!? Bel été !", {lang: 'de'});
+slug = getSlug("Apfel & Birne!", {lang: 'de'});
 console.log(slug);
-// Output: Schoener-Titel-laesst-gruessen-Bel-ete
+// Output: apfel-und-birne
 
 slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
 console.log(slug);
