@@ -2,10 +2,28 @@
   "name": "speakingurl",
   "version": "0.2.3",
   "main": "speakingurl.min.js",
+  "author": {
+    "name": "Sascha Droste",
+    "email": "sascha.droste@gmail.com",
+    "url": "https://plus.google.com/118215422942628160262/about"
+  },
+  "keywords": [
+      "slug",
+      "seo",
+      "url",
+      "speakingurl",
+      "nice url",
+      "static url"
+  ],
+  "license": "MIT",
   "ignore": [
       "**/.*",
       "node_modules",
       "components",
       "*sublime*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pid/speakingurl.git"
+  }
 }
