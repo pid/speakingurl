@@ -8,7 +8,7 @@ For use in browser and server.
 
 ## Usage
 ### getSlug(input, [options]);
-```input```: {string} to convert; ```options```: {object|char} config object or separator string (see below)
+```input```: {string} to convert; ```options```: {object|string} config object or separator string (see below)
 
 * ```separator``` {string} default: '-'    
     * char that replace the whitespaces
