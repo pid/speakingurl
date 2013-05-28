@@ -45,4 +45,14 @@ describe('getSlug symbols', function () {
         getSlug('Foo (♥) ; Baz=Bar', {lang: 'ru', uric: true, uricNoSlash: true, mark: true}).should.eql('foo-(lubov)-;-baz=bar');
    });
 
+   it('should replace symbols (de)', function () {
+        getSlug('Äpfel & Birnen', {lang: 'de'}).should.eql('aepfel-und-birnen');
+        getSlug('ÄÖÜäöüß', {lang: 'de', maintainCase: true}).should.eql('AeOeUeaeoeuess');
+   });
+
+   it('should ignore not available language param', function () {
+        getSlug('Äpfel & Birnen', {lang: 'xx'}).should.eql('aepfel-and-birnen');
+   });
+
+
 });
