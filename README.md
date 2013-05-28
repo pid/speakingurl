@@ -4,11 +4,11 @@ Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from
 For use in browser and server.
 
 ## Installation
-    In nodejs:
+    server-side:
 
     $ npm install speakingurl
 
-    In browser:
+    client-side:
 
     $ bower install speakingurl
 
@@ -83,7 +83,7 @@ console.log(slug);
 
 slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
 console.log(slug);
-// Output: apfel-und-birne
+// Output: aepfel-und-birnen
 
 slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
 console.log(slug);

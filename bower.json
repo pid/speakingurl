@@ -1,8 +1,8 @@
 {
   "name": "speakingurl",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "speakingurl.min.js",
-  "license": "MIT",
+  "license": "BSD",
   "ignore": [
     "**/.*",
     "node_modules",
