@@ -5,7 +5,7 @@ var getSlug = require('../lib');
 describe('getSlug rfc3986', function () {
 
     it('"uric" characters allowed', function () {
-        var chars = [';', '?', ':', '@', '&', '=', '+', '$', ',', '/'];
+        var chars = [';', '?', ':', '@', '&', '=', '+', ',', '/'];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
                 uric: true
@@ -14,11 +14,11 @@ describe('getSlug rfc3986', function () {
         }
     });
 
-    it('"uric_no_slash" characters allowed', function () {
-        var chars = [';', '?', ':', '@', '&', '=', '+', '$', ','];
+    it('"uricNoSlash" characters allowed', function () {
+        var chars = [';', '?', ':', '@', '&', '=', '+', ','];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
-                uric_no_slash: true
+                uricNoSlash: true
             })
                 .should.eql("foo-" + chars[i] + "-bar-baz");
         }
@@ -35,7 +35,7 @@ describe('getSlug rfc3986', function () {
     });
 
     it('"uric" characters allowed, separator ";"', function () {
-        var chars = ['?', ':', '@', '&', '=', '+', '$', ',', '/'];
+        var chars = ['?', ':', '@', '&', '=', '+', ',', '/'];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
                 uric: true,
@@ -53,18 +53,18 @@ describe('getSlug rfc3986', function () {
                 .should.eql("foo;bar;baz");
     });
 
-    it('"uric_no_slash" characters allowed, separator ";"', function () {
-        var chars = ['?', ':', '@', '&', '=', '+', '$', ','];
+    it('"uricNoSlash" characters allowed, separator ";"', function () {
+        var chars = ['?', ':', '@', '&', '=', '+', ','];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
-                uric_no_slash: true,
+                uricNoSlash: true,
                 separator: ';'
             })
                 .should.eql("foo;" + chars[i] + ";bar;baz");
         }
     });
     
-    it('"uric_no_slash" characters allowed, separator ";" included in input string', function () {
+    it('"uricNoSlash" characters allowed, separator ";" included in input string', function () {
            getSlug("foo ; bar baz", {
                 uric: true,
                 separator: ';'

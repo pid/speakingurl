@@ -21,7 +21,7 @@ console.log(slug);
 console.log("\n");
 // Output: schoener-titel-laesst-gruessen?-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric_no_slash: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uricNoSlash: true});
 console.log(slug);
 console.log("\n");
 // Output: schoener-titel-laesst-gruessen?-bel-ete
@@ -31,7 +31,7 @@ console.log(slug);
 console.log("\n");
 // Output: schoener-titel-laesst-gruessen!-bel-ete-!
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {trim: 20});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {truncate: 20});
 console.log(slug);
 console.log("\n");
 // Output: schoener-titel
@@ -41,8 +41,26 @@ console.log(slug);
 console.log("\n");
 // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
+slug = getSlug("Schöner & Titel läßt grüßen!? Bel été !", {lang: 'de'});
+console.log(slug);
+console.log("\n");
+// Output: Schoener-Titel-laesst-gruessen-Bel-ete
+
+slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
+console.log(slug);
+console.log("\n");
+// Output: foo-doo-bar-baz
+
+slug = getSlug('Foo ♥ Bar');
+console.log(slug);
+console.log("\n");
+// Output: foo-love-bar
 
 
+slug = getSlug('Foo & Bar | Baz * Doo', {custom:{'*': "Boo"},mark:true});
+console.log(slug);
+console.log("\n");
+// Output: foo-and-bar-or-baz-boo-doo
 
 
 

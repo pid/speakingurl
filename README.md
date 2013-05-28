@@ -1,46 +1,44 @@
 # Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
-Works in browser and on node-server
-
-#### Notes
-Current published NPM package is in branch "v0.1.x" see current [README](https://npmjs.org/package/speakingurl) 
+For use in browser and server.
 
 ## Installation
     $ npm install speakingurl
 
 ## Usage
 ### getSlug(input, [options]);
-```input```: string to convert; ```options```: config object or separator string (see below)
+```input```: {string} to convert; ```options```: {object|char} config object or separator string (see below)
 
-* ```separator``` default: '-'    
+* ```separator``` {char} default: '-'    
     * char that replace the whitespaces
-* ```maintainCase``` default: false
+* ```lang``` {string} default: 'en'
+    * language for currency and symbol translation 
+* ```maintainCase``` {boolean} default: false
     * true => maintain case chars
     * false => convert all chars to lower case
-* ```uric``` default: false 
+* ```uric``` {boolean} default: false 
     * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```uric_no_slash``` default: false 
+* ```uricNoSlash``` {boolean} default: false 
     * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```mark``` default: false 
+* ```mark``` {boolean} default: false 
     * true => additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```trim``` default: 0
+* ```custom``` {object} default: {} 
+    * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' } 
+* ```truncate``` {number} default: 0
     * 0 => don't trim length
     * >0 => trim to max length while not breaking any words 
 
-* ```options``` === 'string' = ```separator``` 
+* ```options``` {char} separator 
 
-notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uric_no_slash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
+notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
 
 ## Examples
 ```javascript
 var getSlug = require('speakingurl'),
-    slug;
-
-var getSlug = require('../lib'),
     slug;
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
@@ -59,7 +57,7 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric: true});
 console.log(slug);
 // Output: schoener-titel-laesst-gruessen?-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric_no_slash: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uricNoSlash: true});
 console.log(slug);
 // Output: schoener-titel-laesst-gruessen?-bel-ete
 
@@ -67,7 +65,7 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {mark: true});
 console.log(slug);
 // Output: schoener-titel-laesst-gruessen!-bel-ete-!
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {trim: 20});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {truncate: 20});
 console.log(slug);
 // Output: schoener-titel
 
@@ -75,7 +73,25 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: tr
 console.log(slug);
 // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
+slug = getSlug("Schöner & Titel läßt grüßen!? Bel été !", {lang: 'de'});
+console.log(slug);
+// Output: Schoener-Titel-laesst-gruessen-Bel-ete
+
+slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
+console.log(slug);
+// Output: foo-doo-bar-baz
+
+slug = getSlug('Foo ♥ Bar');
+console.log(slug);
+// Output: foo-love-bar
+
+slug = getSlug('Foo & Bar | Baz * Doo', {custom:{'*': "Boo"},mark:true});
+console.log(slug);
+// Output: foo-and-bar-or-baz-boo-doo
+
+
 ```
+
 ## Tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 ```shell
@@ -83,8 +99,12 @@ $ npm test
 ```
 
 ## Credits
-- @simov https://github.com/simov/slugify
-- @henrikjoreteg https://github.com/henrikjoreteg/slugger
+- [@dypsilon](https://github.com/dypsilon/js-replace-diacritics)
+- [@simov](https://github.com/simov/slugify)
+- [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
+
+## Informations
+http://tools.ietf.org/html/rfc3986
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)

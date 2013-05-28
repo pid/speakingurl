@@ -1,1 +1,1 @@
-module.exports = require('./speakingurl');
+module.exports = require('lib/');

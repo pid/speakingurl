@@ -1,6 +1,5 @@
 {
   "name": "speakingurl",
-  "private": true,
   "version": "0.2.0",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
   "keywords": [
@@ -17,7 +16,7 @@
     "email": "sascha.droste@gmail.com",
     "url": "https://plus.google.com/118215422942628160262/about"
   },
-  "main": "speakingurl",
+  "main": "index",
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
