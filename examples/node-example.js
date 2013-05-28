@@ -44,7 +44,7 @@ console.log("\n");
 slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
 console.log(slug);
 console.log("\n");
-// Output: apfel-und-birne
+// Output: aepfel-und-birnen
 
 slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
 console.log(slug);
