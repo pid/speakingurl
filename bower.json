@@ -4,13 +4,8 @@
   "main": "speakingurl.min.js",
   "license": "MIT",
   "ignore": [
-      "**/.*",
-      "node_modules",
-      "components",
-      "*sublime*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pid/speakingurl.git"
-  }
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
 }
