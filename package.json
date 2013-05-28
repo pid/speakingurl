@@ -1,15 +1,15 @@
 {
   "name": "speakingurl",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
+  "homepage": "https://github.com/pid/speakingurl",
   "keywords": [
-      "slug",
-      "seo",
-      "url",
-      "speakingurl",
-      "nice url",
-      "static url",
-      "nice looking url"
+    "slug",
+    "seo",
+    "url",
+    "speakingurl",
+    "nice url",
+    "static url"
   ],
   "author": {
     "name": "Sascha Droste",
@@ -19,8 +19,12 @@
   "main": "index",
   "dependencies": {},
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "grunt": "~0.4.1",
+    "mocha": "~1.10.0",
+    "should": "~1.2.2",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-watch": "~0.4.4"
   },
   "scripts": {
     "test": "mocha"
@@ -32,7 +36,8 @@
   "bugs": {
     "url": "https://github.com/pid/speakingurl/issues"
   },
-  "licenses": [{
+  "licenses": [
+    {
       "type": "MIT",
       "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
     }

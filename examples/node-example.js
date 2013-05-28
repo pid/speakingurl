@@ -41,7 +41,7 @@ console.log(slug);
 console.log("\n");
 // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
-slug = getSlug("Apfel & Birne!", {lang: 'de'});
+slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
 console.log(slug);
 console.log("\n");
 // Output: apfel-und-birne

@@ -4,35 +4,43 @@ Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from
 For use in browser and server.
 
 ## Installation
+    In nodejs:
+
     $ npm install speakingurl
+
+    In browser:
+
+    $ bower install speakingurl
+
+    or copy the file speakingurl.min.js to your script directory
 
 ## Usage
 ### getSlug(input, [options]);
 ```input```: {string} to convert; ```options```: {object|string} config object or separator string (see below)
 
-* ```separator``` {string} default: '-'    
+* ```separator``` {string} default: '-'
     * char that replace the whitespaces
 * ```lang``` {string} default: 'en'
     * language for symbol translation ('en, 'de', more coming soon)
 * ```maintainCase``` {boolean} default: false
     * true => maintain case chars
     * false => convert all chars to lower case
-* ```uric``` {boolean} default: false 
+* ```uric``` {boolean} default: false
     * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```uricNoSlash``` {boolean} default: false 
+* ```uricNoSlash``` {boolean} default: false
     * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```mark``` {boolean} default: false 
+* ```mark``` {boolean} default: false
     * true => additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
     * false => only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```custom``` {object} default: {} 
-    * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' } 
+    * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
 * ```truncate``` {number} default: 0
     * 0 => don't trim length
-    * >0 => trim to max length while not breaking any words 
+    * >0 => trim to max length while not breaking any words
 
-* ```options``` {string} separator 
+* ```options``` {string} separator
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
 
@@ -73,7 +81,7 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: tr
 console.log(slug);
 // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
-slug = getSlug("Apfel & Birne!", {lang: 'de'});
+slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
 console.log(slug);
 // Output: apfel-und-birne
 
