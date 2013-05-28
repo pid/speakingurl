@@ -1,6 +1,6 @@
 {
   "name": "speakingurl",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
   "keywords": [
       "slug",
