@@ -13,7 +13,7 @@ For use in browser and server.
 * ```separator``` {string} default: '-'    
     * char that replace the whitespaces
 * ```lang``` {string} default: 'en'
-    * language for currency and symbol translation 
+    * language for symbol translation ('en, 'de', more coming soon)
 * ```maintainCase``` {boolean} default: false
     * true => maintain case chars
     * false => convert all chars to lower case
