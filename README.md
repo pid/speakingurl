@@ -10,7 +10,7 @@ For use in browser and server.
 ### getSlug(input, [options]);
 ```input```: {string} to convert; ```options```: {object|char} config object or separator string (see below)
 
-* ```separator``` {char} default: '-'    
+* ```separator``` {string} default: '-'    
     * char that replace the whitespaces
 * ```lang``` {string} default: 'en'
     * language for currency and symbol translation 
@@ -32,7 +32,7 @@ For use in browser and server.
     * 0 => don't trim length
     * >0 => trim to max length while not breaking any words 
 
-* ```options``` {char} separator 
+* ```options``` {string} separator 
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
 
