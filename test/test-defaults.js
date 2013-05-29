@@ -1,3 +1,4 @@
+var should = require('should');
 var getSlug = require('../lib');
 
 describe('getSlug defaults', function () {

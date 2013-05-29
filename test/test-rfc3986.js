@@ -1,5 +1,4 @@
-// test-rfc3986.js
-
+var should = require('should');
 var getSlug = require('../lib');
 
 describe('getSlug rfc3986', function () {

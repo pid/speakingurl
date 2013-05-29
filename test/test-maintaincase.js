@@ -1,5 +1,4 @@
-// test-maintaincase.js
-
+var should = require('should');
 var getSlug = require('../lib');
 
 describe('getSlug maintainCase', function () {

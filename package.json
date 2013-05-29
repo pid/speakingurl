@@ -29,12 +29,11 @@
   },
   "testling": {
     "harness": "mocha",
-    "scripts": "speakingurl.min.js",
     "files": "test/*.js",
     "browsers": {
       "ie": [ 6, 7, 8, 9, 10 ],
       "firefox": [ 13 ],
-      "chrome": [ 25, 26, 27 ],
+      "chrome": [ 25 ],
       "safari": [ 5.1, 6.0 ],
       "opera": [ 10, 12 ]
     }
