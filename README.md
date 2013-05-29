@@ -102,7 +102,6 @@ console.log(slug);
 
 ## Tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
-[![browser support](https://ci.testling.com/pid/speakingurl.png)](https://ci.testling.com/pid/speakingurl)
 
 ```shell
 $ npm test

@@ -17,6 +17,7 @@
     <div id="slug10"></div>
     <div id="slug11"></div>
     <div id="slug12"></div>
+    <div id="slug13"></div>
 
     <script>
         document.getElementById("slug1").innerHTML = getSlug("Schöner Titel läßt grüßen!? Bel été !")
@@ -28,9 +29,11 @@
         document.getElementById("slug7").innerHTML = getSlug("Schöner Titel läßt grüßen!? Bel été !", {truncate: 20});
         document.getElementById("slug8").innerHTML = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true});
         document.getElementById("slug9").innerHTML = getSlug("Äpfel & Birnen!", {lang: 'de'});
-        document.getElementById("slug10").innerHTML = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
+        document.getElementById("slug10").innerHTML = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric: true } );
         document.getElementById("slug11").innerHTML = getSlug('Foo ♥ Bar');
-        document.getElementById("slug12").innerHTML = getSlug('Foo & Bar | Baz * Doo', {custom:{'*': "Boo"},mark:true});
+        document.getElementById("slug12").innerHTML = getSlug('Foo & Bar | Baz * Doo', {custom:{'*': "Boo"}, mark: true});
+        document.getElementById("slug12").innerHTML = getSlug('C\'est un beau titre qui ne laisse rien à désirer  ! ');
+
     </script>
 
     <a href="javascript:document.location='view-source:'+document.location">view source</a>
