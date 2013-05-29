@@ -4,7 +4,8 @@ var getSlug = require('../lib');
 
 describe('getSlug rfc3986', function () {
 
-    it('"uric" characters allowed', function () {
+    it('"uric" characters allowed', function (done) {
+
         var chars = [';', '?', ':', '@', '&', '=', '+', ',', '/'];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
@@ -12,9 +13,12 @@ describe('getSlug rfc3986', function () {
             })
                 .should.eql("foo-" + chars[i] + "-bar-baz");
         }
+
+        done();
     });
 
-    it('"uricNoSlash" characters allowed', function () {
+    it('"uricNoSlash" characters allowed', function (done) {
+
         var chars = [';', '?', ':', '@', '&', '=', '+', ','];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
@@ -22,9 +26,12 @@ describe('getSlug rfc3986', function () {
             })
                 .should.eql("foo-" + chars[i] + "-bar-baz");
         }
+
+        done();
     });
 
-    it('"mark" characters allowed', function () {
+    it('"mark" characters allowed', function (done) {
+
         var chars = ['.', '!', '~', '*', '\'', '(', ')'];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
@@ -32,9 +39,12 @@ describe('getSlug rfc3986', function () {
             })
                 .should.eql("foo-" + chars[i] + "-bar-baz");
         }
+
+        done();
     });
 
-    it('"uric" characters allowed, separator ";"', function () {
+    it('"uric" characters allowed, separator ";"', function (done) {
+
         var chars = ['?', ':', '@', '&', '=', '+', ',', '/'];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
@@ -43,17 +53,23 @@ describe('getSlug rfc3986', function () {
             })
                 .should.eql("foo;" + chars[i] + ";bar;baz");
         }
-    });
-    
-    it('"uric" characters allowed, separator ";" included in input string', function () {
-           getSlug("foo ; bar baz", {
-                uric: true,
-                separator: ';'
-            })
-                .should.eql("foo;bar;baz");
+
+        done();
     });
 
-    it('"uricNoSlash" characters allowed, separator ";"', function () {
+    it('"uric" characters allowed, separator ";" included in input string', function (done) {
+
+        getSlug("foo ; bar baz", {
+            uric: true,
+            separator: ';'
+        })
+            .should.eql("foo;bar;baz");
+
+        done();
+    });
+
+    it('"uricNoSlash" characters allowed, separator ";"', function (done) {
+
         var chars = ['?', ':', '@', '&', '=', '+', ','];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
@@ -62,17 +78,23 @@ describe('getSlug rfc3986', function () {
             })
                 .should.eql("foo;" + chars[i] + ";bar;baz");
         }
-    });
-    
-    it('"uricNoSlash" characters allowed, separator ";" included in input string', function () {
-           getSlug("foo ; bar baz", {
-                uric: true,
-                separator: ';'
-            })
-                .should.eql("foo;bar;baz");
+
+        done();
     });
 
-    it('"mark" characters allowed, separator "."', function () {
+    it('"uricNoSlash" characters allowed, separator ";" included in input string', function (done) {
+
+        getSlug("foo ; bar baz", {
+            uric: true,
+            separator: ';'
+        })
+            .should.eql("foo;bar;baz");
+
+        done();
+    });
+
+    it('"mark" characters allowed, separator "."', function (done) {
+
         var chars = ['!', '~', '*', '\'', '(', ')'];
         for (var i = 0; i < chars.length; i++) {
             getSlug("foo " + chars[i] + " bar baz", {
@@ -81,13 +103,18 @@ describe('getSlug rfc3986', function () {
             })
                 .should.eql("foo." + chars[i] + ".bar.baz");
         }
+
+        done();
     });
 
-    it('"mark" characters allowed, separator "." included in input string', function () {
-       getSlug("foo . bar baz", {
+    it('"mark" characters allowed, separator "." included in input string', function (done) {
+
+        getSlug("foo . bar baz", {
             uric: true,
             separator: '.'
         })
-        .should.eql("foo.bar.baz");
+            .should.eql("foo.bar.baz");
+
+        done();
     });
 });
