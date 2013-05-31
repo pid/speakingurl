@@ -1,6 +1,8 @@
 # Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
+This module aims to transliteration the input string.
+
 For use in browser and server.
 
 ## Installation
