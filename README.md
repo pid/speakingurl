@@ -114,6 +114,7 @@ $ npm test
 
 ## Informations
 http://tools.ietf.org/html/rfc3986
+http://en.wikipedia.org/wiki/Transliteration
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
