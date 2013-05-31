@@ -32,9 +32,10 @@ module.exports = function (grunt) {
       type = type ? type : 'patch';     // Set the release type
       grunt.task.run('jshint');         // Lint stuff
       grunt.task.run('uglify');         // Minify stuff
+      grunt.task.run('mocha');          // test 
       grunt.task.run('bumpup:' + type); // Bump up the version
   });
-  
+
   grunt.registerTask('mocha', 'run mocha', function () {
     var done = this.async();
     require('child_process')
