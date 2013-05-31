@@ -87,6 +87,10 @@ slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
 console.log(slug);
 // Output: aepfel-und-birnen
 
+slug = getSlug("Apple & Pear!", {lang: 'en'}); // lang: "en" is default, just to clarify
+console.log(slug);
+// Output: apple-and-pear
+
 slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
 console.log(slug);
 // Output: foo-doo-bar-baz
@@ -115,8 +119,8 @@ $ npm test
 - [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
 
 ## Informations
-http://tools.ietf.org/html/rfc3986
-http://en.wikipedia.org/wiki/Transliteration
+- http://tools.ietf.org/html/rfc3986
+- http://en.wikipedia.org/wiki/Transliteration
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
