@@ -27,6 +27,14 @@ module.exports = function (grunt) {
     testFiles: 'test/**/*.js'
   });
 
+  // Alias task for release
+  grunt.registerTask('release', function (type) {
+      type = type ? type : 'patch';     // Set the release type
+      grunt.task.run('jshint');         // Lint stuff
+      grunt.task.run('uglify');         // Minify stuff
+      grunt.task.run('bumpup:' + type); // Bump up the version
+  });
+  
   grunt.registerTask('mocha', 'run mocha', function () {
     var done = this.async();
     require('child_process')
