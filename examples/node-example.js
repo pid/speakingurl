@@ -57,10 +57,10 @@ console.log("\n");
 // Output: foo-love-bar
 
 
-slug = getSlug('Foo & Bar | Baz * Doo', {custom:{'*': "Boo"},mark:true});
+slug = getSlug('Foo & Bar | (Baz) * Doo', {custom:{'*': "Boo"},mark:true});
 console.log(slug);
 console.log("\n");
-// Output: foo-and-bar-or-baz-boo-doo
+// Output: foo-and-bar-or-(baz)-boo-doo
 
 
 
