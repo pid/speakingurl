@@ -9,14 +9,15 @@
     "type": "git",
     "url": "https://github.com/pid/speakingurl.git"
   },
-  "licenses": [{
+  "licenses": [
+    {
       "type": "BSD",
       "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
     }
   ],
   "ignore": [
-      "**/.*",
-      "node_modules",
-      "components"
+    "**/.*",
+    "node_modules",
+    "components"
   ]
 }
