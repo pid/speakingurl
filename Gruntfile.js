@@ -19,6 +19,7 @@ module.exports = function (grunt) {
       files: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js', 'package.json'],
       tasks: ['jshint', 'mocha', 'uglify']
     },
+    bumpup: ['package.json', 'bower.json'],
 
     // files
     buildSourceFile: 'lib/index.js',
@@ -42,8 +43,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-bumpup');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'jshint']);
+  grunt.registerTask('default', ['uglify', 'jshint', 'mocha']);
 
 };
