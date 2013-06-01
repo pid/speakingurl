@@ -52,58 +52,49 @@ var getSlug = require('speakingurl'),
     slug;
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
-console.log(slug);
-// Output: schoener-titel-laesst-gruessen-bel-ete
+console.log(slug); // Output: schoener-titel-laesst-gruessen-bel-ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", "*");
-console.log(slug);
-// Output: schoener*titel*laesst*gruessen*bel*ete
+console.log(slug); // Output: schoener*titel*laesst*gruessen*bel*ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: "_"});
-console.log(slug);
-// Output: schoener_titel_laesst_gruessen_bel_ete
+console.log(slug); // Output: schoener_titel_laesst_gruessen_bel_ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric: true});
-console.log(slug);
-// Output: schoener-titel-laesst-gruessen?-bel-ete
+console.log(slug); // Output: schoener-titel-laesst-gruessen?-bel-ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uricNoSlash: true});
-console.log(slug);
-// Output: schoener-titel-laesst-gruessen?-bel-ete
+console.log(slug); // Output: schoener-titel-laesst-gruessen?-bel-ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {mark: true});
-console.log(slug);
-// Output: schoener-titel-laesst-gruessen!-bel-ete-!
+console.log(slug); // Output: schoener-titel-laesst-gruessen!-bel-ete-!
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {truncate: 20});
-console.log(slug);
-// Output: schoener-titel
+console.log(slug); // Output: schoener-titel
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true});
-console.log(slug);
-// Output: Schoener-Titel-laesst-gruessen-Bel-ete
+console.log(slug); // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
 slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
-console.log(slug);
-// Output: aepfel-und-birnen
+console.log(slug); // Output: aepfel-und-birnen
 
 slug = getSlug("Apple & Pear!", {lang: 'en'}); // lang: "en" is default, just to clarify
-console.log(slug);
-// Output: apple-and-pear
+console.log(slug); // Output: apple-and-pear
 
 slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
-console.log(slug);
-// Output: foo-doo-bar-baz
+console.log(slug); // Output: foo-doo-bar-baz
 
 slug = getSlug('Foo ♥ Bar');
-console.log(slug);
-// Output: foo-love-bar
+console.log(slug); // Output: foo-love-bar
 
 slug = getSlug('Foo & Bar | (Baz) * Doo', {custom:{'*': "Boo"},mark:true});
-console.log(slug);
-// Output: foo-and-bar-or-(baz)-boo-doo
+console.log(slug); // Output: foo-and-bar-or-(baz)-boo-doo
 
+slug = getSlug('NEXUS4 only $299');
+console.log(slug); // Output: nexus-4-only-usd-299
 
+slug = getSlug('NEXUS4 only €299');
+console.log(slug); // Output: nexus-4-only-eur-299
 ```
 
 ## Tests

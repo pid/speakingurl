@@ -75,3 +75,11 @@ slug = getSlug('Foo & Bar | (Baz) * Doo', {
 });
 console.log(slug); // Output: foo-and-bar-or-(baz)-boo-doo
 console.log("\n");
+
+slug = getSlug('NEXUS4 only $299');
+console.log(slug); // Output: nexus-4-only-usd-299
+console.log("\n");
+
+slug = getSlug('NEXUS4 only €299');
+console.log(slug); // Output: nexus-4-only-eur-299
+console.log("\n");
