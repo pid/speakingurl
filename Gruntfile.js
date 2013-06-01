@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> v<%= pkg.version %> (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> <%= pkg.homepage %> */\n'
+                banner: '/* <%= pkg.name %> v<%= pkg.version %> (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> <%= pkg.homepage %> */\n'
             },
             build: {
                 src: '<%= buildSourceFile %>',
@@ -47,16 +47,6 @@ module.exports = function (grunt) {
             grunt.log.write(stdout);
             done(err);
         });
-    });
-
-    // Alias task for publish: bumpup and release
-    grunt.registerTask('publish', function (type) {
-        type = type ? type : 'patch'; // Set the release type
-        grunt.task.run('jshint'); // Lint stuff
-        grunt.task.run('uglify'); // Minify stuff
-        grunt.task.run('mocha'); // test 
-        grunt.task.run('bumpup:' + type); // Bump up the version
-        grunt.task.run('release'); // release 
     });
 
     grunt.event.on('watch', function (action, filepath) {
