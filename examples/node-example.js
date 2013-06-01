@@ -80,6 +80,6 @@ slug = getSlug('NEXUS4 only $299');
 console.log(slug); // Output: nexus-4-only-usd-299
 console.log("\n");
 
-slug = getSlug('NEXUS4 only €299');
-console.log(slug); // Output: nexus-4-only-eur-299
+slug = getSlug('NEXUS4 only €299', {maintainCase: true});
+console.log(slug); // Output: NEXUS-4-only-EUR-299
 console.log("\n");
