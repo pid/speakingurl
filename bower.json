@@ -1,23 +1,18 @@
 {
-  "name": "speakingurl",
-  "version": "0.2.7",
-  "description": "Generate of so called 'static' or 'nice-looking' or 'slug' or 'SpeakingURL' from a string.",
-  "main": "speakingurl.min.js",
-  "homepage": "https://github.com/pid/speakingurl",
-  "bugs": "https://github.com/pid/speakingurl/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pid/speakingurl.git"
-  },
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
-    }
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components"
-  ]
+    "name": "speakingurl",
+    "version": "0.2.7",
+    "description": "Generate of so called 'static' or 'nice-looking' or 'slug' or 'SpeakingURL' from a string.",
+    "main": "speakingurl.min.js",
+    "homepage": "https://github.com/pid/speakingurl",
+    "bugs": "https://github.com/pid/speakingurl/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pid/speakingurl.git"
+    },
+    "licenses": [{
+            "type": "BSD",
+            "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
+        }
+    ],
+    "ignore": ["**/.*", "node_modules", "components"]
 }

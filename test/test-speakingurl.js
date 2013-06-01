@@ -1,26 +1,26 @@
-var should = require('should');
+/* global describe,it */
+
 var getSlug = require('../lib');
 
 describe('getSlug config combinations', function () {
+    'use strict';
+
     it('should separate with configured character, with non-Base64 separator', function (done) {
 
         getSlug('Foo, Bar Baz', {
             separator: '*',
             maintainCase: false
-        })
-            .should.eql('foo*bar*baz');
+        }).should.eql('foo*bar*baz');
 
         getSlug('Foo- Bar Baz', {
             separator: '*',
             maintainCase: false
-        })
-            .should.eql('foo-*bar*baz');
+        }).should.eql('foo-*bar*baz');
 
         getSlug('Foo] Bar Baz', {
             separator: '*',
             maintainCase: false
-        })
-            .should.eql('foo*bar*baz');
+        }).should.eql('foo*bar*baz');
 
         done();
     });
@@ -30,20 +30,17 @@ describe('getSlug config combinations', function () {
         getSlug('Foo, Bar Baz', {
             separator: '_',
             onlyBase64: true
-        })
-            .should.eql('foo_bar_baz');
+        }).should.eql('foo_bar_baz');
 
         getSlug('Foo- Bar Baz', {
             separator: '_',
             onlyBase64: true
-        })
-            .should.eql('foo-_bar_baz');
+        }).should.eql('foo-_bar_baz');
 
         getSlug('Foo] Bar Baz', {
             separator: '_',
             onlyBase64: true
-        })
-            .should.eql('foo_bar_baz');
+        }).should.eql('foo_bar_baz');
 
         done();
     });
@@ -53,26 +50,22 @@ describe('getSlug config combinations', function () {
         getSlug('Foobarbaz, Bar Baz', {
             separator: '_',
             truncate: 12
-        })
-            .should.eql('foobarbaz');
+        }).should.eql('foobarbaz');
 
         getSlug('Foobarbaz, Bar Baz', {
             separator: '_',
             truncate: 15
-        })
-            .should.eql('foobarbaz_bar');
+        }).should.eql('foobarbaz_bar');
 
         getSlug(' Foobarbaz, Bar Baz', {
             separator: '_',
             truncate: 15
-        })
-            .should.eql('foobarbaz_bar');
+        }).should.eql('foobarbaz_bar');
 
         getSlug('  Foobarbaz,    Bar Baz', {
             separator: '_',
             truncate: 15
-        })
-            .should.eql('foobarbaz_bar');
+        }).should.eql('foobarbaz_bar');
 
         done();
     });
@@ -82,20 +75,17 @@ describe('getSlug config combinations', function () {
         getSlug('Foo, Bar Baz', {
             maintainCase: true,
             separator: '*'
-        })
-            .should.eql('Foo*Bar*Baz');
+        }).should.eql('Foo*Bar*Baz');
 
         getSlug('Foo- Bar Baz', {
             maintainCase: true,
             separator: '*'
-        })
-            .should.eql('Foo-*Bar*Baz');
+        }).should.eql('Foo-*Bar*Baz');
 
         getSlug('Foo] Bar Baz', {
             maintainCase: true,
             separator: '*'
-        })
-            .should.eql('Foo*Bar*Baz');
+        }).should.eql('Foo*Bar*Baz');
 
         done();
     });
@@ -105,20 +95,17 @@ describe('getSlug config combinations', function () {
         getSlug('Foo, Bar Baz', {
             maintainCase: true,
             onlyBase64: true
-        })
-            .should.eql('Foo-Bar-Baz');
+        }).should.eql('Foo-Bar-Baz');
 
         getSlug('Foo- Bar Baz', {
             maintainCase: true,
             onlyBase64: true
-        })
-            .should.eql('Foo-Bar-Baz');
+        }).should.eql('Foo-Bar-Baz');
 
         getSlug('Foo] Bar Baz', {
             maintainCase: true,
             onlyBase64: true
-        })
-            .should.eql('Foo-Bar-Baz');
+        }).should.eql('Foo-Bar-Baz');
 
         done();
     });
@@ -128,26 +115,22 @@ describe('getSlug config combinations', function () {
         getSlug('Foobarbaz, Bar Baz', {
             maintainCase: true,
             truncate: 12
-        })
-            .should.eql('Foobarbaz');
+        }).should.eql('Foobarbaz');
 
         getSlug('Foobarbaz, Bar Baz', {
             maintainCase: true,
             truncate: 15
-        })
-            .should.eql('Foobarbaz-Bar');
+        }).should.eql('Foobarbaz-Bar');
 
         getSlug(' Foobarbaz, Bar Baz', {
             maintainCase: true,
             truncate: 15
-        })
-            .should.eql('Foobarbaz-Bar');
+        }).should.eql('Foobarbaz-Bar');
 
         getSlug('  Foobarbaz,    Bar Baz', {
             maintainCase: true,
             truncate: 15
-        })
-            .should.eql('Foobarbaz-Bar');
+        }).should.eql('Foobarbaz-Bar');
 
         done();
     });
@@ -157,26 +140,22 @@ describe('getSlug config combinations', function () {
         getSlug('Foo, Bar Baz', {
             rfc3986: true,
             onlyBase64: true
-        })
-            .should.eql('foo-bar-baz');
+        }).should.eql('foo-bar-baz');
 
         getSlug('Foo- Bar Baz', {
             rfc3986: true,
             onlyBase64: true
-        })
-            .should.eql('foo-bar-baz');
+        }).should.eql('foo-bar-baz');
 
         getSlug('Foo] Bar Baz', {
             rfc3986: true,
             onlyBase64: true
-        })
-            .should.eql('foo-bar-baz');
+        }).should.eql('foo-bar-baz');
 
         getSlug('Foo* Bar Baz', {
             rfc3986: true,
             onlyBase64: true
-        })
-            .should.eql('foo-bar-baz');
+        }).should.eql('foo-bar-baz');
 
         done();
     });
