@@ -19,6 +19,12 @@ describe('getSlug separator', function () {
             separator: '_'
         }).should.eql('foo_bar_baz');
 
+        getSlug('Foo Bar Baz', '-').should.eql('foo-bar-baz');
+
+        getSlug('Foo Bar Baz', '*').should.eql('foo*bar*baz');
+
+        getSlug('Foo Bar Baz', '_').should.eql('foo_bar_baz');
+
         done();
 
     });
@@ -36,6 +42,12 @@ describe('getSlug separator', function () {
         getSlug('   Foo Bar Baz   ', {
             separator: '_'
         }).should.eql('foo_bar_baz');
+
+        getSlug(' Foo Bar Baz ', '-').should.eql('foo-bar-baz');
+
+        getSlug('  Foo Bar Baz  ', '*').should.eql('foo*bar*baz');
+
+        getSlug('   Foo Bar Baz   ', '_').should.eql('foo_bar_baz');
 
         done();
 
@@ -55,6 +67,12 @@ describe('getSlug separator', function () {
             separator: '-'
         }).should.eql('foo-bar-baz');
 
+        getSlug('-Foo Bar Baz-', '-').should.eql('foo-bar-baz');
+
+        getSlug('--Foo Bar Baz---', '-').should.eql('foo-bar-baz');
+
+        getSlug('---Foo Bar Baz---', '-').should.eql('foo-bar-baz');
+
         done();
     });
 
@@ -71,6 +89,12 @@ describe('getSlug separator', function () {
         getSlug('***Foo Bar Baz***', {
             separator: '*'
         }).should.eql('foo*bar*baz');
+
+        getSlug('*Foo Bar Baz*', '*').should.eql('foo*bar*baz');
+
+        getSlug('**Foo Bar Baz**', '*').should.eql('foo*bar*baz');
+
+        getSlug('***Foo Bar Baz***', '*').should.eql('foo*bar*baz');
 
         done();
 
@@ -90,6 +114,12 @@ describe('getSlug separator', function () {
             separator: '_'
         }).should.eql('foo_bar_baz');
 
+        getSlug('_Foo Bar Baz_', '_').should.eql('foo_bar_baz');
+
+        getSlug('__Foo Bar Baz__', '_').should.eql('foo_bar_baz');
+
+        getSlug('___Foo Bar Baz___', '_').should.eql('foo_bar_baz');
+
         done();
     });
 
@@ -98,6 +128,8 @@ describe('getSlug separator', function () {
         getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', {
             separator: '*'
         }).should.eql('cest*un*beau*titre*qui*ne*laisse*rien*a*desirer');
+
+        getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', '*').should.eql('cest*un*beau*titre*qui*ne*laisse*rien*a*desirer');
 
         done();
 

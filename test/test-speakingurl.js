@@ -94,17 +94,23 @@ describe('getSlug config combinations', function () {
 
         getSlug('Foo, Bar Baz', {
             maintainCase: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('Foo-Bar-Baz');
 
         getSlug('Foo- Bar Baz', {
             maintainCase: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('Foo-Bar-Baz');
 
         getSlug('Foo] Bar Baz', {
             maintainCase: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('Foo-Bar-Baz');
 
         done();
@@ -138,23 +144,27 @@ describe('getSlug config combinations', function () {
     it('should prefer Base64 characters only', function (done) {
 
         getSlug('Foo, Bar Baz', {
-            rfc3986: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('foo-bar-baz');
 
         getSlug('Foo- Bar Baz', {
-            rfc3986: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('foo-bar-baz');
 
         getSlug('Foo] Bar Baz', {
-            rfc3986: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('foo-bar-baz');
 
         getSlug('Foo* Bar Baz', {
-            rfc3986: true,
-            onlyBase64: true
+            uric: false,
+            uricNoSlash: false,
+            mark: false
         }).should.eql('foo-bar-baz');
 
         done();
