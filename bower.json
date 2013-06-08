@@ -1,6 +1,6 @@
 {
     "name": "speakingurl",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "description": "Generate of so called 'static' or 'nice-looking' or 'slug' or 'SpeakingURL' from a string.",
     "main": "speakingurl.min.js",
     "homepage": "https://github.com/pid/speakingurl",

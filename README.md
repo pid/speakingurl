@@ -1,4 +1,5 @@
-# Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)
+# Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
+
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
 This module aims to transliteration the input string.
@@ -46,10 +47,9 @@ For use in browser and server.
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
 
-## Examples
 ```javascript
-var getSlug = require('speakingurl'),
-    slug;
+var getSlug = require('speakingurl');
+var slug;
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug); // Output: schoener-titel-laesst-gruessen-bel-ete
@@ -97,6 +97,53 @@ slug = getSlug('NEXUS4 only €299', {maintainCase: true});
 console.log(slug); // Output: NEXUS-4-only-EUR-299
 ```
 
+In browser:
+
+```html
+<script src="components/speakingurl/speakingurl.min.js"></script>
+
+<script>
+    slug = getSlug('NEXUS4 only €299', {maintainCase: true});
+    console.log(slug); // Output: NEXUS-4-only-EUR-299
+</script>
+```
+
+### createSlug([options])
+```options```: {object|string} config object or separator string (see above)
+
+Create your own specially configured function.
+
+```javascript
+var slug;
+var options = {
+    maintainCase: true,
+    separator: '_',
+    truncate: 14
+};
+var mySlug = require('speakingurl').createSlug(options);
+
+slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
+console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
+```
+
+In browser:
+
+```html
+<script src="components/speakingurl/speakingurl.min.js"></script>
+
+<script>
+    var options = {
+        maintainCase: true,
+        separator: '_',
+        truncate: 14
+    };
+    var mySlug = createSlug(options);
+
+    slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
+    console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
+</script>
+```
+
 ## Tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
@@ -109,7 +156,7 @@ $ npm test
 - [@simov](https://github.com/simov/slugify)
 - [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
 
-## Informations
+## References
 - http://tools.ietf.org/html/rfc3986
 - http://en.wikipedia.org/wiki/Transliteration
 

@@ -159,6 +159,15 @@ describe('getSlug symbols', function () {
             uricNoSlash: true,
             mark: true
         }).should.eql('foo-(lubov)-;-baz=bar');
+
+        getSlug(' Sch(* )ner (♥)Ti♥tel ♥läßt grüßen!? Bel♥♥ été !', {
+            lang: 'en',
+            uric: true,
+            uricNoSlash: true,
+            mark: true,
+            maintainCase: true
+        }).should.eql('Sch(*-)ner-(love)-Ti-love-tel-love-laesst-gruessen!?-Bel-love-love-ete-!');
+        
         done();
     });
 
