@@ -1,10 +1,10 @@
-# Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl)[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
+# Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
 Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
 
 This module aims to transliteration the input string.
 
-For use in browser and server.
+For use in browser and server - no dependencies!
 
 ## Installation
     server-side:
@@ -103,7 +103,7 @@ In browser:
 <script src="components/speakingurl/speakingurl.min.js"></script>
 
 <script>
-    slug = getSlug('NEXUS4 only €299', {maintainCase: true});
+    var slug = getSlug('NEXUS4 only €299', {maintainCase: true});
     console.log(slug); // Output: NEXUS-4-only-EUR-299
 </script>
 ```
@@ -139,7 +139,7 @@ In browser:
     };
     var mySlug = createSlug(options);
 
-    slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
+    var slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
     console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
 </script>
 ```
@@ -151,14 +151,17 @@ In browser:
 $ npm test
 ```
 
-## Credits
-- [@dypsilon](https://github.com/dypsilon/js-replace-diacritics)
-- [@simov](https://github.com/simov/slugify)
-- [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
+## History
+- 0.2.10 added createSlug function
 
 ## References
 - http://tools.ietf.org/html/rfc3986
 - http://en.wikipedia.org/wiki/Transliteration
+
+## Credits
+- [@dypsilon](https://github.com/dypsilon/js-replace-diacritics)
+- [@simov](https://github.com/simov/slugify)
+- [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
 
 ## License
 [BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
