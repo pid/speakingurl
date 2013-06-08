@@ -4,12 +4,12 @@
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
   "homepage": "https://github.com/pid/speakingurl",
   "keywords": [
-    "slug",
-    "seo",
-    "url",
-    "speakingurl",
-    "nice url",
-    "static url"
+      "slug",
+      "seo",
+      "url",
+      "speakingurl",
+      "nice url",
+      "static url"
   ],
   "author": {
     "name": "Sascha Droste",
@@ -32,27 +32,11 @@
     "harness": "mocha",
     "files": "test/*.js",
     "browsers": {
-      "ie": [
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "firefox": [
-        19
-      ],
-      "chrome": [
-        25
-      ],
-      "safari": [
-        5.1,
-        6
-      ],
-      "opera": [
-        10,
-        12
-      ]
+      "ie": [6, 7, 8, 9, 10 ],
+      "firefox": [19 ],
+      "chrome": [25 ],
+      "safari": [5.1, 6 ],
+      "opera": [10, 12 ]
     }
   },
   "scripts": {
@@ -65,8 +49,7 @@
   "bugs": {
     "url": "https://github.com/pid/speakingurl/issues"
   },
-  "licenses": [
-    {
+  "licenses": [{
       "type": "MIT",
       "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
     }
