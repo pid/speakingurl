@@ -23,7 +23,19 @@ describe('getSlug smart truncate', function () {
             truncate: 15
         }).should.eql('foobarbaz-bar');
 
-        done();
-    });
+        getSlug('Foo Foo bar Zoo Bar Baz', {
+            truncate: 15
+        }).should.eql('foo-foo-bar-zoo');
 
+        getSlug('Foo Foo bar ZooBar Baz', {
+            truncate: 15
+        }).should.eql('foo-foo-bar');
+
+        getSlug('Foo Foo bar ZooBar Baz', {
+            truncate: 15
+        }).should.eql('foo-foo-bar');
+
+        done();
+
+    });
 });
