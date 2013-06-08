@@ -117,8 +117,7 @@ Create your own specially configured function.
 var slug;
 var options = {
     maintainCase: true,
-    separator: '_',
-    truncate: 14
+    separator: '_'
 };
 var mySlug = require('speakingurl').createSlug(options);
 
@@ -134,8 +133,7 @@ In browser:
 <script>
     var options = {
         maintainCase: true,
-        separator: '_',
-        truncate: 14
+        separator: '_'
     };
     var mySlug = createSlug(options);
 
