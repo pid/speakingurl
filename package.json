@@ -3,14 +3,8 @@
   "version": "0.2.12",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
   "homepage": "https://github.com/pid/speakingurl",
-  "keywords": [
-      "slug",
-      "seo",
-      "url",
-      "speakingurl",
-      "nice url",
-      "static url"
-  ],
+  "keywords": ["slug", "seo", "url", "speakingurl", "nice url", "static url"],
+  "categories": ["Utilities", "Parsers & Compilers"],
   "author": {
     "name": "Sascha Droste",
     "email": "sascha.droste@gmail.com",
