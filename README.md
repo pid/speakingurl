@@ -12,8 +12,14 @@ For use in browser and server - no dependencies!
     $ npm install speakingurl
 
     client-side:
+    
+    $ # http://bower.io/
+    $ bower install speakingurl 
 
-    $ bower install speakingurl
+    or
+
+    $ # http://jamjs.org/
+    $ jam install speakingurl
 
     or copy the file speakingurl.min.js to your script directory
 
@@ -91,10 +97,10 @@ slug = getSlug('Foo & Bar | (Baz) * Doo', {custom:{'*': "Boo"},mark:true});
 console.log(slug); // Output: foo-and-bar-or-(baz)-boo-doo
 
 slug = getSlug('NEXUS4 only $299');
-console.log(slug); // Output: nexus-4-only-usd-299
+console.log(slug); // Output: nexus-4-only-usd299
 
 slug = getSlug('NEXUS4 only €299', {maintainCase: true});
-console.log(slug); // Output: NEXUS-4-only-EUR-299
+console.log(slug); // Output: NEXUS-4-only-EUR299
 ```
 
 In browser:
