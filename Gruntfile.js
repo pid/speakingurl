@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             tasks: ['jshint', 'mocha', 'uglify']
         },
 
-        bumpup: ['package.json', 'bower.json'],
+        bumpup: ['package.json', 'bower.json', 'component.json'],
 
         release: {
             options: {

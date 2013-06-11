@@ -2,13 +2,20 @@
   "name": "speakingurl",
   "repo": "pid/speakingurl",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
-  "version": "0.2.12",
-  "keywords": ["slug", "seo", "url", "speakingurl", "nice url", "static url"],
+  "version": "0.2.13",
+  "keywords": [
+    "slug",
+    "seo",
+    "url",
+    "speakingurl",
+    "nice url",
+    "static url"
+  ],
   "dependencies": {},
   "development": {},
   "license": "BSD",
   "main": "speakingurl.min.js",
   "scripts": [
-      "speakingurl.min.js"
+    "speakingurl.min.js"
   ]
 }

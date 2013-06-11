@@ -56,7 +56,7 @@ describe('getSlug defaults', function () {
 
     it('should remove trailing separator', function (done) {
 
-        getSlug('C\'est un beau titre qui ne laisse rien à désirer  ! ').should.eql('cest-un-beau-titre-qui-ne-laisse-rien-a-desirer');
+        getSlug('C\'est un beau titre qui ne laisse rien à désirer  ! ').should.eql('c-est-un-beau-titre-qui-ne-laisse-rien-a-desirer');
 
         done();
     });

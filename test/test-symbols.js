@@ -166,7 +166,7 @@ describe('getSlug symbols', function () {
             uricNoSlash: true,
             mark: true,
             maintainCase: true
-        }).should.eql('Sch(*-)ner-(love)-Ti-love-tel-love-laesst-gruessen!?-Bel-love-love-ete-!');
+        }).should.eql('Sch(*-)ner-(love)Ti-love-tel-love-laesst-gruessen!?-Bel-love-love-ete-!');
 
         done();
     });

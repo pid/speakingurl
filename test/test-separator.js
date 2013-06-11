@@ -127,9 +127,9 @@ describe('getSlug separator', function () {
 
         getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', {
             separator: '*'
-        }).should.eql('cest*un*beau*titre*qui*ne*laisse*rien*a*desirer');
+        }).should.eql('c*est*un*beau*titre*qui*ne*laisse*rien*a*desirer');
 
-        getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', '*').should.eql('cest*un*beau*titre*qui*ne*laisse*rien*a*desirer');
+        getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', '*').should.eql('c*est*un*beau*titre*qui*ne*laisse*rien*a*desirer');
 
         done();
 
