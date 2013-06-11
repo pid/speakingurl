@@ -167,7 +167,7 @@ describe('getSlug symbols', function () {
             mark: true,
             maintainCase: true
         }).should.eql('Sch(*-)ner-(love)-Ti-love-tel-love-laesst-gruessen!?-Bel-love-love-ete-!');
-        
+
         done();
     });
 
@@ -194,4 +194,25 @@ describe('getSlug symbols', function () {
         done();
     });
 
+    it('should convert currency symbols to lowercase', function (done) {
+
+        getSlug('NEXUS4 only €199!', {maintainCase: false}).should.eql('nexus4-only-eur199');
+
+        getSlug('NEXUS4 only €299.93', {maintainCase: false}).should.eql('nexus4-only-eur299-93');
+
+        getSlug('NEXUS4 only 円399.73', {maintainCase: false}).should.eql('nexus4-only-yen399-73');
+
+        done();
+    });
+
+    it('should convert currency symbols to uppercase', function (done) {
+
+        getSlug('NEXUS4 only €199!', {maintainCase: true}).should.eql('NEXUS4-only-EUR199');
+
+        getSlug('NEXUS4 only €299.93', {maintainCase: true}).should.eql('NEXUS4-only-EUR299-93');
+
+        getSlug('NEXUS4 only 円399.73', {maintainCase: true}).should.eql('NEXUS4-only-YEN399-73');
+
+        done();
+    });
 });
