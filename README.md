@@ -21,6 +21,11 @@ For use in browser and server - no dependencies!
     $ # http://jamjs.org/
     $ jam install speakingurl
 
+    or
+
+    $ # http://component.io/
+    $ component install pid/speakingurl
+
     or copy the file speakingurl.min.js to your script directory
 
 ## Usage
@@ -155,8 +160,7 @@ In browser:
 $ npm test
 ```
 
-## History
-- 0.2.10 added createSlug function
+## [History](https://raw.github.com/pid/speakingurl/master/History.md)
 
 ## References
 - http://tools.ietf.org/html/rfc3986
