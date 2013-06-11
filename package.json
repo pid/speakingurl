@@ -1,6 +1,6 @@
 {
     "name": "speakingurl",
-    "version": "0.2.13",
+    "version": "0.2.14",
     "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
     "homepage": "https://github.com/pid/speakingurl",
     "github": "https://github.com/pid/speakingurl",
