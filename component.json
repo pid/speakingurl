@@ -2,7 +2,7 @@
   "name": "speakingurl",
   "repo": "pid/speakingurl",
   "description": "Generate of so called 'static' or 'nice-looking' or 'SpeakingURL' or 'slug' from a string.",
-  "version": "0.2.13",
+  "version": "0.2.15",
   "keywords": [
     "slug",
     "seo",
