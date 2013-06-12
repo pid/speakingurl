@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 
         uglify: {
             options: {
-                banner: '/* <%= pkg.name %> v<%= pkg.version %> (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> <%= pkg.homepage %> */\n'
+                banner: '/* <%= pkg.name %> v<%= pkg.version %> (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> <%= pkg.homepage %> */'
             },
             build: {
                 src: '<%= buildSourceFile %>',

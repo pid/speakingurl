@@ -1,17 +1,17 @@
 # Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
-Generate of so called "static" or "nice-looking" or "SpeakingURL" or "slug" from a string.
+Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.
 
 This module aims to transliteration the input string.
 
 For use in browser and server - no dependencies!
 
 ## Installation
-    server-side:
+server-side:
 
     $ npm install speakingurl
 
-    client-side:
+client-side:
     
     $ # http://bower.io/
     $ bower install speakingurl 
