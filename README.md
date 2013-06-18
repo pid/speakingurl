@@ -26,7 +26,10 @@ client-side:
     $ # http://component.io/
     $ component install pid/speakingurl
 
-    or copy the file speakingurl.min.js to your script directory
+    or 
+    copy the file ```speakingurl.min.js``` to your script directory
+    or 
+    use ```//cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.15/speakingurl.min.js```
 
 ## Usage
 ### getSlug(input, [options]);
