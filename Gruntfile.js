@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     'use strict';
 
     // Project configuration.
@@ -35,21 +35,34 @@ module.exports = function (grunt) {
             }
         },
 
+        replace: {
+            readme: {
+                src: ['README.md'],
+                overwrite: true,
+                replacements: [{
+                        from: /\d{1,1}\.\d{1,2}\.\d{1,2}/g,
+                        to: '<%= pkg.version %>'
+                    }
+                ]
+            }
+        },
+        
         // files
         buildSourceFile: 'lib/index.js',
         sourceFiles: 'lib/**/*.js',
         testFiles: 'test/**/*.js'
     });
 
-    grunt.registerTask('mocha', 'run mocha', function () {
+    grunt.registerTask('mocha', 'run mocha', function() {
         var done = this.async();
-        require('child_process').exec('mocha', function (err, stdout) {
+        require('child_process')
+            .exec('mocha', function(err, stdout) {
             grunt.log.write(stdout);
             done(err);
         });
     });
 
-    grunt.event.on('watch', function (action, filepath) {
+    grunt.event.on('watch', function(action, filepath) {
         grunt.log.writeln(filepath + ' has ' + action);
     });
 
@@ -58,8 +71,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-release');
     grunt.loadNpmTasks('grunt-bumpup');
+    grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-blanket');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'jshint', 'mocha']);
+    grunt.registerTask('default', ['uglify', 'jshint', 'mocha', 'replace']);
 
 };
