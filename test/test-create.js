@@ -102,4 +102,46 @@ describe('getSlug create', function () {
 
         done();
     });
+
+    it('with custom chars replacement', function (done) {
+        var getSlug = require('../lib').createSlug({
+            custom: { '*': 'o'}
+        });
+
+        getSlug('xyl*ph*n').should.eql('xylophon');
+
+        done();
+    });
+
+    it('with custom chars replacement with not allowed target char', function (done) {
+        var getSlug = require('../lib').createSlug({
+            custom: { 'o': '*'}
+        });
+
+        getSlug('xylophon').should.eql('xyl-ph-n');
+
+        done();
+    });
+
+    it('with custom chars replacement with allowed target char, option mark', function (done) {
+        var getSlug = require('../lib').createSlug({
+            custom: { 'o': '*'},
+            mark: true
+        });
+
+        getSlug('xylophon').should.eql('xyl*ph*n');
+
+        done();
+    });
+
+    it('with custom chars replacement with option mark', function (done) {
+        var getSlug = require('../lib').createSlug({
+            custom: { '*': 'o'},
+            mark: true
+        });
+
+        getSlug('xyl*ph*n').should.eql('xylophon');
+
+        done();
+    });
 });

@@ -60,4 +60,24 @@ describe('getSlug defaults', function () {
 
         done();
     });
+
+    it('should handle whitespace after symbol', function (done) {
+
+        getSlug('∆299').should.eql('delta-299');
+        getSlug('∆world').should.eql('delta-world');
+        getSlug('∆-299').should.eql('delta-299');
+        getSlug('∆-world').should.eql('delta-world');
+
+        getSlug('(∆)299').should.eql('delta-299');
+        getSlug('(∆)299', {mark:true}).should.eql('(delta)299');
+
+        getSlug('∆299').should.eql('delta-299');
+        getSlug('∆world').should.eql('delta-world');
+
+        getSlug('Hello∆299').should.eql('hello-delta-299');
+        getSlug('299∆Hello').should.eql('299-delta-hello');
+
+        done();
+    });
+
 });

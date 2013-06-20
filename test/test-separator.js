@@ -135,4 +135,11 @@ describe('getSlug separator', function () {
 
     });
 
+    it('should return empty string because of non string input', function (done) {
+
+        getSlug(true).should.eql('');
+
+        done();
+
+    });
 });
