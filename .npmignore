@@ -4,6 +4,13 @@ node_modules/
 npm-debug.log
 *.old
 
+coverage.html
+lib-cov
+
+# components
+components
+build
+
 # dev temp testing scripts
 dev-*.js
 
