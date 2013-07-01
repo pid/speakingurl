@@ -29,7 +29,7 @@ client-side:
     or 
     copy the file speakingurl.min.js to your script directory
     or 
-    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.16/speakingurl.min.js
+    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.17/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
