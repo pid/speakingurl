@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                 ]
             }
         },
-        
+
         // files
         buildSourceFile: 'lib/index.js',
         sourceFiles: 'lib/**/*.js',
@@ -72,7 +72,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-release');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
-    grunt.loadNpmTasks('grunt-blanket');
 
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'jshint', 'mocha', 'replace']);
