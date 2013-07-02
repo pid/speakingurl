@@ -9,7 +9,7 @@ For use in browser and server - no dependencies!
 ## Installation
 server-side:
 
-    $ npm install speakingurl
+    $ npm install speakingurl --save
 
 client-side:
     
@@ -26,6 +26,11 @@ client-side:
     $ # http://component.io/
     $ component install pid/speakingurl
 
+    or
+
+    $ # http://getcomposer.org/
+    $ # https://packagist.org/packages/pid/speakingurl
+    
     or 
     copy the file speakingurl.min.js to your script directory
     or 
