@@ -32,6 +32,7 @@
          "__filename": true,
          "__dirname": true,
          "module": true,
-         "exports": true
+         "exports": true,
+         "define": true
      }
  }
