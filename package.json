@@ -1,20 +1,20 @@
 {
   "name": "speakingurl",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.",
   "homepage": "http://pid.github.io/speakingurl/",
   "github": "https://github.com/pid/speakingurl",
   "keywords": [
-      "slug",
-      "seo",
-      "url",
-      "speakingurl",
-      "nice url",
-      "static url"
+    "slug",
+    "seo",
+    "url",
+    "speakingurl",
+    "nice url",
+    "static url"
   ],
   "categories": [
-      "Utilities",
-      "Parsers & Compilers"
+    "Utilities",
+    "Parsers & Compilers"
   ],
   "author": {
     "name": "Sascha Droste",
@@ -70,8 +70,8 @@
       "exports": "speakingurl"
     },
     "include": [
-        "speakingurl.min.js",
-        "README.md"
+      "speakingurl.min.js",
+      "README.md"
     ]
   },
   "volo": {
@@ -84,9 +84,9 @@
     "type": "git",
     "url": "git://github.com:pid/speakingurl.git"
   },
-  "bugs": "https://github.com/pid/speakingurl/issues"
-  ,
-  "licenses": [{
+  "bugs": "https://github.com/pid/speakingurl/issues",
+  "licenses": [
+    {
       "type": "BSD",
       "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
     }
