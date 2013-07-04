@@ -31,6 +31,11 @@ client-side:
     $ # http://getcomposer.org/
     $ # https://packagist.org/packages/pid/speakingurl
     
+    or
+
+    $ # http://getcomposer.org/
+    $ # https://packagist.org/packages/pid/speakingurl
+    
     or 
     copy the file speakingurl.min.js to your script directory
     or 
