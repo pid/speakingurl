@@ -5,16 +5,16 @@
   "homepage": "http://pid.github.io/speakingurl/",
   "github": "https://github.com/pid/speakingurl",
   "keywords": [
-    "slug",
-    "seo",
-    "url",
-    "speakingurl",
-    "nice url",
-    "static url"
+      "slug",
+      "seo",
+      "url",
+      "speakingurl",
+      "nice url",
+      "static url"
   ],
   "categories": [
-    "Utilities",
-    "Parsers & Compilers"
+      "Utilities",
+      "Parsers & Compilers"
   ],
   "author": {
     "name": "Sascha Droste",
@@ -70,9 +70,12 @@
       "exports": "speakingurl"
     },
     "include": [
-      "speakingurl.min.js",
-      "README.md"
+        "speakingurl.min.js",
+        "README.md"
     ]
+  },
+  "volo": {
+    "url": "http://cdnjs.cloudflare.com/ajax/libs/speakingurl/{version}/speakingurl.min.js"
   },
   "scripts": {
     "test": "mocha"
@@ -81,11 +84,9 @@
     "type": "git",
     "url": "git://github.com:pid/speakingurl.git"
   },
-  "bugs": {
-    "url": "https://github.com/pid/speakingurl/issues"
-  },
-  "licenses": [
-    {
+  "bugs": "https://github.com/pid/speakingurl/issues"
+  ,
+  "licenses": [{
       "type": "BSD",
       "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
     }
