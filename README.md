@@ -18,27 +18,18 @@ client-side:
 
     or
 
+    $ # http://component.io/
+    $ component install pid/speakingurl
+   
+    or
+
     $ # http://jamjs.org/
     $ jam install speakingurl
 
-    or
-
-    $ # http://component.io/
-    $ component install pid/speakingurl
-
-    or
-
-    $ # http://getcomposer.org/
-    $ # https://packagist.org/packages/pid/speakingurl
-    
-    or
-
-    $ # http://getcomposer.org/
-    $ # https://packagist.org/packages/pid/speakingurl
-    
     or 
     copy the file speakingurl.min.js to your script directory
-    or 
+
+    or use the CDN from Cloudflare
     use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
 
 ## Usage
