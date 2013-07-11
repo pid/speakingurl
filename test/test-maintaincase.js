@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug maintainCase', function () {
+describe('getSlug maintainCase', function() {
     'use strict';
 
-    it('should maintain case characters', function (done) {
+    it('should maintain case characters', function(done) {
 
         getSlug('Foo, Bar Baz', {
             maintainCase: true

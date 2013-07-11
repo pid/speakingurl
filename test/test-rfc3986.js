@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug rfc3986', function () {
+describe('getSlug rfc3986', function() {
     'use strict';
 
-    it('"uric" characters allowed', function (done) {
+    it('"uric" characters allowed', function(done) {
 
         var chars = [';', '?', ':', '@', '&', '=', '+', ',', '/'];
         for (var i = 0; i < chars.length; i++) {
@@ -17,7 +17,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"uricNoSlash" characters allowed', function (done) {
+    it('"uricNoSlash" characters allowed', function(done) {
 
         var chars = [';', '?', ':', '@', '&', '=', '+', ','];
 
@@ -30,7 +30,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"mark" characters allowed', function (done) {
+    it('"mark" characters allowed', function(done) {
 
         var chars = ['.', '!', '~', '*', '\'', '(', ')'];
 
@@ -43,7 +43,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"uric" characters allowed, separator ";"', function (done) {
+    it('"uric" characters allowed, separator ";"', function(done) {
 
         var chars = ['?', ':', '@', '&', '=', '+', ',', '/'];
 
@@ -57,7 +57,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"uric" characters allowed, separator ";" included in input string', function (done) {
+    it('"uric" characters allowed, separator ";" included in input string', function(done) {
 
         getSlug("foo ; bar baz", {
             uric: true,
@@ -67,7 +67,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"uricNoSlash" characters allowed, separator ";"', function (done) {
+    it('"uricNoSlash" characters allowed, separator ";"', function(done) {
 
         var chars = ['?', ':', '@', '&', '=', '+', ','];
 
@@ -81,7 +81,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"uricNoSlash" characters allowed, separator ";" included in input string', function (done) {
+    it('"uricNoSlash" characters allowed, separator ";" included in input string', function(done) {
 
         getSlug("foo ; bar baz", {
             uric: true,
@@ -91,7 +91,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"mark" characters allowed, separator "."', function (done) {
+    it('"mark" characters allowed, separator "."', function(done) {
 
         var chars = ['!', '~', '*', '\'', '(', ')'];
 
@@ -105,7 +105,7 @@ describe('getSlug rfc3986', function () {
         done();
     });
 
-    it('"mark" characters allowed, separator "." included in input string', function (done) {
+    it('"mark" characters allowed, separator "." included in input string', function(done) {
 
         getSlug("foo . bar baz", {
             uric: true,

@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug config combinations', function () {
+describe('getSlug config combinations', function() {
     'use strict';
 
-    it('should separate with configured character, with non-Base64 separator', function (done) {
+    it('should separate with configured character, with non-Base64 separator', function(done) {
 
         getSlug('Foo, Bar Baz', {
             separator: '*',
@@ -25,7 +25,7 @@ describe('getSlug config combinations', function () {
         done();
     });
 
-    it('should separate with configured character, with only Base64 characters allowed', function (done) {
+    it('should separate with configured character, with only Base64 characters allowed', function(done) {
 
         getSlug('Foo, Bar Baz', {
             separator: '_',
@@ -45,7 +45,7 @@ describe('getSlug config combinations', function () {
         done();
     });
 
-    it('should separate with configured character, with smart trim', function (done) {
+    it('should separate with configured character, with smart trim', function(done) {
 
         getSlug('Foobarbaz, Bar Baz', {
             separator: '_',
@@ -70,7 +70,7 @@ describe('getSlug config combinations', function () {
         done();
     });
 
-    it('should maintain case characters, with non-Base64 separator', function (done) {
+    it('should maintain case characters, with non-Base64 separator', function(done) {
 
         getSlug('Foo, Bar Baz', {
             maintainCase: true,
@@ -90,7 +90,7 @@ describe('getSlug config combinations', function () {
         done();
     });
 
-    it('should maintain case characters, with only Base64 characters allowed', function (done) {
+    it('should maintain case characters, with only Base64 characters allowed', function(done) {
 
         getSlug('Foo, Bar Baz', {
             maintainCase: true,
@@ -116,7 +116,7 @@ describe('getSlug config combinations', function () {
         done();
     });
 
-    it('should maintain case characters, with smart trim', function (done) {
+    it('should maintain case characters, with smart trim', function(done) {
 
         getSlug('Foobarbaz, Bar Baz', {
             maintainCase: true,
@@ -141,7 +141,7 @@ describe('getSlug config combinations', function () {
         done();
     });
 
-    it('should prefer Base64 characters only', function (done) {
+    it('should prefer Base64 characters only', function(done) {
 
         getSlug('Foo, Bar Baz', {
             uric: false,

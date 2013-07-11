@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug separator', function () {
+describe('getSlug separator', function() {
     'use strict';
 
-    it('should separate with non-whitespace', function (done) {
+    it('should separate with non-whitespace', function(done) {
 
         getSlug('Foo Bar Baz', {
             separator: '-'
@@ -29,7 +29,7 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should separate with non-whitespace, with trailing spaces', function (done) {
+    it('should separate with non-whitespace, with trailing spaces', function(done) {
 
         getSlug(' Foo Bar Baz ', {
             separator: '-'
@@ -53,7 +53,7 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should separate with trailing separator "-"', function (done) {
+    it('should separate with trailing separator "-"', function(done) {
 
         getSlug('-Foo Bar Baz-', {
             separator: '-'
@@ -76,7 +76,7 @@ describe('getSlug separator', function () {
         done();
     });
 
-    it('should separate with trailing separator "*"', function (done) {
+    it('should separate with trailing separator "*"', function(done) {
 
         getSlug('*Foo Bar Baz*', {
             separator: '*'
@@ -100,7 +100,7 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should separate with trailing separator "_"', function (done) {
+    it('should separate with trailing separator "_"', function(done) {
 
         getSlug('_Foo Bar Baz_', {
             separator: '_'
@@ -123,7 +123,7 @@ describe('getSlug separator', function () {
         done();
     });
 
-    it('should remove trailing separator "*"', function (done) {
+    it('should remove trailing separator "*"', function(done) {
 
         getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', {
             separator: '*'
@@ -135,7 +135,7 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should return empty string because of non string input', function (done) {
+    it('should return empty string because of non string input', function(done) {
 
         getSlug(true).should.eql('');
 

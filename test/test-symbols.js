@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug symbols', function () {
+describe('getSlug symbols', function() {
     'use strict';
 
-    it('should convert symbols', function (done) {
+    it('should convert symbols', function(done) {
 
         getSlug('Foo & Bar | Baz').should.eql('foo-and-bar-or-baz');
 
@@ -32,7 +32,7 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should not convert symbols with uric flag true', function (done) {
+    it('should not convert symbols with uric flag true', function(done) {
 
         getSlug('Foo & Bar | Baz', {
             uric: true
@@ -60,7 +60,7 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should not convert symbols with uricNoSlash flag true', function (done) {
+    it('should not convert symbols with uricNoSlash flag true', function(done) {
 
         getSlug('Foo & Bar | Baz', {
             uricNoSlash: true
@@ -88,7 +88,7 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should not convert symbols with mark flag true', function (done) {
+    it('should not convert symbols with mark flag true', function(done) {
 
         getSlug('Foo (Bar) . Baz', {
             mark: true
@@ -123,7 +123,7 @@ describe('getSlug symbols', function () {
 
     });
 
-    it('should convert symbols with flags true', function (done) {
+    it('should convert symbols with flags true', function(done) {
 
         getSlug('Foo (♥) ; Baz=Bar', {
             lang: 'en',
@@ -171,7 +171,7 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should replace symbols (de)', function (done) {
+    it('should replace symbols (de)', function(done) {
 
         getSlug('Äpfel & Birnen', {
             lang: 'de'
@@ -185,7 +185,7 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should ignore not available language param', function (done) {
+    it('should ignore not available language param', function(done) {
 
         getSlug('Äpfel & Birnen', {
             lang: 'xx'
@@ -194,24 +194,36 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should convert currency symbols to lowercase', function (done) {
+    it('should convert currency symbols to lowercase', function(done) {
 
-        getSlug('NEXUS4 only €199!', {maintainCase: false}).should.eql('nexus4-only-eur199');
+        getSlug('NEXUS4 only €199!', {
+            maintainCase: false
+        }).should.eql('nexus4-only-eur199');
 
-        getSlug('NEXUS4 only €299.93', {maintainCase: false}).should.eql('nexus4-only-eur299-93');
+        getSlug('NEXUS4 only €299.93', {
+            maintainCase: false
+        }).should.eql('nexus4-only-eur299-93');
 
-        getSlug('NEXUS4 only 円399.73', {maintainCase: false}).should.eql('nexus4-only-yen399-73');
+        getSlug('NEXUS4 only 円399.73', {
+            maintainCase: false
+        }).should.eql('nexus4-only-yen399-73');
 
         done();
     });
 
-    it('should convert currency symbols to uppercase', function (done) {
+    it('should convert currency symbols to uppercase', function(done) {
 
-        getSlug('NEXUS4 only €199!', {maintainCase: true}).should.eql('NEXUS4-only-EUR199');
+        getSlug('NEXUS4 only €199!', {
+            maintainCase: true
+        }).should.eql('NEXUS4-only-EUR199');
 
-        getSlug('NEXUS4 only €299.93', {maintainCase: true}).should.eql('NEXUS4-only-EUR299-93');
+        getSlug('NEXUS4 only €299.93', {
+            maintainCase: true
+        }).should.eql('NEXUS4-only-EUR299-93');
 
-        getSlug('NEXUS4 only 円399.73', {maintainCase: true}).should.eql('NEXUS4-only-YEN399-73');
+        getSlug('NEXUS4 only 円399.73', {
+            maintainCase: true
+        }).should.eql('NEXUS4-only-YEN399-73');
 
         done();
     });
