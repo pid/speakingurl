@@ -1,5 +1,8 @@
 # Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
+[![Module Status](https://nodei.co/npm/hapi.png?downloads=true&stars=true
+)](https://npmjs.org/package/speakingurl)
+
 Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.
 
 This module aims to transliteration the input string.
