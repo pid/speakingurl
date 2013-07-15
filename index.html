@@ -4,28 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>SpeakingURL by pid</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
-    <div class="wrapper">
+
       <header>
         <h1>SpeakingURL</h1>
         <p>Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.</p>
-        <p class="view"><a href="https://github.com/pid/speakingurl">View the Project on GitHub <small>pid/speakingurl</small></a></p>
-        <ul>
-          <li><a href="https://github.com/pid/speakingurl/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/pid/speakingurl/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/pid/speakingurl">View On <strong>GitHub</strong></a></li>
-        </ul>
       </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/pid/speakingurl" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/pid/speakingurl/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/pid/speakingurl/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
       <section>
         <h1>
 <a name="speaking-url--" class="anchor" href="#speaking-url--"><span class="octicon octicon-link"></span></a>Speaking URL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a>
@@ -52,23 +64,19 @@ $ bower install speakingurl
 
 or
 
-$ # http://jamjs.org/
-$ jam install speakingurl
-
-or
-
 $ # http://component.io/
 $ component install pid/speakingurl
 
 or
 
-$ # http://getcomposer.org/
-$ # https://packagist.org/packages/pid/speakingurl
+$ # http://jamjs.org/
+$ jam install speakingurl
 
 or 
 copy the file speakingurl.min.js to your script directory
-or 
-use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.18/speakingurl.min.js
+
+or use the CDN from Cloudflare
+use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
 </code></pre>
 
 <h2>
@@ -98,32 +106,32 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.18/speakingurl.min.js
 <code>maintainCase</code> {boolean} default: false
 
 <ul>
-<li>true =&gt; maintain case chars</li>
-<li>false =&gt; convert all chars to lower case</li>
+<li>true -&gt; maintain case chars</li>
+<li>false -&gt; convert all chars to lower case</li>
 </ul>
 </li>
 <li>
 <code>uric</code> {boolean} default: false
 
 <ul>
-<li>true =&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
-<li>false =&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
+<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
+<li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
 </ul>
 </li>
 <li>
 <code>uricNoSlash</code> {boolean} default: false
 
 <ul>
-<li>true =&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
-<li>false =&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
+<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
+<li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
 </ul>
 </li>
 <li>
 <code>mark</code> {boolean} default: false
 
 <ul>
-<li>true =&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
-<li>false =&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
+<li>true -&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
+<li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
 </ul>
 </li>
 <li>
@@ -137,12 +145,12 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.18/speakingurl.min.js
 <p><code>truncate</code> {number} default: 0</p>
 
 <ul>
-<li>0 =&gt; don't trim length</li>
-<li>&gt;0 =&gt; trim to max length while not breaking any words</li>
+<li>0 -&gt; don't trim length</li>
+<li>&gt;= 1 -&gt; trim to max length while not breaking any words</li>
 </ul>
 </li>
 <li><p><code>options</code> {string} separator</p></li>
-</ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code>will add the specified chars to the allowed chars. The separator-character is always allowed.</p>
+</ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the allowed chars. The separator-character is always allowed.</p>
 
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
@@ -265,7 +273,7 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.18/speakingurl.min.js
 </ul><h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p><a href="https://raw.github.com/pid/speakingurl/master/LICENCE">BSD</a></p>
+<p><a href="https://raw.github.com/pid/speakingurl/master/LICENSE">BSD</a></p>
 
 <p>The BSD 3-Clause License (BSD3)</p>
 
@@ -280,11 +288,11 @@ All rights reserved.</p>
 <li>Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
 </ul><p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
       </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/pid">pid</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/pid">pid</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
