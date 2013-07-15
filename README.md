@@ -18,23 +18,19 @@ client-side:
 
     or
 
+    $ # http://component.io/
+    $ component install pid/speakingurl
+   
+    or
+
     $ # http://jamjs.org/
     $ jam install speakingurl
 
-    or
-
-    $ # http://component.io/
-    $ component install pid/speakingurl
-
-    or
-
-    $ # http://getcomposer.org/
-    $ # https://packagist.org/packages/pid/speakingurl
-    
     or 
     copy the file speakingurl.min.js to your script directory
-    or 
-    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.17/speakingurl.min.js
+
+    or use the CDN from Cloudflare
+    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
@@ -45,26 +41,26 @@ client-side:
 * ```lang``` {string} default: 'en'
     * language for symbol translation ('en, 'de', more coming soon)
 * ```maintainCase``` {boolean} default: false
-    * true => maintain case chars
-    * false => convert all chars to lower case
+    * true -> maintain case chars
+    * false -> convert all chars to lower case
 * ```uric``` {boolean} default: false
-    * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
-    * false => only Base64 chars allowed (/A-Za-z0-9-_/)
+    * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
+    * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```uricNoSlash``` {boolean} default: false
-    * true => additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
-    * false => only Base64 chars allowed (/A-Za-z0-9-_/)
+    * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
+    * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```mark``` {boolean} default: false
-    * true => additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
-    * false => only Base64 chars allowed (/A-Za-z0-9-_/)
+    * true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
+    * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
 * ```custom``` {object} default: {} 
     * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
 * ```truncate``` {number} default: 0
-    * 0 => don't trim length
-    * >0 => trim to max length while not breaking any words
+    * 0 -> don't trim length
+    * >= 1 -> trim to max length while not breaking any words
 
 * ```options``` {string} separator
 
-notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true```will add the specified chars to the allowed chars. The separator-character is always allowed.
+notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true``` will add the specified chars to the allowed chars. The separator-character is always allowed.
 
 ```javascript
 var getSlug = require('speakingurl');
@@ -180,7 +176,7 @@ $ npm test
 - [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
 
 ## License
-[BSD](https://raw.github.com/pid/speakingurl/master/LICENCE)
+[BSD](https://raw.github.com/pid/speakingurl/master/LICENSE)
 
 The BSD 3-Clause License (BSD3)
 
