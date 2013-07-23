@@ -3,7 +3,16 @@
   "version": "0.2.20",
   "description": "Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.",
   "homepage": "http://pid.github.io/speakingurl/",
-  "github": "https://github.com/pid/speakingurl",
+  "github": "http://github.com/pid/speakingurl",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:pid/speakingurl.git"
+  },
+  "bugs": "https://github.com/pid/speakingurl/issues",
+  "licenses": [{
+    "type": "BSD",
+    "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
+  }],
   "keywords": [
     "slug",
     "seo",
@@ -17,6 +26,9 @@
     "Utilities",
     "Parsers & Compilers"
   ],
+  "scripts": {
+    "test": "mocha"
+  },
   "author": {
     "name": "Sascha Droste",
     "email": "sascha.droste@gmail.com",
@@ -68,7 +80,7 @@
     "main": "speakingurl.min.js",
     "shim": {
       "deps": [],
-      "exports": "speakingurl"
+      "exports": ["getSlug", "createSlug"]
     },
     "include": [
       "speakingurl.min.js",
@@ -76,22 +88,8 @@
     ]
   },
   "volo": {
-    "url": "http://cdnjs.cloudflare.com/ajax/libs/speakingurl/{version}/speakingurl.min.js"
+    "url": "//cdnjs.cloudflare.com/ajax/libs/speakingurl/{version}/speakingurl.min.js"
   },
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com:pid/speakingurl.git"
-  },
-  "bugs": "https://github.com/pid/speakingurl/issues",
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
-    }
-  ],
   "engines": {
     "node": ">=0.8.0"
   }
