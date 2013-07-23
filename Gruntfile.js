@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {},
-            src: ['Gruntfile.js', '<%= sourceFiles %>', '<%= testFiles %>']
+            src: ['Gruntfile.js', '<%= sourceFiles %>', '<%= jsonFiles %>', '<%= jsonFiles %>']
         },
 
         watch: {
@@ -41,26 +41,26 @@ module.exports = function(grunt) {
                 src: ['README.md'],
                 overwrite: true,
                 replacements: [{
-                        from: /\d{1,1}\.\d{1,2}\.\d{1,2}/g,
-                        to: '<%= pkg.version %>'
-                    }
-                ]
+                    from: /\d{1,1}\.\d{1,2}\.\d{1,2}/g,
+                    to: '<%= pkg.version %>'
+                }]
             }
         },
 
         // files
         buildSourceFile: 'lib/index.js',
         sourceFiles: 'lib/**/*.js',
-        testFiles: 'test/**/*.js'
+        testFiles: 'test/**/*.js',
+        jsonFiles: '*.json'
     });
 
     grunt.registerTask('mocha', 'run mocha', function() {
         var done = this.async();
         require('child_process')
             .exec('mocha', function(err, stdout) {
-            grunt.log.write(stdout);
-            done(err);
-        });
+                grunt.log.write(stdout);
+                done(err);
+            });
     });
 
     grunt.event.on('watch', function(action, filepath) {
