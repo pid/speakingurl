@@ -1,9 +1,8 @@
 # Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
-[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true
-)](https://npmjs.org/package/speakingurl)
+> Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.
 
-Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.
+[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
 
 This module aims to transliteration the input string.
 
@@ -63,7 +62,7 @@ client-side:
 
 * ```options``` {string} separator
 
-notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true``` will add the specified chars to the allowed chars. The separator-character is always allowed.
+notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true``` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
 
 ```javascript
 var getSlug = require('speakingurl');
