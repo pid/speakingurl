@@ -7,17 +7,25 @@
     "bugs": "https://github.com/pid/speakingurl/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/pid/speakingurl.git"
+        "url": "git://github.com/pid/speakingurl.git"
     },
     "licenses": [
         {
             "type": "BSD",
-            "url": "https://raw.github.com/pid/speakingurl/master/LICENCE"
+            "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
         }
     ],
     "ignore": [
         "**/.*",
         "node_modules",
-        "components"
+        "component.json",
+        "composer.json",
+        "**/*.json",
+        "Makefile",
+        "lib/*",
+        "index.js"
+        "test",
+        "examples/node-*.js"
+        "Gruntfile.js"
     ]
 }
