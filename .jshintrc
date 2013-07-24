@@ -1,38 +1,17 @@
- {
-     "curly": true,
-     "strict": false,
-     "onevar": false,
-     "camelcase": true,
-     "eqeqeq": true,
-     "indent": 4,
-     "laxcomma": true,
-     "laxbreak": true,
-     "undef": true,
-     "unused": true,
-     "latedef": true,
-     "immed": true,
-     "newcap": true,
-     "trailing": true,
-     "noarg": true,
-     "sub": true,
-     "boss": true,
-     "eqnull": true,
-     "node": true,
-     "browser": true,
-     "jquery": true,
-     "plusplus": false,
-     "smarttabs": false,
-     "evil": false,
-     "globals": {
-         "global": true,
-         "process": true,
-         "console": true,
-         "Buffer": true,
-         "require": true,
-         "__filename": true,
-         "__dirname": true,
-         "module": true,
-         "exports": true,
-         "define": true
-     }
- }
+{
+    "camelcase": true,
+    "immed": true,
+    "indent": 4,
+    "newcap": true,
+    "nonew": true,
+    "trailing": true,
+    "browser": true,
+    "devel": true,
+    "jquery": true,
+    "node": true,
+    "globals": {
+        "module": true,
+        "require": true,
+        "console": true
+    }
+}
