@@ -166,6 +166,8 @@ In browser:
 $ npm test
 ```
 
+[![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
+
 ## [History](https://raw.github.com/pid/speakingurl/master/History.md)
 
 ## References
