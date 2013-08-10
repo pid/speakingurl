@@ -2,11 +2,12 @@
 
 > Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.
 
-[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
-
 This module aims to transliteration the input string.
 
 For use in browser and server - no dependencies!
+
+[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
+
 
 ## Installation
 server-side:
@@ -58,8 +59,7 @@ client-side:
     * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
 * ```truncate``` {number} default: 0
     * 0 -> don't trim length
-    * >= 1 -> trim to max length while not breaking any words
-
+    * &gt;= 1 -> trim to max length while not breaking any words
 * ```options``` {string} separator
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true``` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
