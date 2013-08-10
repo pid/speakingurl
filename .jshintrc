@@ -1,5 +1,6 @@
 {
     "camelcase": true,
+    "onevar": false,
     "immed": true,
     "indent": 4,
     "newcap": true,
