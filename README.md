@@ -121,7 +121,7 @@ In browser:
 
 <script>
     var slug = getSlug('NEXUS4 only €299', {maintainCase: true});
-    console.log(slug); // Output: NEXUS-4-only-EUR-299
+    console.log(slug); // Output: NEXUS-4-only-EUR299
 </script>
 ```
 
