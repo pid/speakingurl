@@ -43,11 +43,15 @@
 <a name="speaking-url--" class="anchor" href="#speaking-url--"><span class="octicon octicon-link"></span></a>Speaking URL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a>
 </h1>
 
+<blockquote>
 <p>Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.</p>
+</blockquote>
 
 <p>This module aims to transliteration the input string.</p>
 
 <p>For use in browser and server - no dependencies!</p>
+
+<p><a href="https://npmjs.org/package/speakingurl"><img src="https://nodei.co/npm/speakingurl.png?downloads=true&amp;stars=true" alt="Module Status"></a></p>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -76,7 +80,7 @@ or
 copy the file speakingurl.min.js to your script directory
 
 or use the CDN from Cloudflare
-use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
+use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
 </code></pre>
 
 <h2>
@@ -142,15 +146,16 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
 </ul>
 </li>
 <li>
-<p><code>truncate</code> {number} default: 0</p>
+<code>truncate</code> {number} default: 0
 
 <ul>
 <li>0 -&gt; don't trim length</li>
 <li>&gt;= 1 -&gt; trim to max length while not breaking any words</li>
 </ul>
 </li>
-<li><p><code>options</code> {string} separator</p></li>
-</ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the allowed chars. The separator-character is always allowed.</p>
+<li>
+<code>options</code> {string} separator</li>
+</ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the list of allowed characters. The separator-character is always allowed.</p>
 
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
@@ -207,7 +212,7 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
 
 <span class="nt">&lt;script&gt;</span>
     <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span><span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: NEXUS-4-only-EUR-299</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: NEXUS-4-only-EUR299</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
@@ -252,6 +257,8 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.20/speakingurl.min.js
 
 <pre lang="shell"><code>$ npm test
 </code></pre>
+
+<p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
 
 <h2>
 <a name="history" class="anchor" href="#history"><span class="octicon octicon-link"></span></a><a href="https://raw.github.com/pid/speakingurl/master/History.md">History</a>
