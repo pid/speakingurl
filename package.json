@@ -47,7 +47,7 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-watch": "~0.5.1",
     "grunt-release": "~0.5.1",
-    "grunt-bumpup": "~0.3.1",
+    "grunt-bumpup": "~0.4.1",
     "grunt-text-replace": "~0.3.6"
   },
   "testling": {
