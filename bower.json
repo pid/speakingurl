@@ -17,15 +17,6 @@
     ],
     "ignore": [
         "**/.*",
-        "node_modules",
-        "component.json",
-        "composer.json",
-        "**/*.json",
-        "Makefile",
-        "lib/*",
-        "index.js",
-        "test",
-        "examples/node-*.js",
-        "Gruntfile.js"
+        "node_modules"
     ]
 }
