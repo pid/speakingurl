@@ -1,6 +1,6 @@
 {
   "name": "speakingurl",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.",
   "homepage": "http://pid.github.io/speakingurl/",
   "github": "http://github.com/pid/speakingurl",
@@ -46,7 +46,7 @@
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-watch": "~0.5.1",
-    "grunt-release": "~0.5.1",
+    "grunt-release": "~0.6.0",
     "grunt-bumpup": "~0.4.1",
     "grunt-text-replace": "~0.3.6"
   },
