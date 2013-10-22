@@ -33,7 +33,7 @@ client-side:
     copy the file speakingurl.min.js to your script directory
 
     or use the CDN from Cloudflare
-    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.4.0/speakingurl.min.js
+    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.4.1/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
@@ -71,10 +71,10 @@ var slug;
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug); // Output: schoener-titel-laesst-gruessen-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", "*");
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", '*'');
 console.log(slug); // Output: schoener*titel*laesst*gruessen*bel*ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: "_"});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: '_'});
 console.log(slug); // Output: schoener_titel_laesst_gruessen_bel_ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric: true});
@@ -104,8 +104,11 @@ console.log(slug); // Output: foo-doo-bar-baz
 slug = getSlug('Foo ♥ Bar');
 console.log(slug); // Output: foo-love-bar
 
-slug = getSlug('Foo & Bar | (Baz) * Doo', {custom:{'*': "Boo"},mark:true});
+slug = getSlug('Foo & Bar | (Baz) * Doo', {custom:{'*': 'Boo'},mark:true});
 console.log(slug); // Output: foo-and-bar-or-(baz)-boo-doo
+
+slug = getSlug('Foo and Bar or Baz', {custom:{'and': 'und', 'or': ''}});
+console.log(slug); // Output: foo-und-bar-baz
 
 slug = getSlug('NEXUS4 only $299');
 console.log(slug); // Output: nexus-4-only-usd299

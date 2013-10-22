@@ -76,6 +76,16 @@ slug = getSlug('Foo & Bar | (Baz) * Doo', {
 console.log(slug); // Output: foo-and-bar-or-(baz)-boo-doo
 console.log("\n");
 
+slug = getSlug('*Foo and Bar or Baz', {
+    custom: {
+        'and': 'UND', // replace word
+        'or': '', // remove word
+        '*': 'star'
+    }
+});
+console.log(slug); // Output: starfoo-und-bar-baz
+console.log("\n");
+
 slug = getSlug('NEXUS4 only $299');
 console.log(slug); // Output: nexus-4-only-usd-299
 console.log("\n");

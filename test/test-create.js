@@ -152,4 +152,82 @@ describe('getSlug create', function() {
 
         done();
     });
+
+    it('with custom char to string replacement', function(done) {
+        var getSlug = require('../lib').createSlug({
+            custom: {
+                '*': 'STAR',
+                'q': 'qqq',
+                'and': '',
+                'or': ''
+            }
+        });
+
+        getSlug('xyl*ph*n').should.eql('xylstarphstarn');
+        getSlug('quack').should.eql('qqquack');
+        getSlug('Foo and Bar or Baz').should.eql('foo-bar-baz');
+
+        done();
+    });
+
+    it('with custom string replacement', function(done) {
+        var getSlug = require('../lib').createSlug({
+            custom: {
+                'and': 'und',
+                'or': 'oder',
+                '*': ' and '
+            }
+        });
+
+        getSlug('bus and train').should.eql('bus-und-train');
+        getSlug('bus or train').should.eql('bus-oder-train');
+        getSlug('busandtrain').should.eql('busandtrain');
+        getSlug('busortrain').should.eql('busortrain');
+        getSlug('bus*train').should.eql('bus-and-train');
+
+        getSlug('bus and train bus and train').should.eql('bus-und-train-bus-und-train');
+        getSlug('bus or train bus or train').should.eql('bus-oder-train-bus-oder-train');
+        getSlug('busandtrain busandtrain').should.eql('busandtrain-busandtrain');
+        getSlug('busortrain busortrain').should.eql('busortrain-busortrain');
+
+        done();
+    });
+
+    it('with custom string replacement with option mark', function(done) {
+        var getSlug = require('../lib').createSlug({
+            custom: {
+                '*': 'STAR',
+                'q': 'qqq',
+                'z': ''
+            },
+            mark: true
+        });
+
+        getSlug('xyl*ph*n').should.eql('xylstarphstarn');
+        getSlug('qxxx').should.eql('qqqxxx');
+        getSlug('xxxqxxx').should.eql('xxxqqqxxx');
+        getSlug('qqq').should.eql('qqqqqqqqq');
+        getSlug('*q*').should.eql('starqqqstar');
+        getSlug('zoo').should.eql('oo');
+        getSlug('zooz').should.eql('oo');
+
+        done();
+    });
+
+    it('with custom string replacement with option maintainCase', function(done) {
+        var getSlug = require('../lib').createSlug({
+            custom: {
+                '*': 'STAR',
+                'q': 'qqq',
+            },
+            maintainCase: true
+        });
+
+        getSlug('xyl*ph*n').should.eql('xylSTARphSTARn');
+        getSlug('qXXX').should.eql('qqqXXX');
+        getSlug('qqq').should.eql('qqqqqqqqq');
+        getSlug('*q*').should.eql('STARqqqSTAR');
+
+        done();
+    });
 });

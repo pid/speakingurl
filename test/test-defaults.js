@@ -29,9 +29,7 @@ describe('getSlug defaults', function() {
     it('should remove multiple separators at start and end', function(done) {
 
         getSlug('-foo- bar -baz-').should.eql('foo-bar-baz');
-
         getSlug('--foo- bar -baz---').should.eql('foo-bar-baz');
-
         getSlug('---foo- bar -baz---').should.eql('foo-bar-baz');
 
         done();
