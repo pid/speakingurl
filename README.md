@@ -71,7 +71,7 @@ var slug;
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug); // Output: schoener-titel-laesst-gruessen-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", '*'');
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", '*');
 console.log(slug); // Output: schoener*titel*laesst*gruessen*bel*ete
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: '_'});
