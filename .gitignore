@@ -5,6 +5,7 @@ npm-debug.log
 *.old
 .idea
 
+coverage
 coverage.html
 lib-cov
 

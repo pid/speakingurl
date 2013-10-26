@@ -4,6 +4,7 @@ node_modules/
 npm-debug.log
 *.old
 
+coverage
 coverage.html
 lib-cov
 
