@@ -1,44 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>SpeakingURL by pid</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="SpeakingURL : Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>SpeakingURL</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>SpeakingURL</h1>
-        <p>Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.</p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pid/speakingurl">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">SpeakingURL</h1>
+          <h2 id="project_tagline">Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.</h2>
 
-        <a href="https://github.com/pid/speakingurl" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/pid/speakingurl/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/pid/speakingurl/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pid/speakingurl/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pid/speakingurl/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="speaking-url--" class="anchor" href="#speaking-url--"><span class="octicon octicon-link"></span></a>Speaking URL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a>
 </h1>
@@ -80,7 +72,7 @@ or
 copy the file speakingurl.min.js to your script directory
 
 or use the CDN from Cloudflare
-use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
+use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.4.1/speakingurl.min.js
 </code></pre>
 
 <h2>
@@ -157,16 +149,16 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
 <code>options</code> {string} separator</li>
 </ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the list of allowed characters. The separator-character is always allowed.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
 
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener-titel-laesst-gruessen-bel-ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">);</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener*titel*laesst*gruessen*bel*ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">separator</span><span class="o">:</span> <span class="s2">"_"</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span><span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener_titel_laesst_gruessen_bel_ete</span>
 
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">uric</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
@@ -196,8 +188,11 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo ♥ Bar'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-love-bar</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar | (Baz) * Doo'</span><span class="p">,</span> <span class="p">{</span><span class="nx">custom</span><span class="o">:</span><span class="p">{</span><span class="s1">'*'</span><span class="o">:</span> <span class="s2">"Boo"</span><span class="p">},</span><span class="nx">mark</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar | (Baz) * Doo'</span><span class="p">,</span> <span class="p">{</span><span class="nx">custom</span><span class="o">:</span><span class="p">{</span><span class="s1">'*'</span><span class="o">:</span> <span class="s1">'Boo'</span><span class="p">},</span><span class="nx">mark</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-and-bar-or-(baz)-boo-doo</span>
+
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo and Bar or Baz'</span><span class="p">,</span> <span class="p">{</span><span class="nx">custom</span><span class="o">:</span><span class="p">{</span><span class="s1">'and'</span><span class="o">:</span> <span class="s1">'und'</span><span class="p">,</span> <span class="s1">'or'</span><span class="o">:</span> <span class="s1">''</span><span class="p">}});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-und-bar-baz</span>
 
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only $299'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: nexus-4-only-usd299</span>
@@ -208,7 +203,7 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
 
 <p>In browser:</p>
 
-<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
     <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span><span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
@@ -223,7 +218,7 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
 
 <p>Create your own specially configured function.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span>
@@ -236,7 +231,7 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.2.21/speakingurl.min.js
 
 <p>In browser:</p>
 
-<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
     <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
@@ -295,12 +290,17 @@ All rights reserved.</p>
 <li>Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
 </ul><p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/pid">pid</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">SpeakingURL maintained by <a href="https://github.com/pid">pid</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
     
+
   </body>
 </html>
