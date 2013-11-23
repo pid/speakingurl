@@ -13,14 +13,12 @@
     ],
     "homepage": "http://pid.github.io/speakingurl/",
     "license": "BSD",
-    "authors": [
-        {
-            "name": "Sascha Droste",
-            "email": "sascha.droste@gmail.com",
-            "url": "https://plus.google.com/118215422942628160262/about",
-            "role": "Developer"
-        }
-    ],
+    "authors": [{
+        "name": "Sascha Droste",
+        "email": "pid@posteo.net",
+        "url": "https://plus.google.com/118215422942628160262/about",
+        "role": "Developer"
+    }],
     "require": {},
     "autoload": {}
 }
