@@ -79,19 +79,18 @@ describe('getSlug defaults', function() {
 
         done();
     });
-    
+
     it('should not fail if symbol at the end', function(done) {
-        
+
         getSlug('test &').should.eql('test-and');
         getSlug('test & ').should.eql('test-and');
         getSlug('test &', '_').should.eql('test_and');
         getSlug('test ♥').should.eql('test-love');
         getSlug('test ♥ ').should.eql('test-love');
         getSlug('test ♥  ').should.eql('test-love');
-        
+
         done();
 
     });
-       
 
 });
