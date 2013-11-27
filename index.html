@@ -72,7 +72,7 @@ or
 copy the file speakingurl.min.js to your script directory
 
 or use the CDN from Cloudflare (available version overview: http://cdnjs.com/libraries/speakingurl/)
-use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
+use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.7.0/speakingurl.min.js
 </code></pre>
 
 <h2>
@@ -82,6 +82,10 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 <a name="getsluginput-options" class="anchor" href="#getsluginput-options"><span class="octicon octicon-link"></span></a>getSlug(input, [options]);</h3>
 
 <p><code>input</code>: {string} to convert; <code>options</code>: {object|string} config object or separator string (see below)</p>
+
+<ul>
+<li>
+<p><code>options</code> {object}</p>
 
 <ul>
 <li>
@@ -110,7 +114,8 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 <code>uric</code> {boolean} default: false
 
 <ul>
-<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
+<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"<br>
+</li>
 <li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
 </ul>
 </li>
@@ -138,6 +143,14 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 </ul>
 </li>
 <li>
+<code>titleCase</code> {boolean|array} default: false 
+
+<ul>
+<li>true -&gt; convert input string to title-case</li>
+<li>array -&gt; exclude words </li>
+</ul>
+</li>
+<li>
 <code>truncate</code> {number} default: 0
 
 <ul>
@@ -145,8 +158,9 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 <li>&gt;= 1 -&gt; trim to max length while not breaking any words</li>
 </ul>
 </li>
-<li>
-<code>options</code> {string} separator</li>
+</ul>
+</li>
+<li><p><code>options</code> {string} separator</p></li>
 </ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the list of allowed characters. The separator-character is always allowed.</p>
 
 <div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
@@ -158,47 +172,89 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener*titel*laesst*gruessen*bel*ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener_titel_laesst_gruessen_bel_ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">uric</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">uric</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">uricNoSlash</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">uricNoSlash</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">mark</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">mark</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener-titel-laesst-gruessen!-bel-ete-!</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">truncate</span><span class="o">:</span> <span class="mi">20</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">truncate</span><span class="o">:</span> <span class="mi">20</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener-titel</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">,</span> <span class="p">{</span><span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Schoener-Titel-laesst-gruessen-Bel-ete</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Äpfel &amp; Birnen!"</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s1">'de'</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Äpfel &amp; Birnen!"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">lang</span><span class="o">:</span> <span class="s1">'de'</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: aepfel-und-birnen</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Apple &amp; Pear!"</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s1">'en'</span><span class="p">});</span> <span class="c1">// lang: "en" is default, just to clarify</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Apple &amp; Pear!"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">lang</span><span class="o">:</span> <span class="s1">'en'</span> <span class="c1">// lang: "en" is default, just to clarify</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: apple-and-pear</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar * Baz'</span><span class="p">,</span> <span class="p">{</span><span class="nx">custom</span><span class="o">:</span> <span class="p">{</span><span class="s1">'&amp;'</span><span class="o">:</span> <span class="s1">' doo '</span><span class="p">},</span> <span class="nx">uric</span><span class="o">:</span><span class="kc">true</span> <span class="p">}</span> <span class="p">);</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar * Baz'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">custom</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">'&amp;'</span><span class="o">:</span> <span class="s1">' doo '</span>
+    <span class="p">},</span>
+    <span class="nx">uric</span><span class="o">:</span><span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-doo-bar-baz</span>
 
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo ♥ Bar'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-love-bar</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar | (Baz) * Doo'</span><span class="p">,</span> <span class="p">{</span><span class="nx">custom</span><span class="o">:</span><span class="p">{</span><span class="s1">'*'</span><span class="o">:</span> <span class="s1">'Boo'</span><span class="p">},</span><span class="nx">mark</span><span class="o">:</span><span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar | (Baz) * Doo'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">custom</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">'*'</span><span class="o">:</span> <span class="s1">'Boo'</span>
+    <span class="p">},</span>
+    <span class="nx">mark</span><span class="o">:</span><span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-and-bar-or-(baz)-boo-doo</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo and Bar or Baz'</span><span class="p">,</span> <span class="p">{</span><span class="nx">custom</span><span class="o">:</span><span class="p">{</span><span class="s1">'and'</span><span class="o">:</span> <span class="s1">'und'</span><span class="p">,</span> <span class="s1">'or'</span><span class="o">:</span> <span class="s1">''</span><span class="p">}});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo and Bar or Baz'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">custom</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">'and'</span><span class="o">:</span> <span class="s1">'und'</span><span class="p">,</span>
+        <span class="s1">'or'</span><span class="o">:</span> <span class="s1">''</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-und-bar-baz</span>
 
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only $299'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: nexus-4-only-usd299</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span><span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: NEXUS-4-only-EUR299</span>
+
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Don\'t drink and drive'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">titleCase</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Don-t-Drink-And-Drive</span>
+
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Don\'t drink and drive'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">titleCase</span><span class="o">:</span> <span class="p">[</span><span class="s1">'and'</span><span class="p">]</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Don-t-Drink-and-Drive</span>
+
 </pre></div>
 
 <p>In browser:</p>
@@ -206,7 +262,9 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 <div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
-    <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span><span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: NEXUS-4-only-EUR299</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
@@ -218,15 +276,30 @@ use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
 
 <p>Create your own specially configured function.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">mySlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">).</span><span class="nx">createSlug</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
 
-<span class="nx">slug</span> <span class="o">=</span> <span class="nx">mySlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">mySlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Schoener_Titel_laesst_gruessen_Bel_ete</span>
+</pre></div>
+
+<p>Create your own specially configured function with title-case feature.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">titleCase</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">"a"</span><span class="p">,</span><span class="s2">"an"</span><span class="p">,</span><span class="s2">"and"</span><span class="p">,</span><span class="s2">"as"</span><span class="p">,</span><span class="s2">"at"</span><span class="p">,</span><span class="s2">"but"</span><span class="p">,</span>
+        <span class="s2">"by"</span><span class="p">,</span><span class="s2">"en"</span><span class="p">,</span><span class="s2">"for"</span><span class="p">,</span><span class="s2">"if"</span><span class="p">,</span><span class="s2">"in"</span><span class="p">,</span><span class="s2">"nor"</span><span class="p">,</span>
+        <span class="s2">"of"</span><span class="p">,</span><span class="s2">"on"</span><span class="p">,</span><span class="s2">"or"</span><span class="p">,</span><span class="s2">"per"</span><span class="p">,</span><span class="s2">"the"</span><span class="p">,</span><span class="s2">"to"</span><span class="p">,</span><span class="s2">"vs"</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">mySlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">).</span><span class="nx">createSlug</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">mySlug</span><span class="p">(</span><span class="s1">'welcome to the jungle'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Welcome-to-the-Jungle</span>
 </pre></div>
 
 <p>In browser:</p>
