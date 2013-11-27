@@ -20,20 +20,20 @@ client-side:
     $ bower install speakingurl 
 
     or
-
     $ # http://component.io/
     $ component install pid/speakingurl
    
     or
-
     $ # http://jamjs.org/
     $ jam install speakingurl
 
     or 
     copy the file speakingurl.min.js to your script directory
 
-    or use the CDN from Cloudflare (available version overview: http://cdnjs.com/libraries/speakingurl/)
-    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.7.0/speakingurl.min.js
+    or
+    use the CDN from Cloudflare 
+        - available version overview: http://cdnjs.com/libraries/speakingurl/
+        - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.7.0/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
@@ -43,7 +43,7 @@ client-side:
     * ```separator``` {string} default: '-'
         * char that replace the whitespaces
     * ```lang``` {string} default: 'en'
-        * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, you can help!)
+        * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, please help!)
     * ```maintainCase``` {boolean} default: false
         * true -> maintain case chars
         * false -> convert all chars to lower case
@@ -89,7 +89,8 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
 });
 console.log(slug); // Output: schoener-titel-laesst-gruessen?-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uricNoSlash: true
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
+    uricNoSlash: true
 });
 console.log(slug); // Output: schoener-titel-laesst-gruessen?-bel-ete
 
