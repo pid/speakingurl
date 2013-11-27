@@ -33,34 +33,38 @@ client-side:
     copy the file speakingurl.min.js to your script directory
 
     or use the CDN from Cloudflare (available version overview: http://cdnjs.com/libraries/speakingurl/)
-    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.6.3/speakingurl.min.js
-
+    use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.7.0/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
 ```input```: {string} to convert; ```options```: {object|string} config object or separator string (see below)
 
-* ```separator``` {string} default: '-'
-    * char that replace the whitespaces
-* ```lang``` {string} default: 'en'
-    * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, you can help!)
-* ```maintainCase``` {boolean} default: false
-    * true -> maintain case chars
-    * false -> convert all chars to lower case
-* ```uric``` {boolean} default: false
-    * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
-    * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```uricNoSlash``` {boolean} default: false
-    * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
-    * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```mark``` {boolean} default: false
-    * true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
-    * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
-* ```custom``` {object} default: {} 
-    * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
-* ```truncate``` {number} default: 0
-    * 0 -> don't trim length
-    * &gt;= 1 -> trim to max length while not breaking any words
+* ```options``` {object}
+    * ```separator``` {string} default: '-'
+        * char that replace the whitespaces
+    * ```lang``` {string} default: 'en'
+        * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, you can help!)
+    * ```maintainCase``` {boolean} default: false
+        * true -> maintain case chars
+        * false -> convert all chars to lower case
+    * ```uric``` {boolean} default: false
+        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"    
+        * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
+    * ```uricNoSlash``` {boolean} default: false
+        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
+        * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
+    * ```mark``` {boolean} default: false
+        * true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
+        * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
+    * ```custom``` {object} default: {} 
+        * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
+    * ```titleCase``` {boolean|array} default: false 
+        * true -> convert input string to title-case
+        * array -> exclude words 
+    * ```truncate``` {number} default: 0
+        * 0 -> don't trim length
+        * &gt;= 1 -> trim to max length while not breaking any words
+
 * ```options``` {string} separator
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true``` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
@@ -75,47 +79,89 @@ console.log(slug); // Output: schoener-titel-laesst-gruessen-bel-ete
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", '*');
 console.log(slug); // Output: schoener*titel*laesst*gruessen*bel*ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {separator: '_'});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
+        separator: '_'
+});
 console.log(slug); // Output: schoener_titel_laesst_gruessen_bel_ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uric: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
+        uric: true
+});
 console.log(slug); // Output: schoener-titel-laesst-gruessen?-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uricNoSlash: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {uricNoSlash: true
+});
 console.log(slug); // Output: schoener-titel-laesst-gruessen?-bel-ete
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {mark: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
+    mark: true
+});
 console.log(slug); // Output: schoener-titel-laesst-gruessen!-bel-ete-!
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {truncate: 20});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
+    truncate: 20
+});
 console.log(slug); // Output: schoener-titel
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true});
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true
+});
 console.log(slug); // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
-slug = getSlug("Äpfel & Birnen!", {lang: 'de'});
+slug = getSlug("Äpfel & Birnen!", {
+    lang: 'de'
+});
 console.log(slug); // Output: aepfel-und-birnen
 
-slug = getSlug("Apple & Pear!", {lang: 'en'}); // lang: "en" is default, just to clarify
+slug = getSlug("Apple & Pear!", {
+    lang: 'en' // lang: "en" is default, just to clarify
+});
 console.log(slug); // Output: apple-and-pear
 
-slug = getSlug('Foo & Bar * Baz', {custom: {'&': ' doo '}, uric:true } );
+slug = getSlug('Foo & Bar * Baz', {
+    custom: {
+        '&': ' doo '
+    },
+    uric:true
+});
 console.log(slug); // Output: foo-doo-bar-baz
 
 slug = getSlug('Foo ♥ Bar');
 console.log(slug); // Output: foo-love-bar
 
-slug = getSlug('Foo & Bar | (Baz) * Doo', {custom:{'*': 'Boo'},mark:true});
+slug = getSlug('Foo & Bar | (Baz) * Doo', {
+    custom: {
+        '*': 'Boo'
+    },
+    mark:true
+});
 console.log(slug); // Output: foo-and-bar-or-(baz)-boo-doo
 
-slug = getSlug('Foo and Bar or Baz', {custom:{'and': 'und', 'or': ''}});
+slug = getSlug('Foo and Bar or Baz', {
+    custom: {
+        'and': 'und',
+        'or': ''
+    }
+});
 console.log(slug); // Output: foo-und-bar-baz
 
 slug = getSlug('NEXUS4 only $299');
 console.log(slug); // Output: nexus-4-only-usd299
 
-slug = getSlug('NEXUS4 only €299', {maintainCase: true});
+slug = getSlug('NEXUS4 only €299', {
+    maintainCase: true
+});
 console.log(slug); // Output: NEXUS-4-only-EUR299
+
+slug = getSlug('Don\'t drink and drive', {
+    titleCase: true
+});
+console.log(slug); // Output: Don-t-Drink-And-Drive
+
+slug = getSlug('Don\'t drink and drive', {
+    titleCase: ['and']
+});
+console.log(slug); // Output: Don-t-Drink-and-Drive
+
 ```
 
 In browser:
@@ -124,7 +170,9 @@ In browser:
 <script src="components/speakingurl/speakingurl.min.js"></script>
 
 <script>
-    var slug = getSlug('NEXUS4 only €299', {maintainCase: true});
+    var slug = getSlug('NEXUS4 only €299', {
+        maintainCase: true
+    });
     console.log(slug); // Output: NEXUS-4-only-EUR299
 </script>
 ```
@@ -135,15 +183,31 @@ In browser:
 Create your own specially configured function.
 
 ```javascript
-var slug;
+
 var options = {
     maintainCase: true,
     separator: '_'
 };
 var mySlug = require('speakingurl').createSlug(options);
 
-slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
+var slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
+```
+
+Create your own specially configured function with title-case feature.
+
+```javascript
+var options = {
+    titleCase: [
+        "a","an","and","as","at","but",
+        "by","en","for","if","in","nor",
+        "of","on","or","per","the","to","vs"
+    ]
+};
+var mySlug = require('speakingurl').createSlug(options);
+
+var slug = mySlug('welcome to the jungle');
+console.log(slug); // Output: Welcome-to-the-Jungle
 ```
 
 In browser:
