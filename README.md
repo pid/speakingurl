@@ -103,7 +103,8 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
 });
 console.log(slug); // Output: schoener-titel
 
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {maintainCase: true
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
+    maintainCase: true
 });
 console.log(slug); // Output: Schoener-Titel-laesst-gruessen-Bel-ete
 
