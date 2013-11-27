@@ -43,7 +43,7 @@ client-side:
 * ```separator``` {string} default: '-'
     * char that replace the whitespaces
 * ```lang``` {string} default: 'en'
-    * language for symbol translation ('en, 'de', more coming soon)
+    * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, you can help!)
 * ```maintainCase``` {boolean} default: false
     * true -> maintain case chars
     * false -> convert all chars to lower case
