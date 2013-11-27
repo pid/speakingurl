@@ -37,7 +37,8 @@ client-side:
 
 ## Usage
 ### getSlug(input, [options]);
-```input```: {string} to convert; ```options```: {object|string} config object or separator string (see below)
+```input```: {string} to convert
+```options``` {object|string} config object or separator string (see below)
 
 * ```options``` {object}
     * ```separator``` {string} default: '-'
