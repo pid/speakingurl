@@ -2,7 +2,7 @@
 
 > Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.
 
-This module aims to transliteration the input string.
+This module aims to transliterate the input string.
 
 For use in browser and server - no dependencies!
 
