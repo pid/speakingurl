@@ -232,6 +232,8 @@ In browser:
 </script>
 ```
 
+## [Changelog](https://raw.github.com/pid/speakingurl/master/Changelog.md)
+
 ## Tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
