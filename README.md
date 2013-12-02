@@ -165,6 +165,11 @@ slug = getSlug('Don\'t drink and drive', {
 });
 console.log(slug); // Output: Don-t-Drink-and-Drive
 
+slug = getSlug('Foo & Bar ♥ Foo < Bar', {
+    lang: false
+});
+console.log(slug); // Output: foo-bar-foo-bar
+
 ```
 
 In browser:

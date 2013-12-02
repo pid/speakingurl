@@ -96,8 +96,8 @@ slug = getSlug('NEXUS4 only €299', {
 console.log(slug); // Output: NEXUS-4-only-EUR-299
 console.log("\n");
 
-slug = getSlug('Foo & Bar', {
+slug = getSlug('Foo & Bar ♥ Foo < Bar', {
     lang: false
 });
-console.log(slug); // Output: foo-bar
+console.log(slug); // Output: foo-bar-foo-bar
 console.log("\n");
