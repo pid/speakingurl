@@ -257,6 +257,11 @@ use the CDN from Cloudflare
 <span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Don-t-Drink-and-Drive</span>
 
+<span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'Foo &amp; Bar ♥ Foo &lt; Bar'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">lang</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-bar-foo-bar</span>
+
 </pre></div>
 
 <p>In browser:</p>
