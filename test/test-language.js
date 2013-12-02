@@ -96,13 +96,13 @@ describe('getSlug languages', function() {
 
         Object.keys(symbolMap).forEach(function(l) {
 
-            console.log('\ncheck language: ' + l);
+            // console.log('\ncheck language: ' + l);
 
             Object.keys(symbolMap[l]).forEach(function(s) {
 
                 var k = symbolMap[l][s];
 
-                console.log('check symbol: ' + s);
+                // console.log('check symbol: ' + s);
 
                 getSlug('Foo ' + s + ' Bar', {
                     lang: l,
