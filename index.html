@@ -36,10 +36,9 @@
 </h1>
 
 <blockquote>
-<p>Generate of so called "static" or "Clean URL" or "Pretty URL" or "nice-looking URL" or "Speaking URL" or "user-friendly URL" or "SEO-friendly URL" or "slug" from a string.</p>
+<p>Generate a slug with a lot of options; create of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string.
+This module aims to transliterate the input string.</p>
 </blockquote>
-
-<p>This module aims to transliterate the input string.</p>
 
 <p>For use in browser and server - no dependencies!</p>
 
@@ -72,7 +71,7 @@ copy the file speakingurl.min.js to your script directory
 or
 use the CDN from Cloudflare 
     - available version overview: http://cdnjs.com/libraries/speakingurl/
-    - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.7.0/speakingurl.min.js
+    - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.0/speakingurl.min.js
 </code></pre>
 
 <h2>
@@ -81,8 +80,9 @@ use the CDN from Cloudflare
 <h3>
 <a name="getsluginput-options" class="anchor" href="#getsluginput-options"><span class="octicon octicon-link"></span></a>getSlug(input, [options]);</h3>
 
-<p><code>input</code>: {string} to convert
-<code>options</code> {object|string} config object or separator string (see below)</p>
+<p><code>input</code>: {string} to convert</p>
+
+<p><code>options</code> {object|string} config object or separator string (see below)</p>
 
 <ul>
 <li>
@@ -101,6 +101,7 @@ use the CDN from Cloudflare
 
 <ul>
 <li>language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, please help!)</li>
+<li>false -&gt; don't convert symbols</li>
 </ul>
 </li>
 <li>
@@ -109,38 +110,6 @@ use the CDN from Cloudflare
 <ul>
 <li>true -&gt; maintain case chars</li>
 <li>false -&gt; convert all chars to lower case</li>
-</ul>
-</li>
-<li>
-<code>uric</code> {boolean} default: false
-
-<ul>
-<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"<br>
-</li>
-<li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
-</ul>
-</li>
-<li>
-<code>uricNoSlash</code> {boolean} default: false
-
-<ul>
-<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
-<li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
-</ul>
-</li>
-<li>
-<code>mark</code> {boolean} default: false
-
-<ul>
-<li>true -&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
-<li>false -&gt; only Base64 chars allowed (/A-Za-z0-9-_/)</li>
-</ul>
-</li>
-<li>
-<code>custom</code> {object} default: {} 
-
-<ul>
-<li>custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
 </ul>
 </li>
 <li>
@@ -157,6 +126,36 @@ use the CDN from Cloudflare
 <ul>
 <li>0 -&gt; don't trim length</li>
 <li>&gt;= 1 -&gt; trim to max length while not breaking any words</li>
+</ul>
+</li>
+<li>
+<code>uric</code> {boolean} default: false
+
+<ul>
+<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"<br>
+</li>
+<li>false</li>
+</ul>
+</li>
+<li>
+<code>uricNoSlash</code> {boolean} default: false
+
+<ul>
+<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
+</ul>
+</li>
+<li>
+<code>mark</code> {boolean} default: false
+
+<ul>
+<li>true -&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
+</ul>
+</li>
+<li>
+<code>custom</code> {object} default: {} 
+
+<ul>
+<li>custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
 </ul>
 </li>
 </ul>
@@ -322,6 +321,10 @@ use the CDN from Cloudflare
 </pre></div>
 
 <h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a><a href="https://raw.github.com/pid/speakingurl/master/Changelog.md">Changelog</a>
+</h2>
+
+<h2>
 <a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h2>
 
 <p><a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a></p>
@@ -330,10 +333,6 @@ use the CDN from Cloudflare
 </code></pre>
 
 <p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
-
-<h2>
-<a name="history" class="anchor" href="#history"><span class="octicon octicon-link"></span></a><a href="https://raw.github.com/pid/speakingurl/master/History.md">History</a>
-</h2>
 
 <h2>
 <a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h2>
