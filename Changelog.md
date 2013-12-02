@@ -1,5 +1,6 @@
 # Changelog
 
+* v0.8.0   add feature to set 'lang' to true or false to deactivate symbol translation
 * v0.7.0   add titleCase feature #26
 * v0.6.0   add symbol translation pt
 * v0.5.0   enhance custom replacement; Add support for "black-listed" words #20 - keep old behavior for single character replacement - add custom replacement for string to string|char|'' // '' ~= remove

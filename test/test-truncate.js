@@ -35,6 +35,22 @@ describe('getSlug smart truncate', function() {
             truncate: 15
         }).should.eql('foo-foo-bar');
 
+        getSlug('Foo Foo Bar Bar', {
+            truncate: "foo"
+        }).should.eql('foo-foo-bar-bar');
+
+        getSlug('Foo Foo Bar Bar', {
+            truncate: false
+        }).should.eql('foo-foo-bar-bar');
+
+        getSlug('Foo Foo Bar Bar', {
+            truncate: true
+        }).should.eql('foo-foo-bar-bar');
+
+        getSlug('a Foo', {
+            truncate: true
+        }).should.eql('a-foo');
+
         done();
 
     });

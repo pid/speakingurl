@@ -32,7 +32,7 @@ client-side:
     or
     use the CDN from Cloudflare 
         - available version overview: http://cdnjs.com/libraries/speakingurl/
-        - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.7.0/speakingurl.min.js
+        - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.0/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
@@ -46,26 +46,25 @@ client-side:
         * char that replace the whitespaces
     * ```lang``` {string} default: 'en'
         * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, please help!)
+        * false -> don't convert symbols
     * ```maintainCase``` {boolean} default: false
         * true -> maintain case chars
         * false -> convert all chars to lower case
-    * ```uric``` {boolean} default: false
-        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"    
-        * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
-    * ```uricNoSlash``` {boolean} default: false
-        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
-        * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
-    * ```mark``` {boolean} default: false
-        * true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
-        * false -> only Base64 chars allowed (/A-Za-z0-9-_/)
-    * ```custom``` {object} default: {} 
-        * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
     * ```titleCase``` {boolean|array} default: false 
         * true -> convert input string to title-case
         * array -> exclude words 
     * ```truncate``` {number} default: 0
         * 0 -> don't trim length
         * &gt;= 1 -> trim to max length while not breaking any words
+    * ```uric``` {boolean} default: false
+        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"    
+        * false
+    * ```uricNoSlash``` {boolean} default: false
+        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
+    * ```mark``` {boolean} default: false
+        * true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
+    * ```custom``` {object} default: {} 
+        * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
 
 * ```options``` {string} separator
 
