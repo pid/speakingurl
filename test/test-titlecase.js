@@ -40,6 +40,20 @@ describe('getSlug titleCase', function() {
             titleCase: ['and']
         }).should.eql('Don-t-Drink-and-Drive');
 
+        getSlug('Don\'t drink and drive', {
+            titleCase: {}
+        }).should.eql('Don-t-Drink-And-Drive');
+
+        getSlug('Don\'t drink and drive', {
+            titleCase: {
+                'drink': 'drive'
+            }
+        }).should.eql('Don-t-Drink-And-Drive');
+
+        getSlug('Don\'t drink and drive', {
+            titleCase: 42
+        }).should.eql('Don-t-Drink-And-Drive');
+
         done();
     });
 });
