@@ -9,12 +9,10 @@
         "url": "git://github.com:pid/speakingurl.git"
     },
     "bugs": "https://github.com/pid/speakingurl/issues",
-    "licenses": [
-        {
-            "type": "BSD",
-            "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
-        }
-    ],
+    "licenses": [{
+        "type": "BSD",
+        "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
+    }],
     "keywords": [
         "slug",
         "seo",
@@ -49,7 +47,8 @@
         "grunt-contrib-watch": "~0.5.1",
         "grunt-release": "~0.6.0",
         "grunt-bumpup": "~0.4.1",
-        "grunt-text-replace": "~0.3.6"
+        "grunt-text-replace": "~0.3.6",
+        "grunt-jsbeautifier": "~0.2.3"
     },
     "testling": {
         "harness": "mocha",

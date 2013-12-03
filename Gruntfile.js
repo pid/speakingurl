@@ -25,6 +25,22 @@ module.exports = function(grunt) {
             tasks: ['jshint', 'mocha', 'uglify']
         },
 
+        jsbeautifier: {
+            modify: {
+                src: ['<%= sourceFiles %>', '<%= testFiles %>', '<%= jsonFiles %>'],
+                options: {
+                    config: '.jsbeautifyrc'
+                }
+            },
+            verify: {
+                src: ['<%= sourceFiles %>', '<%= testFiles %>', '<%= jsonFiles %>'],
+                options: {
+                    mode: 'VERIFY_ONLY',
+                    config: '.jsbeautifyrc'
+                }
+            }
+        },
+
         bumpup: ['package.json', 'bower.json', 'component.json', 'composer.json'],
 
         release: {
@@ -70,11 +86,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-release');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'jshint', 'mocha', 'replace']);
+    grunt.registerTask('default', ['uglify', 'jsbeautifier:modify', 'jshint', 'mocha', 'replace']);
 
 };
