@@ -57,8 +57,8 @@ module.exports = function(grunt) {
                 src: ['README.md'],
                 overwrite: true,
                 replacements: [{
-                    from: /\d{1,1}\.\d{1,2}\.\d{1,2}/g,
-                    to: '<%= pkg.version %>'
+                    from: /cdnjs.cloudflare.com\/ajax\/libs\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
+                    to: 'cdnjs.cloudflare.com/ajax/libs/speakingurl/<%= pkg.version %>/speakingurl.min.js',
                 }]
             }
         },
