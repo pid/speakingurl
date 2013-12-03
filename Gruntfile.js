@@ -92,6 +92,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'jsbeautifier:modify', 'jshint', 'mocha', 'replace']);
+    grunt.registerTask('default', ['jsbeautifier:modify', 'jshint', 'uglify', 'mocha', 'replace']);
 
 };
