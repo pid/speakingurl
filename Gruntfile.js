@@ -59,6 +59,9 @@ module.exports = function(grunt) {
                 replacements: [{
                     from: /cdnjs.cloudflare.com\/ajax\/libs\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
                     to: 'cdnjs.cloudflare.com/ajax/libs/speakingurl/<%= pkg.version %>/speakingurl.min.js',
+                }, {
+                    from: /cdn.jsdelivr.net\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
+                    to: 'cdn.jsdelivr.net/speakingurl/<%= pkg.version %>/speakingurl.min.js',
                 }]
             }
         },

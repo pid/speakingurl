@@ -30,9 +30,14 @@ client-side:
     copy the file speakingurl.min.js to your script directory
 
     or
-    use the CDN from Cloudflare 
-        - available version overview: http://cdnjs.com/libraries/speakingurl/
-        - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.0/speakingurl.min.js
+    use the CDN from [Cloudflare](https://www.cloudflare.com/)
+        - available [version overview](http://cdnjs.com/libraries/speakingurl/)
+        - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.1/speakingurl.min.js
+
+    or
+    use the CDN from [MAXCDN](http://www.maxcdn.com/)  
+        - available [version overview](http://www.jsdelivr.com/#!speakingurl)
+        - use //cdn.jsdelivr.net/speakingurl/0.8.1/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
