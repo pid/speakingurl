@@ -7,41 +7,40 @@ For use in browser and server - no dependencies!
 
 [![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
 
-
 ## Installation
-server-side:
 
-    $ npm install speakingurl --save
+#### [npm](https://npmjs.org/package/onetime)
+```shell
+npm install speakingurl --save
+```
 
-client-side:
-    
-    $ # http://bower.io/
-    $ bower install speakingurl 
+#### [Bower](http://bower.io)
+```shell
+bower install --save speakingurl
+```
 
-    or
-    $ # http://component.io/
-    $ component install pid/speakingurl
-   
-    or
-    $ # http://jamjs.org/
-    $ jam install speakingurl
+#### [Component](https://github.com/component/component)
+```shell
+component install pid/speakingurl
+```
+#### [jamjs](http://jamjs.org/)
+```shell
+jam install speakingurl
+```
 
-    or 
-    copy the file speakingurl.min.js to your script directory
+#### [Download Package](https://github.com/pid/speakingurl/releases)
+copy the file speakingurl.min.js to your script directory
 
-    or
-    use the CDN from https://www.cloudflare.com/
-        - available version overview: http://cdnjs.com/libraries/speakingurl/
-        - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.1/speakingurl.min.js
+#### [CDN/cloudflare](https://www.cloudflare.com/)
+- available versions: http://cdnjs.com/libraries/speakingurl/
+- use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.1/speakingurl.min.js
 
-    or
-    use the CDN from http://www.maxcdn.com/
-        - available version overview: http://www.jsdelivr.com/#!speakingurl
-        - use //cdn.jsdelivr.net/speakingurl/0.8.1/speakingurl.min.js
+#### [CDN/maxcdn](https://www.maxcdn.com/)
+- available versions: http://www.jsdelivr.com/#!speakingurl
+- use //cdn.jsdelivr.net/speakingurl/0.8.1/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
-
 ```input```: {string} to convert
 
 ```options``` {object|string} config object or separator string (see below)
@@ -75,8 +74,18 @@ client-side:
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting ```uric```, ```uricNoSlash``` or/and ```mark``` to ```true``` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
 
-```javascript
+##### Node.js
+```js
 var getSlug = require('speakingurl');
+```
+
+##### Browser
+```html
+<script src="bower_components/speakingurl/speakingurl.min.js"></script>
+```
+
+#### Examples
+```js
 var slug;
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
@@ -174,20 +183,6 @@ slug = getSlug('Foo & Bar ♥ Foo < Bar', {
     lang: false
 });
 console.log(slug); // Output: foo-bar-foo-bar
-
-```
-
-In browser:
-
-```html
-<script src="components/speakingurl/speakingurl.min.js"></script>
-
-<script>
-    var slug = getSlug('NEXUS4 only €299', {
-        maintainCase: true
-    });
-    console.log(slug); // Output: NEXUS-4-only-EUR299
-</script>
 ```
 
 ### createSlug([options])
@@ -195,13 +190,14 @@ In browser:
 
 Create your own specially configured function.
 
-```javascript
-
+```js
 var options = {
     maintainCase: true,
     separator: '_'
 };
 var mySlug = require('speakingurl').createSlug(options);
+// in browser:
+// var mySlug = createSlug(options);
 
 var slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
 console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
@@ -209,7 +205,7 @@ console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
 
 Create your own specially configured function with title-case feature.
 
-```javascript
+```js
 var options = {
     titleCase: [
         "a","an","and","as","at","but",
@@ -218,26 +214,11 @@ var options = {
     ]
 };
 var mySlug = require('speakingurl').createSlug(options);
+// in browser:
+// var mySlug = createSlug(options);
 
 var slug = mySlug('welcome to the jungle');
 console.log(slug); // Output: Welcome-to-the-Jungle
-```
-
-In browser:
-
-```html
-<script src="components/speakingurl/speakingurl.min.js"></script>
-
-<script>
-    var options = {
-        maintainCase: true,
-        separator: '_'
-    };
-    var mySlug = createSlug(options);
-
-    var slug = mySlug("Schöner Titel läßt grüßen!? Bel été !");
-    console.log(slug); // Output: Schoener_Titel_laesst_gruessen_Bel_ete
-</script>
 ```
 
 ## [Changelog](https://raw.github.com/pid/speakingurl/master/Changelog.md)
@@ -246,7 +227,7 @@ In browser:
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
 
 ```shell
-$ npm test
+npm test
 ```
 
 [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
@@ -260,8 +241,7 @@ $ npm test
 - [@simov](https://github.com/simov/slugify)
 - [@henrikjoreteg](https://github.com/henrikjoreteg/slugger)
 
-## License
-[BSD](https://raw.github.com/pid/speakingurl/master/LICENSE)
+## [License](https://raw.github.com/pid/speakingurl/master/LICENSE)
 
 The BSD 3-Clause License (BSD3)
 
