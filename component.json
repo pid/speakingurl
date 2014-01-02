@@ -2,7 +2,7 @@
     "name": "speakingurl",
     "repo": "pid/speakingurl",
     "description": "Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "keywords": [
         "slug",
         "seo",
