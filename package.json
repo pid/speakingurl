@@ -41,14 +41,14 @@
     "devDependencies": {
         "grunt": "~0.4.2",
         "mocha": "~1.16.2",
-        "should": "~2.1.0",
+        "should": "~2.1.1",
         "grunt-contrib-uglify": "~0.2.7",
         "grunt-contrib-jshint": "~0.8.0",
-        "grunt-contrib-watch": "~0.5.1",
+        "grunt-contrib-watch": "~0.5.3",
         "grunt-release": "~0.6.0",
         "grunt-bumpup": "~0.5.0",
-        "grunt-text-replace": "~0.3.6",
-        "grunt-jsbeautifier": "~0.2.3"
+        "grunt-text-replace": "~0.3.10",
+        "grunt-jsbeautifier": "~0.2.6"
     },
     "testling": {
         "harness": "mocha",
