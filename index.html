@@ -47,39 +47,57 @@ This module aims to transliterate the input string.</p>
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>server-side:</p>
+<h4>
+<a name="npm" class="anchor" href="#npm"><span class="octicon octicon-link"></span></a><a href="https://npmjs.org/package/onetime">npm</a>
+</h4>
 
-<pre><code>$ npm install speakingurl --save
+<pre lang="shell"><code>npm install speakingurl --save
 </code></pre>
 
-<p>client-side:</p>
+<h4>
+<a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a><a href="http://bower.io">Bower</a>
+</h4>
 
-<pre><code>$ # http://bower.io/
-$ bower install speakingurl 
-
-or
-$ # http://component.io/
-$ component install pid/speakingurl
-
-or
-$ # http://jamjs.org/
-$ jam install speakingurl
-
-or 
-copy the file speakingurl.min.js to your script directory
-
-or
-use the CDN from https://www.cloudflare.com/
-    - available version overview: http://cdnjs.com/libraries/speakingurl/
-    - use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.1/speakingurl.min.js
-
-or
-use the CDN from http://www.maxcdn.com/
-    - available version overview: http://www.jsdelivr.com/#!speakingurl
-    - use //cdn.jsdelivr.net/speakingurl/0.8.1/speakingurl.min.js
+<pre lang="shell"><code>bower install --save speakingurl
 </code></pre>
 
-<h2>
+<h4>
+<a name="component" class="anchor" href="#component"><span class="octicon octicon-link"></span></a><a href="https://github.com/component/component">Component</a>
+</h4>
+
+<pre lang="shell"><code>component install pid/speakingurl
+</code></pre>
+
+<h4>
+<a name="jamjs" class="anchor" href="#jamjs"><span class="octicon octicon-link"></span></a><a href="http://jamjs.org/">jamjs</a>
+</h4>
+
+<pre lang="shell"><code>jam install speakingurl
+</code></pre>
+
+<h4>
+<a name="download-package" class="anchor" href="#download-package"><span class="octicon octicon-link"></span></a><a href="https://github.com/pid/speakingurl/releases">Download Package</a>
+</h4>
+
+<p>copy the file speakingurl.min.js to your script directory</p>
+
+<h4>
+<a name="cdncloudflare" class="anchor" href="#cdncloudflare"><span class="octicon octicon-link"></span></a><a href="https://www.cloudflare.com/">CDN/cloudflare</a>
+</h4>
+
+<ul>
+<li>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
+</li>
+<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.2/speakingurl.min.js</li>
+</ul><h4>
+<a name="cdnmaxcdn" class="anchor" href="#cdnmaxcdn"><span class="octicon octicon-link"></span></a><a href="https://www.maxcdn.com/">CDN/maxcdn</a>
+</h4>
+
+<ul>
+<li>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
+</li>
+<li>use //cdn.jsdelivr.net/speakingurl/0.8.2/speakingurl.min.js</li>
+</ul><h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <h3>
@@ -168,8 +186,22 @@ use the CDN from http://www.maxcdn.com/
 <li><p><code>options</code> {string} separator</p></li>
 </ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the list of allowed characters. The separator-character is always allowed.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
+<h5>
+<a name="nodejs" class="anchor" href="#nodejs"><span class="octicon octicon-link"></span></a>Node.js</h5>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">getSlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">);</span>
+</pre></div>
+
+<h5>
+<a name="browser" class="anchor" href="#browser"><span class="octicon octicon-link"></span></a>Browser</h5>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<h4>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h4>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">slug</span><span class="p">;</span>
 
 <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: schoener-titel-laesst-gruessen-bel-ete</span>
@@ -266,19 +298,6 @@ use the CDN from http://www.maxcdn.com/
     <span class="nx">lang</span><span class="o">:</span> <span class="kc">false</span>
 <span class="p">});</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: foo-bar-foo-bar</span>
-
-</pre></div>
-
-<p>In browser:</p>
-
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-    <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">getSlug</span><span class="p">(</span><span class="s1">'NEXUS4 only €299'</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">});</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: NEXUS-4-only-EUR299</span>
-<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
 <h3>
@@ -288,12 +307,13 @@ use the CDN from http://www.maxcdn.com/
 
 <p>Create your own specially configured function.</p>
 
-<div class="highlight highlight-javascript"><pre>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">mySlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">).</span><span class="nx">createSlug</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="c1">// in browser:</span>
+<span class="c1">// var mySlug = createSlug(options);</span>
 
 <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">mySlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Schoener_Titel_laesst_gruessen_Bel_ete</span>
@@ -301,7 +321,7 @@ use the CDN from http://www.maxcdn.com/
 
 <p>Create your own specially configured function with title-case feature.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">titleCase</span><span class="o">:</span> <span class="p">[</span>
         <span class="s2">"a"</span><span class="p">,</span><span class="s2">"an"</span><span class="p">,</span><span class="s2">"and"</span><span class="p">,</span><span class="s2">"as"</span><span class="p">,</span><span class="s2">"at"</span><span class="p">,</span><span class="s2">"but"</span><span class="p">,</span>
         <span class="s2">"by"</span><span class="p">,</span><span class="s2">"en"</span><span class="p">,</span><span class="s2">"for"</span><span class="p">,</span><span class="s2">"if"</span><span class="p">,</span><span class="s2">"in"</span><span class="p">,</span><span class="s2">"nor"</span><span class="p">,</span>
@@ -309,25 +329,11 @@ use the CDN from http://www.maxcdn.com/
     <span class="p">]</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">mySlug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'speakingurl'</span><span class="p">).</span><span class="nx">createSlug</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="c1">// in browser:</span>
+<span class="c1">// var mySlug = createSlug(options);</span>
 
 <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">mySlug</span><span class="p">(</span><span class="s1">'welcome to the jungle'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Welcome-to-the-Jungle</span>
-</pre></div>
-
-<p>In browser:</p>
-
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"components/speakingurl/speakingurl.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">maintainCase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">separator</span><span class="o">:</span> <span class="s1">'_'</span>
-    <span class="p">};</span>
-    <span class="kd">var</span> <span class="nx">mySlug</span> <span class="o">=</span> <span class="nx">createSlug</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
-
-    <span class="kd">var</span> <span class="nx">slug</span> <span class="o">=</span> <span class="nx">mySlug</span><span class="p">(</span><span class="s2">"Schöner Titel läßt grüßen!? Bel été !"</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">slug</span><span class="p">);</span> <span class="c1">// Output: Schoener_Titel_laesst_gruessen_Bel_ete</span>
-<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
 <h2>
@@ -339,7 +345,7 @@ use the CDN from http://www.maxcdn.com/
 
 <p><a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a></p>
 
-<pre lang="shell"><code>$ npm test
+<pre lang="shell"><code>npm test
 </code></pre>
 
 <p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
@@ -358,9 +364,8 @@ use the CDN from http://www.maxcdn.com/
 <li><a href="https://github.com/simov/slugify">@simov</a></li>
 <li><a href="https://github.com/henrikjoreteg/slugger">@henrikjoreteg</a></li>
 </ul><h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
-
-<p><a href="https://raw.github.com/pid/speakingurl/master/LICENSE">BSD</a></p>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a><a href="https://raw.github.com/pid/speakingurl/master/LICENSE">License</a>
+</h2>
 
 <p>The BSD 3-Clause License (BSD3)</p>
 
