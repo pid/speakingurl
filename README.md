@@ -33,11 +33,11 @@ copy the file speakingurl.min.js to your script directory
 
 #### [CDN/cloudflare](https://www.cloudflare.com/)
 - available versions: http://cdnjs.com/libraries/speakingurl/
-- use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.2/speakingurl.min.js
+- use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.8.4/speakingurl.min.js
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 - available versions: http://www.jsdelivr.com/#!speakingurl
-- use //cdn.jsdelivr.net/speakingurl/0.8.2/speakingurl.min.js
+- use //cdn.jsdelivr.net/speakingurl/0.8.4/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
