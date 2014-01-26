@@ -1,6 +1,6 @@
 {
     "name": "pid/speakingurl",
-    "version": "0.8.2",
+    "version": "0.8.3",
     "type": "library",
     "description": "Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.",
     "keywords": [
@@ -13,12 +13,14 @@
     ],
     "homepage": "http://pid.github.io/speakingurl/",
     "license": "BSD",
-    "authors": [{
-        "name": "Sascha Droste",
-        "email": "pid@posteo.net",
-        "url": "https://plus.google.com/118215422942628160262/about",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Sascha Droste",
+            "email": "pid@posteo.net",
+            "url": "https://plus.google.com/118215422942628160262/about",
+            "role": "Developer"
+        }
+    ],
     "require": {},
     "autoload": {}
 }
