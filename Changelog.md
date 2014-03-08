@@ -1,5 +1,7 @@
 # Changelog
 
+* v0.9.0   updated dev dependencies; because of dep. we are only compatible with node > 0.10.x
+* v0.8.4   last version compatible with node v0.8.x
 * v0.8.0   add feature to set 'lang' to true or false to deactivate symbol translation
 * v0.7.0   add titleCase feature #26
 * v0.6.0   add symbol translation pt
