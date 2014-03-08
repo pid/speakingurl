@@ -29,7 +29,7 @@
         "Parsers & Compilers"
     ],
     "scripts": {
-        "test": "mocha"
+        "test": "./node_modules/mocha/bin/mocha"
     },
     "author": {
         "name": "Sascha Droste",
