@@ -1,5 +1,6 @@
 # Changelog
 
+* v0.10.0  changes in greek transliteration mapping table
 * v0.9.1   add support for Dutch
 * v0.9.0   updated dev dependencies; because of dep. we are only compatible with node > 0.10.x
 * v0.8.4   last version compatible with node v0.8.x
