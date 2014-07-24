@@ -1,5 +1,0 @@
-{
-  "packageManager": "npm",
-  "name": "speakingurl",
-  "files": {
-    "include": ["speakingurl-min.js", "README.md", "LICENSE", "Changelog.md"]  }}
