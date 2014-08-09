@@ -33,11 +33,11 @@ copy the file speakingurl.min.js to your script directory
 
 #### [CDN/cloudflare](https://www.cloudflare.com/)
 - available versions: http://cdnjs.com/libraries/speakingurl/
-- use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.10.0/speakingurl.min.js
+- use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.11.0/speakingurl.min.js
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 - available versions: http://www.jsdelivr.com/#!speakingurl
-- use //cdn.jsdelivr.net/speakingurl/0.10.0/speakingurl.min.js
+- use //cdn.jsdelivr.net/speakingurl/0.11.0/speakingurl.min.js
 
 ## Usage
 ### getSlug(input, [options]);
@@ -49,25 +49,25 @@ copy the file speakingurl.min.js to your script directory
     * ```separator``` {string} default: '-'
         * char that replace the whitespaces
     * ```lang``` {string} default: 'en'
-        * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, please help!)
+        * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt', 'ru' and 'vn'; more coming soon, please help!)
         * false -> don't convert symbols
     * ```maintainCase``` {boolean} default: false
         * true -> maintain case chars
         * false -> convert all chars to lower case
-    * ```titleCase``` {boolean|array} default: false 
+    * ```titleCase``` {boolean|array} default: false
         * true -> convert input string to title-case
-        * array -> exclude words 
+        * array -> exclude words
     * ```truncate``` {number} default: 0
         * 0 -> don't trim length
         * &gt;= 1 -> trim to max length while not breaking any words
     * ```uric``` {boolean} default: false
-        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"    
+        * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
         * false
     * ```uricNoSlash``` {boolean} default: false
         * true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
     * ```mark``` {boolean} default: false
         * true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
-    * ```custom``` {object} default: {} 
+    * ```custom``` {object} default: {}
         * custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
 
 * ```options``` {string} separator
@@ -228,6 +228,21 @@ console.log(slug); // Output: Welcome-to-the-Jungle
 
 ```shell
 npm test
+```
+
+
+## [Contribution]
+
+```shell
+
+$ npm install
+$ npm install -g grunt-cli
+# fork pid/speakingurl
+# make your changes
+# add tests
+# add description to README.md
+
+$
 ```
 
 [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
