@@ -2,9 +2,9 @@
 <html>
 
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="SpeakingURL : Generate of so called &#39;static&#39; or &#39;Clean URL&#39; or &#39;Pretty URL&#39; or &#39;nice-looking URL&#39; or &#39;Speaking URL&#39; or &#39;user-friendly URL&#39; or &#39;SEO-friendly URL&#39; or &#39;slug&#39; from a string." />
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="SpeakingURL : Generate of so called &#39;static&#39; or &#39;Clean URL&#39; or &#39;Pretty URL&#39; or &#39;nice-looking URL&#39; or &#39;Speaking URL&#39; or &#39;user-friendly URL&#39; or &#39;SEO-friendly URL&#39; or &#39;slug&#39; from a string.">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -88,7 +88,7 @@ This module aims to transliterate the input string.</p>
 <ul>
 <li>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.10.0/speakingurl.min.js</li>
+<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.11.0/speakingurl.min.js</li>
 </ul><h4>
 <a name="cdnmaxcdn" class="anchor" href="#cdnmaxcdn"><span class="octicon octicon-link"></span></a><a href="https://www.maxcdn.com/">CDN/maxcdn</a>
 </h4>
@@ -96,7 +96,7 @@ This module aims to transliterate the input string.</p>
 <ul>
 <li>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>use //cdn.jsdelivr.net/speakingurl/0.10.0/speakingurl.min.js</li>
+<li>use //cdn.jsdelivr.net/speakingurl/0.11.0/speakingurl.min.js</li>
 </ul><h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
@@ -123,7 +123,7 @@ This module aims to transliterate the input string.</p>
 <code>lang</code> {string} default: 'en'
 
 <ul>
-<li>language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt' and 'ru'; more coming soon, please help!)</li>
+<li>language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt', 'ru' and 'vn'; more coming soon, please help!)</li>
 <li>false -&gt; don't convert symbols</li>
 </ul>
 </li>
@@ -136,11 +136,11 @@ This module aims to transliterate the input string.</p>
 </ul>
 </li>
 <li>
-<code>titleCase</code> {boolean|array} default: false 
+<code>titleCase</code> {boolean|array} default: false
 
 <ul>
 <li>true -&gt; convert input string to title-case</li>
-<li>array -&gt; exclude words </li>
+<li>array -&gt; exclude words</li>
 </ul>
 </li>
 <li>
@@ -155,8 +155,7 @@ This module aims to transliterate the input string.</p>
 <code>uric</code> {boolean} default: false
 
 <ul>
-<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"<br>
-</li>
+<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
 <li>false</li>
 </ul>
 </li>
@@ -175,7 +174,7 @@ This module aims to transliterate the input string.</p>
 </ul>
 </li>
 <li>
-<code>custom</code> {object} default: {} 
+<code>custom</code> {object} default: {}
 
 <ul>
 <li>custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
@@ -346,6 +345,20 @@ This module aims to transliterate the input string.</p>
 <p><a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a></p>
 
 <pre lang="shell"><code>npm test
+</code></pre>
+
+<h2>
+<a name="contribution" class="anchor" href="#contribution"><span class="octicon octicon-link"></span></a>[Contribution]</h2>
+
+<pre lang="shell"><code>
+$ npm install
+$ npm install -g grunt-cli
+# fork pid/speakingurl
+# make your changes
+# add tests
+# add description to README.md
+
+$
 </code></pre>
 
 <p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
