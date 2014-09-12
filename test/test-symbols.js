@@ -29,6 +29,14 @@ describe('getSlug symbols', function() {
             lang: 'ru'
         }).should.eql('foo-i-bar-ili-baz');
 
+        getSlug('Foo & Bar | Baz', {
+            lang: 'cz'
+        }).should.eql('foo-a-bar-nebo-baz');
+
+        getSlug('Foo & Bar | Baz', {
+            lang: 'sk'
+        }).should.eql('foo-a-bar-alebo-baz');
+
         done();
     });
 
@@ -57,6 +65,14 @@ describe('getSlug symbols', function() {
             lang: 'ru',
             uric: true
         }).should.eql('foo-&-bar-ili-baz');
+        getSlug('Foo & Bar | Baz', {
+            lang: 'cz',
+            uric: true
+        }).should.eql('foo-&-bar-nebo-baz');
+        getSlug('Foo & Bar | Baz', {
+            lang: 'sk',
+            uric: true
+        }).should.eql('foo-&-bar-alebo-baz');
         done();
     });
 
@@ -85,6 +101,14 @@ describe('getSlug symbols', function() {
             lang: 'ru',
             uricNoSlash: true
         }).should.eql('foo-&-bar-ili-baz');
+        getSlug('Foo & Bar | Baz', {
+            lang: 'cz',
+            uricNoSlash: true
+        }).should.eql('foo-&-bar-nebo-baz');
+        getSlug('Foo & Bar | Baz', {
+            lang: 'sk',
+            uricNoSlash: true
+        }).should.eql('foo-&-bar-alebo-baz');
         done();
     });
 
@@ -116,6 +140,16 @@ describe('getSlug symbols', function() {
 
         getSlug('Foo (Bar) . Baz', {
             lang: 'ru',
+            mark: true
+        }).should.eql('foo-(bar)-.-baz');
+
+        getSlug('Foo (Bar) . Baz', {
+            lang: 'cz',
+            mark: true
+        }).should.eql('foo-(bar)-.-baz');
+
+        getSlug('Foo (Bar) . Baz', {
+            lang: 'sk',
             mark: true
         }).should.eql('foo-(bar)-.-baz');
 
@@ -160,6 +194,20 @@ describe('getSlug symbols', function() {
             mark: true
         }).should.eql('foo-(lubov)-;-baz=bar');
 
+        getSlug('Foo (♥) ; Baz=Bar', {
+            lang: 'cz',
+            uric: true,
+            uricNoSlash: true,
+            mark: true
+        }).should.eql('foo-(laska)-;-baz=bar');
+
+        getSlug('Foo (♥) ; Baz=Bar', {
+            lang: 'sk',
+            uric: true,
+            uricNoSlash: true,
+            mark: true
+        }).should.eql('foo-(laska)-;-baz=bar');
+
         getSlug(' Sch(* )ner (♥)Ti♥tel ♥läßt grüßen!? Bel♥♥ été !', {
             lang: 'en',
             uric: true,
@@ -181,6 +229,32 @@ describe('getSlug symbols', function() {
             lang: 'de',
             maintainCase: true
         }).should.eql('AeOeUeaeoeuess');
+
+        done();
+    });
+
+    it('should replace chars by cz language standards', function(done) {
+        getSlug('AaÁáBbCcČčDdĎďEeÉéĚěFfGgHhChchIiÍíJjKkLlMmNnŇňOoÓóPpQqRrŘřSsŠšTtŤťUuÚúŮůVvWwXxYyÝýZzŽž', {
+            lang: 'cz'
+        }).should.eql('aaaabbccccddddeeeeeeffgghhchchiiiijjkkllmmnnnnooooppqqrrrrssssttttuuuuuuvvwwxxyyyyzzzz');
+
+        getSlug('AaÁáBbCcČčDdĎďEeÉéĚěFfGgHhChchIiÍíJjKkLlMmNnŇňOoÓóPpQqRrŘřSsŠšTtŤťUuÚúŮůVvWwXxYyÝýZzŽž', {
+            lang: 'cz',
+            maintainCase: true
+        }).should.eql('AaAaBbCcCcDdDdEeEeEeFfGgHhChchIiIiJjKkLlMmNnNnOoOoPpQqRrRrSsSsTtTtUuUuUuVvWwXxYyYyZzZz');
+
+        done();
+    });
+
+    it('should replace chars by sk language standards', function(done) {
+        getSlug('AaÁaÄäBbCcČčDdĎďDzdzDždžEeÉéFfGgHhChchIiÍíJjKkLlĹĺĽľMmNnŇňOoÓóÔôPpQqRrŔŕSsŠšTtŤťUuÚúVvWwXxYyÝýZzŽž', {
+            lang: 'sk'
+        }).should.eql('aaaaaabbccccdddddzdzdzdzeeeeffgghhchchiiiijjkkllllllmmnnnnooooooppqqrrrrssssttttuuuuvvwwxxyyyyzzzz');
+
+        getSlug('AaÁaÄäBbCcČčDdĎďDzdzDždžEeÉéFfGgHhChchIiÍíJjKkLlĹĺĽľMmNnŇňOoÓóÔôPpQqRrŔŕSsŠšTtŤťUuÚúVvWwXxYyÝýZzŽž', {
+            lang: 'sk',
+            maintainCase: true
+        }).should.eql('AaAaAaBbCcCcDdDdDzdzDzdzEeEeFfGgHhChchIiIiJjKkLlLlLlMmNnNnOoOoOoPpQqRrRrSsSsTtTtUuUuVvWwXxYyYyZzZz');
 
         done();
     });
