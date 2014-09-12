@@ -1,7 +1,7 @@
 {
     "name": "speakingurl",
     "version": "0.12.0",
-    "description": "Generate a slug with a lot of options; create of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string.",
+    "description": "Generate a slug – transliteration with a lot of options",
     "homepage": "http://pid.github.io/speakingurl/",
     "github": "http://github.com/pid/speakingurl",
     "repository": {
@@ -16,13 +16,18 @@
     "keywords": [
         "slug",
         "speakingurl",
+        "transliteration",
         "permalink",
         "seo",
         "url",
         "speaking url",
         "nice url",
         "static url",
-        "transliteration"
+        "clean url",
+        "pretty url",
+        "nice looking url",
+        "user friendly url",
+        "seo friendly url"
     ],
     "categories": [
         "Utilities",
