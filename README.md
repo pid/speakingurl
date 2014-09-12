@@ -49,7 +49,7 @@ copy the file speakingurl.min.js to your script directory
     * ```separator``` {string} default: '-'
         * char that replace the whitespaces
     * ```lang``` {string} default: 'en'
-        * language for symbol translation ('ar', 'de', 'en', 'es', 'fr', 'pt', 'ru' and 'vn'; more coming soon, please help!)
+        * language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk' and 'vn'; more coming soon, please help!)
         * false -> don't convert symbols
     * ```maintainCase``` {boolean} default: false
         * true -> maintain case chars
@@ -235,12 +235,17 @@ npm test
 
 ```shell
 
+# fork pid/speakingurl on Github
+$ git clone git@github.com:<YOUR_USER>/speakingurl.git
+$ cd speakingurl
 $ npm install
 $ npm install -g grunt-cli
-# fork pid/speakingurl
-# make your changes
+# add your stuff
 # add tests
 # add description to README.md
+$ grunt
+# if everything works fine, commit, push to your repository
+# create pull request
 
 $
 ```
