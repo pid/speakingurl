@@ -41,7 +41,7 @@ module.exports = function(grunt) {
             }
         },
 
-        bumpup: ['package.json', 'bower.json', 'component.json', 'composer.json'],
+        bumpup: ['package.json', 'bower.json', 'component.json'],
 
         release: {
             options: {
