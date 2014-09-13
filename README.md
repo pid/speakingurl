@@ -232,7 +232,6 @@ see [CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
 npm test
 ```
 
-
 ## Contribution
 
 ```shell
@@ -244,7 +243,8 @@ $ npm install
 $ npm install -g grunt-cli
 # add your stuff
 # add tests
-# add description to README.md
+# add example for new feature
+# add description/example to README.md
 $ grunt
 # if everything works fine, commit, push to your repository
 # create pull request
