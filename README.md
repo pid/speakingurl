@@ -222,7 +222,8 @@ var slug = mySlug('welcome to the jungle');
 console.log(slug); // Output: Welcome-to-the-Jungle
 ```
 
-## [Changelog](https://raw.github.com/pid/speakingurl/master/Changelog.md)
+## Changelog
+see [CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
 
 ## Tests
 [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
