@@ -58,6 +58,9 @@ copy the file speakingurl.min.js to your script directory
     * ```titleCase``` {boolean|array} default: false
         * true -> convert input string to title-case
         * array -> exclude words
+	* ```leet``` {boolean} default: false
+        * true -> convert input string to leet
+		* false
     * ```truncate``` {number} default: 0
         * 0 -> don't trim length
         * &gt;= 1 -> trim to max length while not breaking any words
@@ -184,6 +187,11 @@ slug = getSlug('Foo & Bar ♥ Foo < Bar', {
     lang: false
 });
 console.log(slug); // Output: foo-bar-foo-bar
+
+slug = getSlug("Foo and Bar or Baz", {
+    leet: true
+});
+console.log(slug); // Output: f00-4nd-b4r-0r-b4z
 ```
 
 ### createSlug([options])
