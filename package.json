@@ -1,82 +1,80 @@
 {
-  "name": "speakingurl",
-  "version": "0.12.0",
-  "description": "Generate a slug – transliteration with a lot of options",
-  "homepage": "http://pid.github.io/speakingurl/",
-  "github": "http://github.com/pid/speakingurl",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com:pid/speakingurl.git"
-  },
-  "bugs": "https://github.com/pid/speakingurl/issues",
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
-    }
-  ],
-  "keywords": [
-    "slug",
-    "speakingurl",
-    "transliteration",
-    "permalink",
-    "seo",
-    "url",
-    "speaking url",
-    "nice url",
-    "static url",
-    "clean url",
-    "pretty url",
-    "nice looking url",
-    "user friendly url",
-    "seo friendly url"
-  ],
-  "categories": [
-    "Utilities",
-    "Parsers & Compilers"
-  ],
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
-  },
-  "author": {
-    "name": "Sascha Droste",
-    "email": "pid@posteo.net",
-    "url": "https://twitter.com/SaschaDroste"
-  },
-  "main": "index",
-  "filename": "speakingurl.min.js",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-bumpup": "^0.6.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-jsbeautifier": "~0.2.6",
-    "grunt-release": "^0.7.0",
-    "grunt-text-replace": "~0.3.10",
-    "mocha": "^1.18.2",
-    "should": "^4.0.4"
-  },
-  "jam": {
-    "dependencies": {},
-    "main": "speakingurl.min.js",
-    "shim": {
-      "deps": [],
-      "exports": [
-        "getSlug",
-        "createSlug"
-      ]
+    "name": "speakingurl",
+    "version": "0.12.1",
+    "description": "Generate a slug – transliteration with a lot of options",
+    "homepage": "http://pid.github.io/speakingurl/",
+    "github": "http://github.com/pid/speakingurl",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com:pid/speakingurl.git"
     },
-    "include": [
-      "speakingurl.min.js",
-      "README.md"
-    ]
-  },
-  "volo": {
-    "url": "//cdnjs.cloudflare.com/ajax/libs/speakingurl/{version}/speakingurl.min.js"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  }
+    "bugs": "https://github.com/pid/speakingurl/issues",
+    "licenses": [{
+        "type": "BSD",
+        "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
+    }],
+    "keywords": [
+        "slug",
+        "speakingurl",
+        "transliteration",
+        "permalink",
+        "seo",
+        "url",
+        "speaking url",
+        "nice url",
+        "static url",
+        "clean url",
+        "pretty url",
+        "nice looking url",
+        "user friendly url",
+        "seo friendly url"
+    ],
+    "categories": [
+        "Utilities",
+        "Parsers & Compilers"
+    ],
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha"
+    },
+    "author": {
+        "name": "Sascha Droste",
+        "email": "pid@posteo.net",
+        "url": "https://twitter.com/SaschaDroste"
+    },
+    "main": "index",
+    "filename": "speakingurl.min.js",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-bumpup": "^0.6.1",
+        "grunt-contrib-jshint": "^0.10.0",
+        "grunt-contrib-uglify": "^0.6.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-jsbeautifier": "~0.2.6",
+        "grunt-release": "^0.7.0",
+        "grunt-text-replace": "~0.3.10",
+        "mocha": "^1.18.2",
+        "should": "^4.0.4"
+    },
+    "jam": {
+        "dependencies": {},
+        "main": "speakingurl.min.js",
+        "shim": {
+            "deps": [],
+            "exports": [
+                "getSlug",
+                "createSlug"
+            ]
+        },
+        "include": [
+            "speakingurl.min.js",
+            "README.md"
+        ]
+    },
+    "volo": {
+        "url": "//cdnjs.cloudflare.com/ajax/libs/speakingurl/{version}/speakingurl.min.js"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    }
 }
