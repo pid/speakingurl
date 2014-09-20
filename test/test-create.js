@@ -148,6 +148,37 @@ describe('getSlug create', function () {
         done();
     });
 
+    it('with custom chars leet replacement', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    'a': '4',
+                    'b': '8',
+                    'e': '3',
+                    'g': '6',
+                    'l': '1',
+                    'o': '0',
+                    's': '5',
+                    't': '7'
+                },
+                lang: false
+            });
+
+        getSlug('apbpepgplpopspt')
+            .should.eql('4p8p3p6p1p0p5p7');
+        getSlug('papbpepgplpopsptp')
+            .should.eql('p4p8p3p6p1p0p5p7p');
+        getSlug('qabqegqloqst')
+            .should.eql('q48q36q10q57');
+        getSlug('abeglost')
+            .should.eql('48361057');
+
+        done();
+    });
+
+
+
     it('with custom chars replacement with not allowed target char', function (done) {
 
         var getSlug = require('../lib')
