@@ -2,54 +2,65 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug smart truncate', function() {
+describe('getSlug smart truncate', function () {
     'use strict';
 
-    it('should maintain case characters, with smart truncate', function(done) {
+    it('should maintain case characters, with smart truncate', function (done) {
 
         getSlug('Foobarbaz, Bar Baz', {
             truncate: 12
-        }).should.eql('foobarbaz');
+        })
+            .should.eql('foobarbaz');
 
         getSlug('Foobarbaz, Bar Baz', {
             truncate: 15
-        }).should.eql('foobarbaz-bar');
+        })
+            .should.eql('foobarbaz-bar');
 
         getSlug(' Foobarbaz, Bar Baz', {
             truncate: 15
-        }).should.eql('foobarbaz-bar');
+        })
+            .should.eql('foobarbaz-bar');
 
         getSlug('  Foobarbaz,    Bar Baz', {
             truncate: 15
-        }).should.eql('foobarbaz-bar');
+        })
+            .should.eql('foobarbaz-bar');
 
         getSlug('Foo Foo bar Zoo Bar Baz', {
             truncate: 15
-        }).should.eql('foo-foo-bar-zoo');
+        })
+            .should.eql('foo-foo-bar-zoo');
 
         getSlug('Foo Foo bar ZooBar Baz', {
             truncate: 15
-        }).should.eql('foo-foo-bar');
+        })
+            .should.eql('foo-foo-bar');
 
         getSlug('Foo Foo bar ZooBar Baz', {
             truncate: 15
-        }).should.eql('foo-foo-bar');
+        })
+            .should.eql('foo-foo-bar');
 
         getSlug('Foo Foo Bar Bar', {
             truncate: "foo"
-        }).should.eql('foo-foo-bar-bar');
+        })
+            .should.eql('foo-foo-bar-bar');
 
         getSlug('Foo Foo Bar Bar', {
             truncate: false
-        }).should.eql('foo-foo-bar-bar');
+        })
+            .should.eql('foo-foo-bar-bar');
 
         getSlug('Foo Foo Bar Bar', {
             truncate: true
-        }).should.eql('foo-foo-bar-bar');
+        })
+            .should.eql('foo-foo-bar-bar');
 
         getSlug('a Foo', {
             truncate: true
-        }).should.eql('a-foo');
+        })
+            .should.eql('a-foo');
 
         done();
 

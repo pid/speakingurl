@@ -7,7 +7,7 @@
     "indent_with_tabs": false,
     "preserve_newlines": true,
     "max_preserve_newlines": 2,
-    "jslint_happy": false,
+    "jslint_happy": true,
     "brace_style": "collapse",
     "keep_array_indentation": false,
     "keep_function_indentation": false,
@@ -15,5 +15,5 @@
     "unescape_strings": false,
     "break_chained_methods": false,
     "space_before_conditional": true,
-    "wrap_line_length": 0
+    "wrap_line_length": 242
 }

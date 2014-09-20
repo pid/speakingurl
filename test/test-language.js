@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug languages', function() {
+describe('getSlug languages', function () {
     'use strict';
 
-    it('should replace language specific symbols', function(done) {
+    it('should replace language specific symbols', function (done) {
 
         var symbolMap = {
 
@@ -94,62 +94,76 @@ describe('getSlug languages', function() {
             }
         };
 
-        Object.keys(symbolMap).forEach(function(l) {
+        Object.keys(symbolMap)
+            .forEach(function (l) {
 
-            // console.log('\ncheck language: ' + l);
+                // console.log('\ncheck language: ' + l);
 
-            Object.keys(symbolMap[l]).forEach(function(s) {
+                Object.keys(symbolMap[l])
+                    .forEach(function (s) {
 
-                var k = symbolMap[l][s];
+                        var k = symbolMap[l][s];
 
-                // console.log('check symbol: ' + s);
+                        // console.log('check symbol: ' + s);
 
-                getSlug('Foo ' + s + ' Bar', {
-                    lang: l,
-                    maintainCase: true
-                }).should.eql('Foo-' + getSlug(k, {
-                    maintainCase: true
-                }) + '-Bar');
+                        getSlug('Foo ' + s + ' Bar', {
+                            lang: l,
+                            maintainCase: true
+                        })
+                            .should.eql('Foo-' + getSlug(k, {
+                                maintainCase: true
+                            }) + '-Bar');
 
-                getSlug('Foo ' + s + ' Bar', {
-                    lang: l
-                }).should.eql('foo-' + getSlug(k) + '-bar');
+                        getSlug('Foo ' + s + ' Bar', {
+                            lang: l
+                        })
+                            .should.eql('foo-' + getSlug(k) +
+                                '-bar');
+
+                    });
 
             });
 
-        });
-
-        getSlug('EN Foo & Bar ').should.eql('en-foo-and-bar');
+        getSlug('EN Foo & Bar ')
+            .should.eql('en-foo-and-bar');
 
         getSlug('EN Foo & Bar ', {
             lang: "en"
-        }).should.eql('en-foo-and-bar');
+        })
+            .should.eql('en-foo-and-bar');
         getSlug('de Foo & Bar ', {
             lang: "de"
-        }).should.eql('de-foo-und-bar');
+        })
+            .should.eql('de-foo-und-bar');
         getSlug('True Foo & Bar ', {
             lang: true
-        }).should.eql('true-foo-bar');
+        })
+            .should.eql('true-foo-bar');
 
         getSlug('False Foo & Bar ', {
             lang: false
-        }).should.eql('false-foo-bar');
+        })
+            .should.eql('false-foo-bar');
 
         getSlug('xx Foo & Bar ', {
             lang: "xx"
-        }).should.eql('xx-foo-and-bar');
+        })
+            .should.eql('xx-foo-and-bar');
 
         getSlug('obj Foo & Bar ', {
             lang: {}
-        }).should.eql('obj-foo-and-bar');
+        })
+            .should.eql('obj-foo-and-bar');
 
         getSlug('array Foo & Bar ', {
             lang: []
-        }).should.eql('array-foo-and-bar');
+        })
+            .should.eql('array-foo-and-bar');
 
         getSlug('null Foo & Bar ', {
             lang: null
-        }).should.eql('null-foo-and-bar');
+        })
+            .should.eql('null-foo-and-bar');
 
         done();
 

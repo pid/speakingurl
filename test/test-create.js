@@ -1,232 +1,305 @@
 /* global describe,it */
 
-describe('getSlug create', function() {
+describe('getSlug create', function () {
     'use strict';
 
-    it('with symbols', function(done) {
-        var getSlug = require('../lib').createSlug({
-            lang: 'en',
-            uric: true,
-            uricNoSlash: true,
-            mark: true
-        });
+    it('with symbols', function (done) {
 
-        getSlug('Foo (♥) ; Baz=Bar').should.eql('foo-(love)-;-baz=bar');
+        var getSlug = require('../lib')
+            .createSlug({
+                lang: 'en',
+                uric: true,
+                uricNoSlash: true,
+                mark: true
+            });
 
-        done();
-    });
-
-    it('without options', function(done) {
-        var getSlug = require('../lib').createSlug();
-
-        getSlug('Foo Bar Baz').should.eql('foo-bar-baz');
+        getSlug('Foo (♥) ; Baz=Bar')
+            .should.eql('foo-(love)-;-baz=bar');
 
         done();
     });
 
-    it('with empty options', function(done) {
-        var getSlug = require('../lib').createSlug({});
+    it('without options', function (done) {
 
-        getSlug('Foo Bar Baz').should.eql('foo-bar-baz');
+        var getSlug = require('../lib')
+            .createSlug();
 
-        done();
-    });
-
-    it('with maintainCase', function(done) {
-        var getSlug = require('../lib').createSlug({
-            maintainCase: true
-        });
-
-        getSlug('Foo Bar Baz').should.eql('Foo-Bar-Baz');
+        getSlug('Foo Bar Baz')
+            .should.eql('foo-bar-baz');
 
         done();
     });
 
-    it('with uric', function(done) {
-        var getSlug = require('../lib').createSlug({
-            uric: true
-        });
+    it('with empty options', function (done) {
 
-        getSlug(' :80:/Foo/Bar/Baz:Foo').should.eql(':80:/foo/bar/baz:foo');
+        var getSlug = require('../lib')
+            .createSlug({});
 
-        done();
-    });
-
-    it('with uricNoSlash', function(done) {
-        var getSlug = require('../lib').createSlug({
-            uricNoSlash: true
-        });
-
-        getSlug('Foo/ Bar= Baz').should.eql('foo-bar=-baz');
+        getSlug('Foo Bar Baz')
+            .should.eql('foo-bar-baz');
 
         done();
     });
 
-    it('with mark', function(done) {
-        var getSlug = require('../lib').createSlug({
-            mark: true
-        });
+    it('with maintainCase', function (done) {
 
-        getSlug('Foo* Bar Baz').should.eql('foo*-bar-baz');
+        var getSlug = require('../lib')
+            .createSlug({
+                maintainCase: true
+            });
 
-        done();
-    });
-
-    it('with truncate', function(done) {
-        var getSlug = require('../lib').createSlug({
-            truncate: 15
-        });
-
-        getSlug('Foo* Foobar FooBarBaz').should.eql('foo-foobar');
+        getSlug('Foo Bar Baz')
+            .should.eql('Foo-Bar-Baz');
 
         done();
     });
 
-    it('with separator', function(done) {
-        var getSlug = require('../lib').createSlug({
-            separator: '_'
-        });
+    it('with uric', function (done) {
 
-        getSlug('Foo* Foobar FooBarBaz').should.eql('foo_foobar_foobarbaz');
+        var getSlug = require('../lib')
+            .createSlug({
+                uric: true
+            });
 
-        done();
-    });
-
-    it('with mark and maintainCase', function(done) {
-        var getSlug = require('../lib').createSlug({
-            mark: true,
-            maintainCase: true
-        });
-
-        getSlug('Foo* Bar Baz').should.eql('Foo*-Bar-Baz');
+        getSlug(' :80:/Foo/Bar/Baz:Foo')
+            .should.eql(':80:/foo/bar/baz:foo');
 
         done();
     });
 
-    it('with custom chars replacement', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                '*': 'o'
-            }
-        });
+    it('with uricNoSlash', function (done) {
 
-        getSlug('xyl*ph*n').should.eql('xylophon');
+        var getSlug = require('../lib')
+            .createSlug({
+                uricNoSlash: true
+            });
 
-        done();
-    });
-
-    it('with custom chars replacement with not allowed target char', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                'o': '*'
-            }
-        });
-
-        getSlug('xylophon').should.eql('xyl-ph-n');
+        getSlug('Foo/ Bar= Baz')
+            .should.eql('foo-bar=-baz');
 
         done();
     });
 
-    it('with custom chars replacement with allowed target char, option mark', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                'o': '*'
-            },
-            mark: true
-        });
+    it('with mark', function (done) {
 
-        getSlug('xylophon').should.eql('xyl*ph*n');
+        var getSlug = require('../lib')
+            .createSlug({
+                mark: true
+            });
 
-        done();
-    });
-
-    it('with custom chars replacement with option mark', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                '*': 'o'
-            },
-            mark: true
-        });
-
-        getSlug('xyl*ph*n').should.eql('xylophon');
+        getSlug('Foo* Bar Baz')
+            .should.eql('foo*-bar-baz');
 
         done();
     });
 
-    it('with custom char to string replacement', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                '*': 'STAR',
-                'q': 'qqq',
-                'and': '',
-                'or': ''
-            }
-        });
+    it('with truncate', function (done) {
 
-        getSlug('xyl*ph*n').should.eql('xylstarphstarn');
-        getSlug('quack').should.eql('qqquack');
-        getSlug('Foo and Bar or Baz').should.eql('foo-bar-baz');
+        var getSlug = require('../lib')
+            .createSlug({
+                truncate: 15
+            });
+
+        getSlug('Foo* Foobar FooBarBaz')
+            .should.eql('foo-foobar');
 
         done();
     });
 
-    it('with custom string replacement', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                'and': 'und',
-                'or': 'oder',
-                '*': ' and '
-            }
-        });
+    it('with separator', function (done) {
 
-        getSlug('bus and train').should.eql('bus-und-train');
-        getSlug('bus or train').should.eql('bus-oder-train');
-        getSlug('busandtrain').should.eql('busandtrain');
-        getSlug('busortrain').should.eql('busortrain');
-        getSlug('bus*train').should.eql('bus-and-train');
+        var getSlug = require('../lib')
+            .createSlug({
+                separator: '_'
+            });
 
-        getSlug('bus and train bus and train').should.eql('bus-und-train-bus-und-train');
-        getSlug('bus or train bus or train').should.eql('bus-oder-train-bus-oder-train');
-        getSlug('busandtrain busandtrain').should.eql('busandtrain-busandtrain');
-        getSlug('busortrain busortrain').should.eql('busortrain-busortrain');
+        getSlug('Foo* Foobar FooBarBaz')
+            .should.eql('foo_foobar_foobarbaz');
 
         done();
     });
 
-    it('with custom string replacement with option mark', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                '*': 'STAR',
-                'q': 'qqq',
-                'z': ''
-            },
-            mark: true
-        });
+    it('with mark and maintainCase', function (done) {
 
-        getSlug('xyl*ph*n').should.eql('xylstarphstarn');
-        getSlug('qxxx').should.eql('qqqxxx');
-        getSlug('xxxqxxx').should.eql('xxxqqqxxx');
-        getSlug('qqq').should.eql('qqqqqqqqq');
-        getSlug('*q*').should.eql('starqqqstar');
-        getSlug('zoo').should.eql('oo');
-        getSlug('zooz').should.eql('oo');
+        var getSlug = require('../lib')
+            .createSlug({
+                mark: true,
+                maintainCase: true
+            });
+
+        getSlug('Foo* Bar Baz')
+            .should.eql('Foo*-Bar-Baz');
 
         done();
     });
 
-    it('with custom string replacement with option maintainCase', function(done) {
-        var getSlug = require('../lib').createSlug({
-            custom: {
-                '*': 'STAR',
-                'q': 'qqq',
-            },
-            maintainCase: true
-        });
+    it('with custom chars replacement', function (done) {
 
-        getSlug('xyl*ph*n').should.eql('xylSTARphSTARn');
-        getSlug('qXXX').should.eql('qqqXXX');
-        getSlug('qqq').should.eql('qqqqqqqqq');
-        getSlug('*q*').should.eql('STARqqqSTAR');
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    '*': 'o'
+                }
+            });
+
+        getSlug('xyl*ph*n')
+            .should.eql('xylophon');
+
+        done();
+    });
+
+    it('with custom chars replacement with not allowed target char', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    'o': '*'
+                }
+            });
+
+        getSlug('xylophon')
+            .should.eql('xyl-ph-n');
+
+        done();
+    });
+
+    it('with custom chars replacement with allowed target char, option mark', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    'o': '*'
+                },
+                mark: true
+            });
+
+        getSlug('xylophon')
+            .should.eql('xyl*ph*n');
+
+        done();
+    });
+
+    it('with custom chars replacement with option mark', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    '*': 'o'
+                },
+                mark: true
+            });
+
+        getSlug('xyl*ph*n')
+            .should.eql('xylophon');
+
+        done();
+    });
+
+    it('with custom char to string replacement', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    '*': 'STAR',
+                    'q': 'qqq',
+                    'and': '',
+                    'or': ''
+                }
+            });
+
+        getSlug('xyl*ph*n')
+            .should.eql('xylstarphstarn');
+        getSlug('quack')
+            .should.eql('qqquack');
+        getSlug('Foo and Bar or Baz')
+            .should.eql('foo-bar-baz');
+
+        done();
+    });
+
+    it('with custom string replacement', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    'and': 'und',
+                    'or': 'oder',
+                    '*': ' and '
+                }
+            });
+
+        getSlug('bus and train')
+            .should.eql('bus-und-train');
+        getSlug('bus or train')
+            .should.eql('bus-oder-train');
+        getSlug('busandtrain')
+            .should.eql('busandtrain');
+        getSlug('busortrain')
+            .should.eql('busortrain');
+        getSlug('bus*train')
+            .should.eql('bus-and-train');
+
+        getSlug('bus and train bus and train')
+            .should.eql('bus-und-train-bus-und-train');
+        getSlug('bus or train bus or train')
+            .should.eql('bus-oder-train-bus-oder-train');
+        getSlug('busandtrain busandtrain')
+            .should.eql('busandtrain-busandtrain');
+        getSlug('busortrain busortrain')
+            .should.eql('busortrain-busortrain');
+
+        done();
+    });
+
+    it('with custom string replacement with option mark', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    '*': 'STAR',
+                    'q': 'qqq',
+                    'z': ''
+                },
+                mark: true
+            });
+
+        getSlug('xyl*ph*n')
+            .should.eql('xylstarphstarn');
+        getSlug('qxxx')
+            .should.eql('qqqxxx');
+        getSlug('xxxqxxx')
+            .should.eql('xxxqqqxxx');
+        getSlug('qqq')
+            .should.eql('qqqqqqqqq');
+        getSlug('*q*')
+            .should.eql('starqqqstar');
+        getSlug('zoo')
+            .should.eql('oo');
+        getSlug('zooz')
+            .should.eql('oo');
+
+        done();
+    });
+
+    it('with custom string replacement with option maintainCase', function (done) {
+
+        var getSlug = require('../lib')
+            .createSlug({
+                custom: {
+                    '*': 'STAR',
+                    'q': 'qqq',
+                },
+                maintainCase: true
+            });
+
+        getSlug('xyl*ph*n')
+            .should.eql('xylSTARphSTARn');
+        getSlug('qXXX')
+            .should.eql('qqqXXX');
+        getSlug('qqq')
+            .should.eql('qqqqqqqqq');
+        getSlug('*q*')
+            .should.eql('STARqqqSTAR');
 
         done();
     });
