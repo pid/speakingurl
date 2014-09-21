@@ -21,7 +21,7 @@ var banner = ['/**',
     ' */'
 ].join('\n');
 
-gulp.task('beautify', function() {
+gulp.task('beautify', function () {
 
     gulp.src(paths.lib)
         .pipe(plugins.jsbeautifier({
@@ -45,7 +45,7 @@ gulp.task('beautify', function() {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('mocha', function() {
+gulp.task('mocha', function () {
     return gulp.src(paths.test, {
         read: false
     })
@@ -57,7 +57,7 @@ gulp.task('mocha', function() {
         }));
 });
 
-gulp.task('jshint', function() {
+gulp.task('jshint', function () {
     return gulp.src(paths.lib)
         .pipe(plugins.jshint('.jshintrc'), {
             verbose: true
@@ -65,7 +65,7 @@ gulp.task('jshint', function() {
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('uglify', function() {
+gulp.task('uglify', function () {
     gulp.src(paths.lib)
         .pipe(plugins.uglify())
         .pipe(plugins.header(banner, {
@@ -75,7 +75,7 @@ gulp.task('uglify', function() {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('replace', function() {
+gulp.task('replace', function () {
 
     gulp.src(paths.readme)
         .pipe(plugins.replace(
@@ -89,8 +89,7 @@ gulp.task('replace', function() {
         .pipe(gulp.dest('./'));
 });
 
-
-gulp.task('bumpup', function() {
+gulp.task('bumpup', function () {
 
     gulp.src(paths.json)
         .pipe(plugins.bump({
@@ -100,17 +99,14 @@ gulp.task('bumpup', function() {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('npm', function(done) {
+gulp.task('npm', function (done) {
     require('child_process').spawn('npm', ['publish'], {
         stdio: 'inherit'
     })
         .on('close', done);
 });
 
-
-gulp.task('release', ['beautify', 'jshint', 'mocha', 'uglify', 'bumpup',
-    'replace'
-], function() {
+gulp.task('release', ['beautify', 'jshint', 'mocha', 'uglify', 'bumpup', 'replace'], function () {
     var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
     var v = 'v' + pkg.version;
     var message = 'Release ' + v;
@@ -127,11 +123,8 @@ gulp.task('release', ['beautify', 'jshint', 'mocha', 'uglify', 'bumpup',
     plugins.git.push('origin', 'master', '--tags');
 });
 
-
-
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(['./*.js', 'lib/**/*.js'], ['jshint', 'beautify', 'mocha']);
 });
-
 
 gulp.task('default', ['jshint', 'beautify', 'mocha', 'replace']);

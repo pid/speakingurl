@@ -177,8 +177,6 @@ describe('getSlug create', function () {
         done();
     });
 
-
-
     it('with custom chars replacement with not allowed target char', function (done) {
 
         var getSlug = require('../lib')

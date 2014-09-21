@@ -51,9 +51,8 @@ describe('getSlug defaults', function () {
 
     it('should remove non-base64 characters', function (done) {
 
-        var nonBase64 = ['[', ']', ',', '*', '+', '~', '.', '(', ')',
-            '\'', '"', '!', ':', '@'
-        ];
+        var nonBase64 = ['[', ']', ',', '*', '+', '~', '.', '(', ')', '\'', '"', '!', ':', '@'];
+
         for (var i = 0; i < nonBase64.length; i++) {
             getSlug("foo " + nonBase64[i] + " bar baz")
                 .should.eql("foo-bar-baz");
