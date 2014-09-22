@@ -1,6 +1,9 @@
 Changelog
 =========
 
+- v0.12.3 switch to gulpjs
+- v0.12.2 corrupt gulpfile, not published to npm registry
+- v0.12.1 update devDep
 - v0.12.0 add support for Czech and Slovak
 - v0.11.0 add support for Vietnamese
 - v0.10.0 changes in greek transliteration mapping table

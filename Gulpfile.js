@@ -6,7 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var path = {
     rootdir: './',
-    lib: ['./lib/*'],
+    lib: ['./lib/**/*.js'],
     libdir: './lib/',
     test: ['./test/**/*.js'],
     testdir: './test/',
@@ -74,7 +74,9 @@ gulp.task('jshint', ['beautify'], function () {
         .pipe(plugin.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('uglify', ['beautify'], function (done) {
+gulp.task('uglify', ['jshint'], function (done) {
+
+    var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
     return gulp.src(path.lib)
         .pipe(plugin.uglify())
@@ -120,14 +122,14 @@ gulp.task('release', ['bumpup'], function (done) {
         'git commit -m "Release ' + tag + '";' +
         'git tag ' + tag + ' -m "Release ' + tag + '";' +
         'git push -u origin master;' +
-        '#npm publish'
+        'npm publish'
     );
 
     done();
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./*.js', 'lib/**/*.js'], ['jshint', 'test']);
+    gulp.watch([path.json, path.lib], ['jshint', 'test']);
 });
 
-gulp.task('default', ['jshint', 'beautify', 'test']);
+gulp.task('default', ['test', 'jshint', 'uglify']);
