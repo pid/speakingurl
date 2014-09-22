@@ -1,14 +1,19 @@
 var gulp = require('gulp');
-var plugins = require('gulp-load-plugins')();
+var plugin = require('gulp-load-plugins')();
 var fs = require('fs');
+var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
-var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
-var paths = {
-    lib: './lib/**/*.js',
-    test: './test/**/*.js',
-    json: '*.json',
+var path = {
+    rootdir: './',
+    lib: ['./lib/*'],
+    libdir: './lib/',
+    test: ['./test/**/*.js'],
+    testdir: './test/',
+    build: ['package.json', 'component.json', 'bower.json', 'README.md', 'speakingurl.min.js'],
+    json: ['package.json', 'component.json', 'bower.json'],
     readme: './README.md',
+
     target: './speakingurl.min.js'
 };
 
@@ -21,35 +26,38 @@ var banner = ['/**',
     ' */'
 ].join('\n');
 
-gulp.task('beautify', function () {
+gulp.task('beautify', function (done) {
 
-    gulp.src(paths.lib)
-        .pipe(plugins.jsbeautifier({
+    gulp.src(path.lib)
+        .pipe(plugin.jsbeautifier({
             config: '.jsbeautifyrc',
             mode: 'VERIFY_AND_WRITE'
         }))
-        .pipe(gulp.dest('./lib'));
+        .pipe(gulp.dest(path.libdir));
 
-    gulp.src(paths.test)
-        .pipe(plugins.jsbeautifier({
+    gulp.src(path.test)
+        .pipe(plugin.jsbeautifier({
             config: '.jsbeautifyrc',
             mode: 'VERIFY_AND_WRITE'
         }))
-        .pipe(gulp.dest('./test'));
+        .pipe(gulp.dest(path.testdir));
 
-    gulp.src(paths.json)
-        .pipe(plugins.jsbeautifier({
+    gulp.src(path.json)
+        .pipe(plugin.jsbeautifier({
             config: '.jsbeautifyrc',
             mode: 'VERIFY_AND_WRITE'
         }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest(path.rootdir));
+
+    done();
 });
 
-gulp.task('mocha', function () {
-    return gulp.src(paths.test, {
-        read: false
-    })
-        .pipe(plugins.mocha({
+gulp.task('test', function () {
+
+    return gulp.src(path.test, {
+            read: false
+        })
+        .pipe(plugin.mocha({
             reporter: 'spec',
             globals: {
                 should: require('should')
@@ -57,74 +65,69 @@ gulp.task('mocha', function () {
         }));
 });
 
-gulp.task('jshint', function () {
-    return gulp.src(paths.lib)
-        .pipe(plugins.jshint('.jshintrc'), {
+gulp.task('jshint', ['beautify'], function () {
+
+    return gulp.src(path.lib, path.json)
+        .pipe(plugin.jshint('.jshintrc'), {
             verbose: true
         })
-        .pipe(plugins.jshint.reporter('jshint-stylish'));
+        .pipe(plugin.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('uglify', function () {
-    gulp.src(paths.lib)
-        .pipe(plugins.uglify())
-        .pipe(plugins.header(banner, {
+gulp.task('uglify', ['beautify'], function (done) {
+
+    return gulp.src(path.lib)
+        .pipe(plugin.uglify())
+        .pipe(plugin.header(banner, {
             pkg: pkg
         }))
-        .pipe(plugins.rename(paths.target))
-        .pipe(gulp.dest('./'));
+        .pipe(plugin.rename(path.target))
+        .pipe(gulp.dest(path.rootdir));
 });
 
-gulp.task('replace', function () {
+gulp.task('bumpup', ['bumpup-version'], function () {
 
-    gulp.src(paths.readme)
-        .pipe(plugins.replace(
-            /cdnjs.cloudflare.com\/ajax\/libs\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
-            'cdnjs.cloudflare.com/ajax/libs/speakingurl/' + pkg.version +
-            '/speakingurl.min.js'))
-        .pipe(plugins.replace(
-            /cdn.jsdelivr.net\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
-            'cdn.jsdelivr.net/speakingurl/' +
-            pkg.version + '/speakingurl.min.js'))
-        .pipe(gulp.dest('./'));
-});
-
-gulp.task('bumpup', function () {
-
-    gulp.src(paths.json)
-        .pipe(plugins.bump({
-            type: argv.major ? 'major' : (argv.minor ? 'minor' :
-                'patch')
-        }))
-        .pipe(gulp.dest('./'));
-});
-
-gulp.task('npm', function (done) {
-    require('child_process').spawn('npm', ['publish'], {
-        stdio: 'inherit'
-    })
-        .on('close', done);
-});
-
-gulp.task('release', ['beautify', 'jshint', 'mocha', 'uglify', 'bumpup', 'replace'], function () {
     var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-    var v = 'v' + pkg.version;
-    var message = 'Release ' + v;
 
-    gulp.src(paths.json)
-        .pipe(plugins.bump({
-            type: argv.major ? 'major' : (argv.minor ? 'minor' :
-                'patch')
+    // insert newsest version
+    return gulp.src(path.readme)
+        .pipe(plugin.replace(
+            /cdnjs.cloudflare.com\/ajax\/libs\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
+            'cdnjs.cloudflare.com/ajax/libs/speakingurl/' + pkg.version + '/speakingurl.min.js'))
+        .pipe(plugin.replace(
+            /cdn.jsdelivr.net\/speakingurl\/\d{1,1}\.\d{1,2}\.\d{1,2}\/speakingurl.min.js/g,
+            'cdn.jsdelivr.net/speakingurl/' + pkg.version + '/speakingurl.min.js'))
+        .pipe(gulp.dest(path.rootdir));
+});
+
+gulp.task('bumpup-version', function () {
+
+    return gulp.src(path.json)
+        .pipe(plugin.bump({
+            type: argv.major ? 'major' : (argv.minor ? 'minor' : 'patch')
         }))
-        .pipe(gulp.dest('./'))
-        .pipe(plugins.git.add())
-        .pipe(plugins.git.commit(message))
-        .pipe(plugins.git.tag(v, message));
-    plugins.git.push('origin', 'master', '--tags');
+        .pipe(gulp.dest(path.rootdir));
+});
+
+gulp.task('release', ['bumpup'], function (done) {
+
+    var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+    var tag = 'v' + pkg.version;
+    var message = 'Release ' + tag;
+
+    exec(
+        'git add .;' +
+        'git commit -m "Release ' + tag + '";' +
+        'git tag ' + tag + ' -m "Release ' + tag + '";' +
+        'git push -u origin master;' +
+        '#npm publish'
+    );
+
+    done();
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./*.js', 'lib/**/*.js'], ['jshint', 'beautify', 'mocha']);
+    gulp.watch(['./*.js', 'lib/**/*.js'], ['jshint', 'test']);
 });
 
-gulp.task('default', ['jshint', 'beautify', 'mocha', 'replace']);
+gulp.task('default', ['jshint', 'beautify', 'test']);
