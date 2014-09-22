@@ -47,5 +47,16 @@ logs/
 
 # OS generated files #
 ######################
-.DS_Store*
 Icon?
+.DS_Store
+
+.editorconfig
+.git*
+.jshint*
+.npmignore
+.travis.yml
+CHANGELOG.*
+examples
+Gulpfile.js
+gulpfile.js
+test/
