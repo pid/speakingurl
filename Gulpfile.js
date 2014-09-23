@@ -121,7 +121,7 @@ gulp.task('release', ['bumpup'], function (done) {
         'git add .;' +
         'git commit -m "Release ' + tag + '";' +
         'git tag ' + tag + ' -m "Release ' + tag + '";' +
-        'git push -u origin master;' +
+        'git push -u origin master --tags;' +
         'npm publish'
     );
 
