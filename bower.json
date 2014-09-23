@@ -1,7 +1,7 @@
 {
     "name": "speakingurl",
     "version": "0.12.3",
-    "description": "Generate of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' or 'slug' from a string.",
+    "description": "Generate a slug – transliteration with a lot of options",
     "main": "speakingurl.min.js",
     "homepage": "http://pid.github.io/speakingurl/",
     "bugs": "https://github.com/pid/speakingurl/issues",
@@ -9,12 +9,10 @@
         "type": "git",
         "url": "git://github.com/pid/speakingurl.git"
     },
-    "licenses": [
-        {
-            "type": "BSD",
-            "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
-        }
-    ],
+    "licenses": [{
+        "type": "BSD",
+        "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
+    }],
     "ignore": [
         "node_modules"
     ]
