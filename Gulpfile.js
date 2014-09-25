@@ -117,14 +117,20 @@ gulp.task('release', ['bumpup'], function (done) {
     var tag = 'v' + pkg.version;
     var message = 'Release ' + tag;
 
+    console.log(';git add .' +
+    ';git commit -m "Release ' + tag + '"' +
+    ';git tag ' + tag + ' -m "Release ' + tag + '"' +
+    ';git push -u origin master --tags' +
+    ';npm publish');
+
     exec(
-        ';npm rm speakingurl -g'
-        ';npm install . -g' + // check if package is installable
-        '&& git add .' +
-        '&& git commit -m "Release ' + tag + '"' +
-        '&& git tag ' + tag + ' -m "Release ' + tag + '"' +
-        '&& git push -u origin master --tags' +
-        '&& npm publish'
+        // ';npm rm speakingurl -g' +
+        // ';npm install . -g' + // check if package is installable
+        ';git add .' +
+        ';git commit -m "Release ' + tag + '"' +
+        ';git tag ' + tag + ' -m "Release ' + tag + '"' +
+        ';git push -u origin master --tags' +
+        ';npm publish'
     );
 
     done();
