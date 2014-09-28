@@ -5,6 +5,17 @@ Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://b
 
 For use in browser and server - no dependencies!
 
+###### Notes
+
+Never use the slug to reference to the unique page in the database – if the title will change, you want to change the slug – you run into problems.
+
+1. Use a unique reference to the record – e.g. a unique key "12345" => /my-little-title-12345.html
+2. Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl
+
+Redirect with 301 to the last/current slug.
+
+##### NPM Badge
+
 [![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
 
 Installation
