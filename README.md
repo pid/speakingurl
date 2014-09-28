@@ -283,6 +283,15 @@ $ grunt
 $
 ```
 
+Release
+-------
+
+```shell
+$ gulp bumpup --patch
+$ gulp
+$ gulp release
+```
+
 [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
 
 References
