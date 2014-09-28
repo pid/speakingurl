@@ -1,7 +1,9 @@
 Changelog
 =========
 
-- v0.13.0 see v0.12.4; update README info for uni
+- v0.13.1 after publishing corrected 0.12.5, the 0.13.0 was unpublished WTF?
+- v0.13.0 not published
+- v0.12.5 reverted v0.12.3
 - v0.12.4 deprecated; change to map, mistakenly without bumpup minor version!
 - v0.12.3 switch to gulpjs
 - v0.12.2 corrupt gulpfile, not published to npm registry
