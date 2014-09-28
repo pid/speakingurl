@@ -32,15 +32,27 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="speaking-url--" class="anchor" href="#speaking-url--"><span class="octicon octicon-link"></span></a>Speaking URL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a>
+<a name="speaking-url---" class="anchor" href="#speaking-url---"><span class="octicon octicon-link"></span></a>Speaking URL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a> <a href="https://gitter.im/pid/speakingurl?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
 </h1>
 
 <blockquote>
-<p>Generate a slug with a lot of options; create of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string.
-This module aims to transliterate the input string.</p>
+<p>Generate a slug with a lot of options; create of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string. This module aims to transliterate the input string.</p>
 </blockquote>
 
 <p>For use in browser and server - no dependencies!</p>
+
+<h6>
+<a name="notes" class="anchor" href="#notes"><span class="octicon octicon-link"></span></a>Notes</h6>
+
+<p>Never use the slug to reference to the unique page in the database – if the title will change, you want to change the slug – you run into problems.</p>
+
+<ol>
+<li>Use a unique reference to the record – e.g. a unique key "12345" =&gt; /my-little-title-12345.html</li>
+<li>Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl</li>
+</ol><p>Redirect with 301 to the last/current slug.</p>
+
+<h5>
+<a name="npm-badge" class="anchor" href="#npm-badge"><span class="octicon octicon-link"></span></a>NPM Badge</h5>
 
 <p><a href="https://npmjs.org/package/speakingurl"><img src="https://nodei.co/npm/speakingurl.png?downloads=true&amp;stars=true" alt="Module Status"></a></p>
 
@@ -88,7 +100,7 @@ This module aims to transliterate the input string.</p>
 <ul>
 <li>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.12.1/speakingurl.min.js</li>
+<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.13.1/speakingurl.min.js</li>
 </ul><h4>
 <a name="cdnmaxcdn" class="anchor" href="#cdnmaxcdn"><span class="octicon octicon-link"></span></a><a href="https://www.maxcdn.com/">CDN/maxcdn</a>
 </h4>
@@ -96,7 +108,7 @@ This module aims to transliterate the input string.</p>
 <ul>
 <li>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>use //cdn.jsdelivr.net/speakingurl/0.12.1/speakingurl.min.js</li>
+<li>use //cdn.jsdelivr.net/speakingurl/0.13.1/speakingurl.min.js</li>
 </ul><h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
@@ -182,7 +194,8 @@ This module aims to transliterate the input string.</p>
 </li>
 </ul>
 </li>
-<li><p><code>options</code> {string} separator</p></li>
+<li>
+<code>options</code> {string} separator</li>
 </ul><p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the list of allowed characters. The separator-character is always allowed.</p>
 
 <h5>
@@ -368,6 +381,14 @@ $ grunt
 $
 </code></pre>
 
+<h2>
+<a name="release" class="anchor" href="#release"><span class="octicon octicon-link"></span></a>Release</h2>
+
+<pre lang="shell"><code>$ gulp bumpup --patch
+$ gulp
+$ gulp release
+</code></pre>
+
 <p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
 
 <h2>
@@ -389,8 +410,7 @@ $
 
 <p>The BSD 3-Clause License (BSD3)</p>
 
-<p>Copyright (c) 2013-2014 Sascha Droste <a href="mailto:pid@posteo.net">pid@posteo.net</a>
-All rights reserved.</p>
+<p>Copyright (c) 2013-2014 Sascha Droste <a href="mailto:pid@posteo.net">pid@posteo.net</a> All rights reserved.</p>
 
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 
