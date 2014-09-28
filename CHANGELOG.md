@@ -1,6 +1,7 @@
 Changelog
 =========
 
+- v0.12.4 deprecated; change to map, mistakenly without bumpup minor version!
 - v0.12.3 switch to gulpjs
 - v0.12.2 corrupt gulpfile, not published to npm registry
 - v0.12.1 update devDep
