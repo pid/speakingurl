@@ -111,7 +111,7 @@ gulp.task('bumpup-version', function () {
         .pipe(gulp.dest(path.rootdir));
 });
 
-gulp.task('release', ['default', 'bumpup'], function (done) {
+gulp.task('release', function (done) {
 
     var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
     var tag = 'v' + pkg.version;
