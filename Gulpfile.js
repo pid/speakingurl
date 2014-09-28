@@ -111,7 +111,7 @@ gulp.task('bumpup-version', function () {
         .pipe(gulp.dest(path.rootdir));
 });
 
-gulp.task('release', ['bumpup'], function (done) {
+gulp.task('release', ['default', 'bumpup'], function (done) {
 
     var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
     var tag = 'v' + pkg.version;
@@ -124,7 +124,7 @@ gulp.task('release', ['bumpup'], function (done) {
         'git tag ' + tag + ' -m "Release ' + tag + '"',
         'git push -u origin master',
         'git push -u origin master --tags',
-        ''
+        'npm publish'
     ].join('\n');
 
     exec(execute, done());
