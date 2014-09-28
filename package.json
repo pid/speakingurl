@@ -9,20 +9,18 @@
         "url": "git://github.com:pid/speakingurl.git"
     },
     "bugs": "https://github.com/pid/speakingurl/issues",
-    "licenses": [
-        {
-            "type": "BSD",
-            "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
-        }
-    ],
+    "licenses": [{
+        "type": "BSD",
+        "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
+    }],
     "keywords": [
         "slug",
+        "slugify",
         "speakingurl",
         "transliteration",
         "permalink",
         "seo",
         "url",
-        "speaking url",
         "nice url",
         "static url",
         "clean url",
