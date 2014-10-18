@@ -1,6 +1,7 @@
 Changelog
 =========
 
+- v0.14.0 add support for turkish
 - v0.13.1 after publishing corrected 0.12.5, the 0.13.0 was unpublished WTF?
 - v0.13.0 not published
 - v0.12.5 reverted v0.12.3
