@@ -107,16 +107,16 @@ describe('getSlug languages', function () {
                         // console.log('check symbol: ' + s);
 
                         getSlug('Foo ' + s + ' Bar', {
-                            lang: l,
-                            maintainCase: true
-                        })
+                                lang: l,
+                                maintainCase: true
+                            })
                             .should.eql('Foo-' + getSlug(k, {
                                 maintainCase: true
                             }) + '-Bar');
 
                         getSlug('Foo ' + s + ' Bar', {
-                            lang: l
-                        })
+                                lang: l
+                            })
                             .should.eql('foo-' + getSlug(k) +
                                 '-bar');
 
@@ -128,41 +128,41 @@ describe('getSlug languages', function () {
             .should.eql('en-foo-and-bar');
 
         getSlug('EN Foo & Bar ', {
-            lang: "en"
-        })
+                lang: "en"
+            })
             .should.eql('en-foo-and-bar');
         getSlug('de Foo & Bar ', {
-            lang: "de"
-        })
+                lang: "de"
+            })
             .should.eql('de-foo-und-bar');
         getSlug('True Foo & Bar ', {
-            lang: true
-        })
+                lang: true
+            })
             .should.eql('true-foo-bar');
 
         getSlug('False Foo & Bar ', {
-            lang: false
-        })
+                lang: false
+            })
             .should.eql('false-foo-bar');
 
         getSlug('xx Foo & Bar ', {
-            lang: "xx"
-        })
+                lang: "xx"
+            })
             .should.eql('xx-foo-and-bar');
 
         getSlug('obj Foo & Bar ', {
-            lang: {}
-        })
+                lang: {}
+            })
             .should.eql('obj-foo-and-bar');
 
         getSlug('array Foo & Bar ', {
-            lang: []
-        })
+                lang: []
+            })
             .should.eql('array-foo-and-bar');
 
         getSlug('null Foo & Bar ', {
-            lang: null
-        })
+                lang: null
+            })
             .should.eql('null-foo-and-bar');
 
         done();

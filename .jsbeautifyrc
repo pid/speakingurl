@@ -15,5 +15,7 @@
     "unescape_strings": false,
     "break_chained_methods": false,
     "space_before_conditional": true,
+    "space_after_anon_function": true,
+    "jslint_happy": false,
     "wrap_line_length": 242
 }

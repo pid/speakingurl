@@ -8,21 +8,21 @@ describe('getSlug config combinations', function () {
     it('should separate with configured character, with non-Base64 separator', function (done) {
 
         getSlug('Foo, Bar Baz', {
-            separator: '*',
-            maintainCase: false
-        })
+                separator: '*',
+                maintainCase: false
+            })
             .should.eql('foo*bar*baz');
 
         getSlug('Foo- Bar Baz', {
-            separator: '*',
-            maintainCase: false
-        })
+                separator: '*',
+                maintainCase: false
+            })
             .should.eql('foo-*bar*baz');
 
         getSlug('Foo] Bar Baz', {
-            separator: '*',
-            maintainCase: false
-        })
+                separator: '*',
+                maintainCase: false
+            })
             .should.eql('foo*bar*baz');
 
         done();
@@ -31,21 +31,21 @@ describe('getSlug config combinations', function () {
     it('should separate with configured character, with only Base64 characters allowed', function (done) {
 
         getSlug('Foo, Bar Baz', {
-            separator: '_',
-            onlyBase64: true
-        })
+                separator: '_',
+                onlyBase64: true
+            })
             .should.eql('foo_bar_baz');
 
         getSlug('Foo- Bar Baz', {
-            separator: '_',
-            onlyBase64: true
-        })
+                separator: '_',
+                onlyBase64: true
+            })
             .should.eql('foo-_bar_baz');
 
         getSlug('Foo] Bar Baz', {
-            separator: '_',
-            onlyBase64: true
-        })
+                separator: '_',
+                onlyBase64: true
+            })
             .should.eql('foo_bar_baz');
 
         done();
@@ -54,27 +54,27 @@ describe('getSlug config combinations', function () {
     it('should separate with configured character, with smart trim', function (done) {
 
         getSlug('Foobarbaz, Bar Baz', {
-            separator: '_',
-            truncate: 12
-        })
+                separator: '_',
+                truncate: 12
+            })
             .should.eql('foobarbaz');
 
         getSlug('Foobarbaz, Bar Baz', {
-            separator: '_',
-            truncate: 15
-        })
+                separator: '_',
+                truncate: 15
+            })
             .should.eql('foobarbaz_bar');
 
         getSlug(' Foobarbaz, Bar Baz', {
-            separator: '_',
-            truncate: 15
-        })
+                separator: '_',
+                truncate: 15
+            })
             .should.eql('foobarbaz_bar');
 
         getSlug('  Foobarbaz,    Bar Baz', {
-            separator: '_',
-            truncate: 15
-        })
+                separator: '_',
+                truncate: 15
+            })
             .should.eql('foobarbaz_bar');
 
         done();
@@ -83,21 +83,21 @@ describe('getSlug config combinations', function () {
     it('should maintain case characters, with non-Base64 separator', function (done) {
 
         getSlug('Foo, Bar Baz', {
-            maintainCase: true,
-            separator: '*'
-        })
+                maintainCase: true,
+                separator: '*'
+            })
             .should.eql('Foo*Bar*Baz');
 
         getSlug('Foo- Bar Baz', {
-            maintainCase: true,
-            separator: '*'
-        })
+                maintainCase: true,
+                separator: '*'
+            })
             .should.eql('Foo-*Bar*Baz');
 
         getSlug('Foo] Bar Baz', {
-            maintainCase: true,
-            separator: '*'
-        })
+                maintainCase: true,
+                separator: '*'
+            })
             .should.eql('Foo*Bar*Baz');
 
         done();
@@ -106,27 +106,27 @@ describe('getSlug config combinations', function () {
     it('should maintain case characters, with only Base64 characters allowed', function (done) {
 
         getSlug('Foo, Bar Baz', {
-            maintainCase: true,
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                maintainCase: true,
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('Foo-Bar-Baz');
 
         getSlug('Foo- Bar Baz', {
-            maintainCase: true,
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                maintainCase: true,
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('Foo-Bar-Baz');
 
         getSlug('Foo] Bar Baz', {
-            maintainCase: true,
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                maintainCase: true,
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('Foo-Bar-Baz');
 
         done();
@@ -135,27 +135,27 @@ describe('getSlug config combinations', function () {
     it('should maintain case characters, with smart trim', function (done) {
 
         getSlug('Foobarbaz, Bar Baz', {
-            maintainCase: true,
-            truncate: 12
-        })
+                maintainCase: true,
+                truncate: 12
+            })
             .should.eql('Foobarbaz');
 
         getSlug('Foobarbaz, Bar Baz', {
-            maintainCase: true,
-            truncate: 15
-        })
+                maintainCase: true,
+                truncate: 15
+            })
             .should.eql('Foobarbaz-Bar');
 
         getSlug(' Foobarbaz, Bar Baz', {
-            maintainCase: true,
-            truncate: 15
-        })
+                maintainCase: true,
+                truncate: 15
+            })
             .should.eql('Foobarbaz-Bar');
 
         getSlug('  Foobarbaz,    Bar Baz', {
-            maintainCase: true,
-            truncate: 15
-        })
+                maintainCase: true,
+                truncate: 15
+            })
             .should.eql('Foobarbaz-Bar');
 
         done();
@@ -164,31 +164,31 @@ describe('getSlug config combinations', function () {
     it('should prefer Base64 characters only', function (done) {
 
         getSlug('Foo, Bar Baz', {
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('foo-bar-baz');
 
         getSlug('Foo- Bar Baz', {
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('foo-bar-baz');
 
         getSlug('Foo] Bar Baz', {
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('foo-bar-baz');
 
         getSlug('Foo* Bar Baz', {
-            uric: false,
-            uricNoSlash: false,
-            mark: false
-        })
+                uric: false,
+                uricNoSlash: false,
+                mark: false
+            })
             .should.eql('foo-bar-baz');
 
         done();
