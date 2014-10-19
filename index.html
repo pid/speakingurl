@@ -102,7 +102,7 @@
 <ul>
 <li>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.14.0/speakingurl.min.js</li>
+<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.15.0/speakingurl.min.js</li>
 </ul>
 
 <h4>
@@ -112,7 +112,7 @@
 <ul>
 <li>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>use //cdn.jsdelivr.net/speakingurl/0.14.0/speakingurl.min.js</li>
+<li>use //cdn.jsdelivr.net/speakingurl/0.15.0/speakingurl.min.js</li>
 </ul>
 
 <h2>
@@ -141,7 +141,7 @@
 <code>lang</code> {string} default: 'en'
 
 <ul>
-<li>language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk' and 'vn'; more coming soon, please help!)</li>
+<li>language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
 <li>false -&gt; don't convert symbols</li>
 </ul>
 </li>
@@ -382,9 +382,15 @@ $ npm install -g grunt-cli
 # add tests
 # add example for new feature
 # add description/example to README.md
-$ grunt
+$ gulp
+$ commit files (speakingurl.min.js,...)
 # if everything works fine, commit, push to your repository
 # create pull request
+
+# release new version / only for maintainer
+$ gulp bumpup --minor
+$ gulp release
+
 
 $
 </code></pre>
@@ -411,7 +417,7 @@ $ gulp release
 <a name="ports" class="anchor" href="#ports"><span class="octicon octicon-link"></span></a>Ports</h2>
 
 <ul>
-<li>Java <a href="https://github.com/Weltraumschaf/speakingurl">https://github.com/Weltraumschaf/speakingurl</a> thanks to <a href="https://github.com/Weltraumschaf" class="user-mention">@Weltraumschaf</a>
+<li>Java <a href="https://github.com/Weltraumschaf/speakingurl">https://github.com/Weltraumschaf/speakingurl</a> thanks to <a href="https://github.com/Weltraumschaf/">@Weltraumschaf</a>
 </li>
 </ul>
 
