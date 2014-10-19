@@ -276,9 +276,15 @@ $ npm install -g grunt-cli
 # add tests
 # add example for new feature
 # add description/example to README.md
-$ grunt
+$ gulp
+$ commit files (speakingurl.min.js,...)
 # if everything works fine, commit, push to your repository
 # create pull request
+
+# release new version / only for maintainer
+$ gulp bumpup --minor
+$ gulp release
+
 
 $
 ```
