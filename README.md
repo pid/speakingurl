@@ -309,7 +309,7 @@ References
 Ports
 -----
 
-- Java https://github.com/Weltraumschaf/speakingurl thanks to @Weltraumschaf
+- Java https://github.com/Weltraumschaf/speakingurl thanks to [@Weltraumschaf](https://github.com/Weltraumschaf/)
 
 
 Credits
