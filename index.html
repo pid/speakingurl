@@ -47,8 +47,8 @@
 <p>Never use the slug to reference to the unique page in the database – if the title will change, you want to change the slug – you run into problems.</p>
 
 <ol>
-<li>Use a unique reference to the record – e.g. a unique key "12345" =&gt; /my-little-title-12345.html</li>
-<li>Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl</li>
+<li> Use a unique reference to the record – e.g. a unique key "12345" =&gt; /my-little-title-12345.html</li>
+<li> Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl</li>
 </ol>
 
 <p>Redirect with 301 to the last/current slug.</p>
@@ -65,29 +65,29 @@
 <a name="npm" class="anchor" href="#npm"><span class="octicon octicon-link"></span></a><a href="https://npmjs.org/package/onetime">npm</a>
 </h4>
 
-<pre lang="shell"><code>npm install speakingurl --save
-</code></pre>
+<div class="highlight highlight-shell"><pre>npm install speakingurl --save
+</pre></div>
 
 <h4>
 <a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a><a href="http://bower.io">Bower</a>
 </h4>
 
-<pre lang="shell"><code>bower install --save speakingurl
-</code></pre>
+<div class="highlight highlight-shell"><pre>bower install --save speakingurl
+</pre></div>
 
 <h4>
 <a name="component" class="anchor" href="#component"><span class="octicon octicon-link"></span></a><a href="https://github.com/component/component">Component</a>
 </h4>
 
-<pre lang="shell"><code>component install pid/speakingurl
-</code></pre>
+<div class="highlight highlight-shell"><pre>component install pid/speakingurl
+</pre></div>
 
 <h4>
 <a name="jamjs" class="anchor" href="#jamjs"><span class="octicon octicon-link"></span></a><a href="http://jamjs.org/">jamjs</a>
 </h4>
 
-<pre lang="shell"><code>jam install speakingurl
-</code></pre>
+<div class="highlight highlight-shell"><pre>jam install speakingurl
+</pre></div>
 
 <h4>
 <a name="download-package" class="anchor" href="#download-package"><span class="octicon octicon-link"></span></a><a href="https://github.com/pid/speakingurl/releases">Download Package</a>
@@ -100,9 +100,9 @@
 </h4>
 
 <ul>
-<li>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
+<li>  available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.15.0/speakingurl.min.js</li>
+<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.16.0/speakingurl.min.js</li>
 </ul>
 
 <h4>
@@ -110,9 +110,9 @@
 </h4>
 
 <ul>
-<li>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
+<li>  available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>use //cdn.jsdelivr.net/speakingurl/0.15.0/speakingurl.min.js</li>
+<li>  use //cdn.jsdelivr.net/speakingurl/0.16.0/speakingurl.min.js</li>
 </ul>
 
 <h2>
@@ -130,78 +130,68 @@
 <p><code>options</code> {object}</p>
 
 <ul>
-<li>
-<code>separator</code> {string} default: '-'
+<li>  <code>separator</code> {string} default: '-'
 
 <ul>
-<li>char that replace the whitespaces</li>
+<li>  char that replace the whitespaces</li>
 </ul>
 </li>
-<li>
-<code>lang</code> {string} default: 'en'
+<li>  <code>lang</code> {string} default: 'en'
 
 <ul>
-<li>language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
-<li>false -&gt; don't convert symbols</li>
+<li>  language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
+<li>  false -&gt; don't convert symbols</li>
 </ul>
 </li>
-<li>
-<code>maintainCase</code> {boolean} default: false
+<li>  <code>maintainCase</code> {boolean} default: false
 
 <ul>
-<li>true -&gt; maintain case chars</li>
-<li>false -&gt; convert all chars to lower case</li>
+<li>  true -&gt; maintain case chars</li>
+<li>  false -&gt; convert all chars to lower case</li>
 </ul>
 </li>
-<li>
-<code>titleCase</code> {boolean|array} default: false
+<li>  <code>titleCase</code> {boolean|array} default: false
 
 <ul>
-<li>true -&gt; convert input string to title-case</li>
-<li>array -&gt; exclude words</li>
+<li>  true -&gt; convert input string to title-case</li>
+<li>  array -&gt; exclude words</li>
 </ul>
 </li>
-<li>
-<code>truncate</code> {number} default: 0
+<li>  <code>truncate</code> {number} default: 0
 
 <ul>
-<li>0 -&gt; don't trim length</li>
-<li>&gt;= 1 -&gt; trim to max length while not breaking any words</li>
+<li>  0 -&gt; don't trim length</li>
+<li>  &gt;= 1 -&gt; trim to max length while not breaking any words</li>
 </ul>
 </li>
-<li>
-<code>uric</code> {boolean} default: false
+<li>  <code>uric</code> {boolean} default: false
 
 <ul>
-<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
-<li>false</li>
+<li>  true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
+<li>  false</li>
 </ul>
 </li>
-<li>
-<code>uricNoSlash</code> {boolean} default: false
+<li>  <code>uricNoSlash</code> {boolean} default: false
 
 <ul>
-<li>true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
+<li>  true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
 </ul>
 </li>
-<li>
-<code>mark</code> {boolean} default: false
+<li>  <code>mark</code> {boolean} default: false
 
 <ul>
-<li>true -&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
+<li>  true -&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
 </ul>
 </li>
-<li>
-<code>custom</code> {object} default: {}
+<li>  <code>custom</code> {object} default: {}
 
 <ul>
-<li>custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
+<li>  custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<code>options</code> {string} separator</li>
+<li><p><code>options</code> {string} separator</p></li>
 </ul>
 
 <p>notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting <code>uric</code>, <code>uricNoSlash</code> or/and <code>mark</code> to <code>true</code> will add the specified chars to the list of allowed characters. The separator-character is always allowed.</p>
@@ -366,42 +356,41 @@
 
 <p><a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a></p>
 
-<pre lang="shell"><code>npm test
-</code></pre>
+<div class="highlight highlight-shell"><pre>npm <span class="nb">test</span>
+</pre></div>
 
 <h2>
 <a name="contribution" class="anchor" href="#contribution"><span class="octicon octicon-link"></span></a>Contribution</h2>
 
-<pre lang="shell"><code>
-# fork pid/speakingurl on Github
-$ git clone git@github.com:&lt;YOUR_USER&gt;/speakingurl.git
-$ cd speakingurl
-$ npm install
-$ npm install -g grunt-cli
-# add your stuff
-# add tests
-# add example for new feature
-# add description/example to README.md
-$ gulp
-$ commit files (speakingurl.min.js,...)
-# if everything works fine, commit, push to your repository
-# create pull request
+<div class="highlight highlight-shell"><pre>
+<span class="c"># fork pid/speakingurl on Github</span>
+<span class="nv">$ </span>git clone git@github.com:&lt;YOUR_USER&gt;/speakingurl.git
+<span class="nv">$ </span><span class="nb">cd </span>speakingurl
+<span class="nv">$ </span>npm install
+<span class="c"># add your stuff</span>
+<span class="c"># add tests</span>
+<span class="c"># add example for new feature</span>
+<span class="c"># add description/example to README.md</span>
+<span class="nv">$ </span>gulp
+<span class="nv">$ </span>commit files <span class="o">(</span>speakingurl.min.js,...<span class="o">)</span>
+<span class="c"># if everything works fine, commit, push to your repository</span>
+<span class="c"># create pull request</span>
 
-# release new version / only for maintainer
-$ gulp bumpup --minor
-$ gulp release
+<span class="c"># release new version / only for maintainer</span>
+<span class="nv">$ </span>gulp bumpup --minor
+<span class="nv">$ </span>gulp release
 
 
-$
-</code></pre>
+<span class="err">$</span>
+</pre></div>
 
 <h2>
 <a name="release" class="anchor" href="#release"><span class="octicon octicon-link"></span></a>Release</h2>
 
-<pre lang="shell"><code>$ gulp bumpup --patch
-$ gulp
-$ gulp release
-</code></pre>
+<div class="highlight highlight-shell"><pre><span class="nv">$ </span>gulp bumpup --patch
+<span class="nv">$ </span>gulp
+<span class="nv">$ </span>gulp release
+</pre></div>
 
 <p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
 
@@ -409,15 +398,17 @@ $ gulp release
 <a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h2>
 
 <ul>
-<li><a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Transliteration">http://en.wikipedia.org/wiki/Transliteration</a></li>
+<li>  <a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a>
+</li>
+<li>  <a href="http://en.wikipedia.org/wiki/Transliteration">http://en.wikipedia.org/wiki/Transliteration</a>
+</li>
 </ul>
 
 <h2>
 <a name="ports" class="anchor" href="#ports"><span class="octicon octicon-link"></span></a>Ports</h2>
 
 <ul>
-<li>Java <a href="https://github.com/Weltraumschaf/speakingurl">https://github.com/Weltraumschaf/speakingurl</a> thanks to <a href="https://github.com/Weltraumschaf/">@Weltraumschaf</a>
+<li>  Java <a href="https://github.com/Weltraumschaf/speakingurl">https://github.com/Weltraumschaf/speakingurl</a> thanks to <a href="https://github.com/Weltraumschaf/">@Weltraumschaf</a>
 </li>
 </ul>
 
@@ -425,9 +416,12 @@ $ gulp release
 <a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
 
 <ul>
-<li><a href="https://github.com/dypsilon/">@dypsilon</a></li>
-<li><a href="https://github.com/simov/">@simov</a></li>
-<li><a href="https://github.com/henrikjoreteg/">@henrikjoreteg</a></li>
+<li>  <a href="https://github.com/dypsilon/">@dypsilon</a>
+</li>
+<li>  <a href="https://github.com/simov/">@simov</a>
+</li>
+<li>  <a href="https://github.com/henrikjoreteg/">@henrikjoreteg</a>
+</li>
 </ul>
 
 <h2>
@@ -441,9 +435,9 @@ $ gulp release
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 
 <ul>
-<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
-<li>Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+<li>  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>  Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
 </ul>
 
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
