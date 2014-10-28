@@ -73,7 +73,7 @@ Usage
 	-	`separator` {string} default: '-'
 		-	char that replace the whitespaces
 	-	`lang` {string} default: 'en'
-		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
+		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
 		-	false -> don't convert symbols
 	-	`maintainCase` {boolean} default: false
 		-	true -> maintain case chars
@@ -275,6 +275,7 @@ $ npm install
 # add your stuff
 # add tests
 # add example for new feature
+# add release info to CHANGELOG.md
 # add description/example to README.md
 $ gulp
 $ commit files (speakingurl.min.js,...)
