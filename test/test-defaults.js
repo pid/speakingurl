@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug defaults', function () {
+describe('getSlug defaults', function() {
     'use strict';
 
-    it('should replace whitespaces with separator', function (done) {
+    it('should replace whitespaces with separator', function(done) {
 
         getSlug('foo bar baz')
             .should.eql('foo-bar-baz');
@@ -13,7 +13,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should remove trailing space if any', function (done) {
+    it('should remove trailing space if any', function(done) {
 
         getSlug(' foo bar baz ')
             .should.eql('foo-bar-baz');
@@ -21,7 +21,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should remove multiple whitespaces', function (done) {
+    it('should remove multiple whitespaces', function(done) {
 
         getSlug(' foo bar  baz   FOO    BAR      BAZ      ')
             .should.eql('foo-bar-baz-foo-bar-baz');
@@ -29,7 +29,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should remove multiple separators at start and end', function (done) {
+    it('should remove multiple separators at start and end', function(done) {
 
         getSlug('-foo- bar -baz-')
             .should.eql('foo-bar-baz');
@@ -41,7 +41,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should remove multple separators', function (done) {
+    it('should remove multple separators', function(done) {
 
         getSlug('foo- bar -baz')
             .should.eql('foo-bar-baz');
@@ -49,7 +49,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should remove non-base64 characters', function (done) {
+    it('should remove non-base64 characters', function(done) {
 
         var nonBase64 = ['[', ']', ',', '*', '+', '~', '.', '(', ')', '\'', '"', '!', ':', '@'];
 
@@ -61,7 +61,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should remove trailing separator', function (done) {
+    it('should remove trailing separator', function(done) {
 
         getSlug('C\'est un beau titre qui ne laisse rien à désirer  ! ')
             .should.eql(
@@ -70,7 +70,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should handle whitespace after symbol', function (done) {
+    it('should handle whitespace after symbol', function(done) {
 
         getSlug('∆299')
             .should.eql('delta-299');
@@ -84,8 +84,8 @@ describe('getSlug defaults', function () {
         getSlug('(∆)299')
             .should.eql('delta-299');
         getSlug('(∆)299', {
-                mark: true
-            })
+            mark: true
+        })
             .should.eql('(delta)299');
 
         getSlug('∆299')
@@ -101,7 +101,7 @@ describe('getSlug defaults', function () {
         done();
     });
 
-    it('should not fail if symbol at the end', function (done) {
+    it('should not fail if symbol at the end', function(done) {
 
         getSlug('test &')
             .should.eql('test-and');

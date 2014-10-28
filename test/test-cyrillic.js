@@ -2,10 +2,10 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug translate cyrillic letters', function () {
+describe('getSlug translate cyrillic letters', function() {
     'use strict';
 
-    it('should be ', function (done) {
+    it('should be ', function(done) {
 
         getSlug('Пью')
             .should.eql('pyu');

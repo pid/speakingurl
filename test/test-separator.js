@@ -2,24 +2,24 @@
 
 var getSlug = require('../lib');
 
-describe('getSlug separator', function () {
+describe('getSlug separator', function() {
     'use strict';
 
-    it('should separate with non-whitespace', function (done) {
+    it('should separate with non-whitespace', function(done) {
 
         getSlug('Foo Bar Baz', {
-                separator: '-'
-            })
+            separator: '-'
+        })
             .should.eql('foo-bar-baz');
 
         getSlug('Foo Bar Baz', {
-                separator: '*'
-            })
+            separator: '*'
+        })
             .should.eql('foo*bar*baz');
 
         getSlug('Foo Bar Baz', {
-                separator: '_'
-            })
+            separator: '_'
+        })
             .should.eql('foo_bar_baz');
 
         getSlug('Foo Bar Baz', '-')
@@ -35,21 +35,21 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should separate with non-whitespace, with trailing spaces', function (done) {
+    it('should separate with non-whitespace, with trailing spaces', function(done) {
 
         getSlug(' Foo Bar Baz ', {
-                separator: '-'
-            })
+            separator: '-'
+        })
             .should.eql('foo-bar-baz');
 
         getSlug('  Foo Bar Baz  ', {
-                separator: '*'
-            })
+            separator: '*'
+        })
             .should.eql('foo*bar*baz');
 
         getSlug('   Foo Bar Baz   ', {
-                separator: '_'
-            })
+            separator: '_'
+        })
             .should.eql('foo_bar_baz');
 
         getSlug(' Foo Bar Baz ', '-')
@@ -65,21 +65,21 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should separate with trailing separator "-"', function (done) {
+    it('should separate with trailing separator "-"', function(done) {
 
         getSlug('-Foo Bar Baz-', {
-                separator: '-'
-            })
+            separator: '-'
+        })
             .should.eql('foo-bar-baz');
 
         getSlug('--Foo Bar Baz---', {
-                separator: '-'
-            })
+            separator: '-'
+        })
             .should.eql('foo-bar-baz');
 
         getSlug('---Foo Bar Baz---', {
-                separator: '-'
-            })
+            separator: '-'
+        })
             .should.eql('foo-bar-baz');
 
         getSlug('-Foo Bar Baz-', '-')
@@ -94,21 +94,21 @@ describe('getSlug separator', function () {
         done();
     });
 
-    it('should separate with trailing separator "*"', function (done) {
+    it('should separate with trailing separator "*"', function(done) {
 
         getSlug('*Foo Bar Baz*', {
-                separator: '*'
-            })
+            separator: '*'
+        })
             .should.eql('foo*bar*baz');
 
         getSlug('**Foo Bar Baz**', {
-                separator: '*'
-            })
+            separator: '*'
+        })
             .should.eql('foo*bar*baz');
 
         getSlug('***Foo Bar Baz***', {
-                separator: '*'
-            })
+            separator: '*'
+        })
             .should.eql('foo*bar*baz');
 
         getSlug('*Foo Bar Baz*', '*')
@@ -124,21 +124,21 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should separate with trailing separator "_"', function (done) {
+    it('should separate with trailing separator "_"', function(done) {
 
         getSlug('_Foo Bar Baz_', {
-                separator: '_'
-            })
+            separator: '_'
+        })
             .should.eql('foo_bar_baz');
 
         getSlug('__Foo Bar Baz__', {
-                separator: '_'
-            })
+            separator: '_'
+        })
             .should.eql('foo_bar_baz');
 
         getSlug('___Foo Bar Baz___', {
-                separator: '_'
-            })
+            separator: '_'
+        })
             .should.eql('foo_bar_baz');
 
         getSlug('_Foo Bar Baz_', '_')
@@ -153,16 +153,16 @@ describe('getSlug separator', function () {
         done();
     });
 
-    it('should remove trailing separator "*"', function (done) {
+    it('should remove trailing separator "*"', function(done) {
 
         getSlug(' C\'est un beau titre qui ne laisse rien à désirer !', {
-                separator: '*'
-            })
+            separator: '*'
+        })
             .should.eql(
                 'c*est*un*beau*titre*qui*ne*laisse*rien*a*desirer');
 
         getSlug(' C\'est un beau titre qui ne laisse rien à désirer !',
-                '*')
+            '*')
             .should.eql(
                 'c*est*un*beau*titre*qui*ne*laisse*rien*a*desirer');
 
@@ -170,7 +170,7 @@ describe('getSlug separator', function () {
 
     });
 
-    it('should return empty string because of non string input', function (done) {
+    it('should return empty string because of non string input', function(done) {
 
         getSlug(true)
             .should.eql('');
