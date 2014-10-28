@@ -9,8 +9,8 @@ For use in browser and server - no dependencies!
 
 Never use the slug to reference to the unique page in the database – if the title will change, you want to change the slug – you run into problems.
 
-1. Use a unique reference to the record – e.g. a unique key "12345" => /my-little-title-12345.html
-2. Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl
+1.	Use a unique reference to the record – e.g. a unique key "12345" => /my-little-title-12345.html
+2.	Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl
 
 Redirect with 301 to the last/current slug.
 
@@ -51,13 +51,13 @@ copy the file speakingurl.min.js to your script directory
 
 #### [CDN/cloudflare](https://www.cloudflare.com/)
 
-- available versions: http://cdnjs.com/libraries/speakingurl/
-- use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.15.0/speakingurl.min.js
+-	available versions: http://cdnjs.com/libraries/speakingurl/
+-	use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.16.0/speakingurl.min.js
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
-- available versions: http://www.jsdelivr.com/#!speakingurl
-- use //cdn.jsdelivr.net/speakingurl/0.15.0/speakingurl.min.js
+-	available versions: http://www.jsdelivr.com/#!speakingurl
+-	use //cdn.jsdelivr.net/speakingurl/0.16.0/speakingurl.min.js
 
 Usage
 -----
@@ -68,32 +68,33 @@ Usage
 
 `options` {object|string} config object or separator string (see below)
 
-- `options` {object}
+-	`options` {object}
 
-	- `separator` {string} default: '-'
-		- char that replace the whitespaces
-	- `lang` {string} default: 'en'
-		- language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
-		- false -> don't convert symbols
-	- `maintainCase` {boolean} default: false
-		- true -> maintain case chars
-		- false -> convert all chars to lower case
-	- `titleCase` {boolean|array} default: false
-		- true -> convert input string to title-case
-		- array -> exclude words
-	- `truncate` {number} default: 0
-		- 0 -> don't trim length
-		- &gt;= 1 -> trim to max length while not breaking any words
-	- `uric` {boolean} default: false
-		- true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
-		- false
-	- `uricNoSlash` {boolean} default: false
-		- true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
-	- `mark` {boolean} default: false
-		- true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
-	- `custom` {object} default: {}
-		- custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
-- `options` {string} separator
+	-	`separator` {string} default: '-'
+		-	char that replace the whitespaces
+	-	`lang` {string} default: 'en'
+		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
+		-	false -> don't convert symbols
+	-	`maintainCase` {boolean} default: false
+		-	true -> maintain case chars
+		-	false -> convert all chars to lower case
+	-	`titleCase` {boolean|array} default: false
+		-	true -> convert input string to title-case
+		-	array -> exclude words
+	-	`truncate` {number} default: 0
+		-	0 -> don't trim length
+		-	&gt;= 1 -> trim to max length while not breaking any words
+	-	`uric` {boolean} default: false
+		-	true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
+		-	false
+	-	`uricNoSlash` {boolean} default: false
+		-	true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
+	-	`mark` {boolean} default: false
+		-	true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
+	-	`custom` {object} default: {}
+		-	custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
+
+-	`options` {string} separator
 
 notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting `uric`, `uricNoSlash` or/and `mark` to `true` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
 
@@ -271,7 +272,6 @@ Contribution
 $ git clone git@github.com:<YOUR_USER>/speakingurl.git
 $ cd speakingurl
 $ npm install
-$ npm install -g grunt-cli
 # add your stuff
 # add tests
 # add example for new feature
@@ -303,21 +303,20 @@ $ gulp release
 References
 ----------
 
-- http://tools.ietf.org/html/rfc3986
-- http://en.wikipedia.org/wiki/Transliteration
+-	http://tools.ietf.org/html/rfc3986
+-	http://en.wikipedia.org/wiki/Transliteration
 
 Ports
 -----
 
-- Java https://github.com/Weltraumschaf/speakingurl thanks to [@Weltraumschaf](https://github.com/Weltraumschaf/)
-
+-	Java https://github.com/Weltraumschaf/speakingurl thanks to [@Weltraumschaf](https://github.com/Weltraumschaf/)
 
 Credits
 -------
 
-- [@dypsilon](https://github.com/dypsilon/)
-- [@simov](https://github.com/simov/)
-- [@henrikjoreteg](https://github.com/henrikjoreteg/)
+-	[@dypsilon](https://github.com/dypsilon/)
+-	[@simov](https://github.com/simov/)
+-	[@henrikjoreteg](https://github.com/henrikjoreteg/)
 
 [License](https://raw.github.com/pid/speakingurl/master/LICENSE)
 ----------------------------------------------------------------
@@ -328,8 +327,8 @@ Copyright (c) 2013-2014 Sascha Droste pid@posteo.net All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
-- Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-- Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-- Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+-	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+-	Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+-	Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
