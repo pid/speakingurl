@@ -21,7 +21,7 @@ Redirect with 301 to the last/current slug.
 Installation
 ------------
 
-#### [npm](https://npmjs.org/package/onetime)
+#### [npm](https://npmjs.org/package/speakingurl)
 
 ```shell
 npm install speakingurl --save
@@ -306,6 +306,13 @@ References
 
 -	http://tools.ietf.org/html/rfc3986
 -	http://en.wikipedia.org/wiki/Transliteration
+
+
+Use in other environments
+-------------------------
+-	[SpeakingURL with AngularJS](https://github.com/zappan/angular-speakingurl)
+-	[SpeakingURL with Meteor](https://github.com/ongoworks/meteor-speakingurl)
+
 
 Ports
 -----
