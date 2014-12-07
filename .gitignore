@@ -1,9 +1,11 @@
 *~
+_*
 *.sublime-*
 node_modules/
 npm-debug.log
 *.old
 .idea
+.zedstate
 
 coverage
 coverage.html
