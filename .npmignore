@@ -1,9 +1,11 @@
 *~
+_*
 *.sublime-*
 node_modules/
 npm-debug.log
 *.old
 .idea
+.zedstate
 
 coverage
 coverage.html
@@ -48,16 +50,11 @@ logs/
 
 # OS generated files #
 ######################
-Icon?
 .DS_Store
+Icon?
 
 .editorconfig
 .git*
 .jshint*
 .npmignore
 .travis.yml
-CHANGELOG.*
-examples
-Gulpfile.js
-gulpfile.js
-test/
