@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v0.18.0 fix #43; add chars to turkish langCharMap; language specific character transliteration
 -	v0.17.0 pass global to anonymous function #42
 -	v0.16.0 add support for italian
 -	v0.15.0 bugfix #38
