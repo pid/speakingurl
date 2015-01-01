@@ -1,9 +1,9 @@
 /* global describe,it */
 
-describe('getSlug create', function() {
+describe('getSlug create', function () {
     'use strict';
 
-    it('with symbols', function(done) {
+    it('with symbols', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -19,7 +19,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('without options', function(done) {
+    it('without options', function (done) {
 
         var getSlug = require('../lib')
             .createSlug();
@@ -30,7 +30,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with empty options', function(done) {
+    it('with empty options', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({});
@@ -41,7 +41,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with maintainCase', function(done) {
+    it('with maintainCase', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -54,7 +54,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with uric', function(done) {
+    it('with uric', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -67,7 +67,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with uricNoSlash', function(done) {
+    it('with uricNoSlash', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -80,7 +80,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with mark', function(done) {
+    it('with mark', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -93,7 +93,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with truncate', function(done) {
+    it('with truncate', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -106,7 +106,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with separator', function(done) {
+    it('with separator', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -119,7 +119,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with mark and maintainCase', function(done) {
+    it('with mark and maintainCase', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -133,7 +133,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom chars replacement', function(done) {
+    it('with custom chars replacement', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -148,7 +148,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom chars leet replacement', function(done) {
+    it('with custom chars leet replacement', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -177,7 +177,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom chars replacement with not allowed target char', function(done) {
+    it('with custom chars replacement with not allowed target char', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -192,7 +192,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom chars replacement with allowed target char, option mark', function(done) {
+    it('with custom chars replacement with allowed target char, option mark', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -208,7 +208,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom chars replacement with option mark', function(done) {
+    it('with custom chars replacement with option mark', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -224,7 +224,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom char to string replacement', function(done) {
+    it('with custom char to string replacement', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -246,7 +246,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom string replacement', function(done) {
+    it('with custom string replacement', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -280,7 +280,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom string replacement with option mark', function(done) {
+    it('with custom string replacement with option mark', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
@@ -310,7 +310,7 @@ describe('getSlug create', function() {
         done();
     });
 
-    it('with custom string replacement with option maintainCase', function(done) {
+    it('with custom string replacement with option maintainCase', function (done) {
 
         var getSlug = require('../lib')
             .createSlug({
