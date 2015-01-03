@@ -156,6 +156,11 @@ slug = getSlug("Äpfel & Birnen!", {
 });
 console.log(slug); // Output: aepfel-und-birnen
 
+slug = getSlug("မြန်မာ သာဓက", {
+    lang: 'my'
+});
+console.log(slug); // Output: myanma-thadak
+
 slug = getSlug("Apple & Pear!", {
     lang: 'en' // lang: "en" is default, just to clarify
 });
