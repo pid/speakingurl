@@ -73,7 +73,7 @@ Usage
 	-	`separator` {string} default: '-'
 		-	char that replace the whitespaces
 	-	`lang` {string} default: 'en'
-		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
+		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'my', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
 		-	false -> don't convert symbols
 	-	`maintainCase` {boolean} default: false
 		-	true -> maintain case chars
@@ -155,6 +155,11 @@ slug = getSlug("Äpfel & Birnen!", {
     lang: 'de'
 });
 console.log(slug); // Output: aepfel-und-birnen
+
+slug = getSlug("မြန်မာ သာဓက", {
+    lang: 'my'
+});
+console.log(slug); // Output: myanma-thadak
 
 slug = getSlug("Apple & Pear!", {
     lang: 'en' // lang: "en" is default, just to clarify

@@ -101,3 +101,9 @@ slug = getSlug('Foo & Bar ♥ Foo < Bar', {
 });
 console.log(slug); // Output: foo-bar-foo-bar
 console.log("\n");
+
+slug = getSlug('မြန်မာစာ သာဓက', {
+    lang: 'my'
+});
+console.log(slug); // Output: myanma-thadak
+console.log('\n');
