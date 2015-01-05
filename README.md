@@ -1,5 +1,5 @@
-Speaking URL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-===============================================================================================================================================================================================================================================================================================================================================================
+SpeakingURL [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+================================================================================================================================================================================================================================================================================================================================================================
 
 > Generate a slug with a lot of options; create of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string. This module aims to transliterate the input string.
 
@@ -9,7 +9,7 @@ For use in browser and server - no dependencies!
 
 Never use the slug to reference to the unique page in the database – if the title will change, you want to change the slug – you run into problems.
 
-1.	Use a unique reference to the record – e.g. a unique key "12345" => /my-little-title-12345.html
+1.	Use a unique reference to the record – e.g. a unique key "12345" =\> /my-little-title-12345.html
 2.	Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl
 
 Redirect with 301 to the last/current slug.
@@ -52,12 +52,12 @@ copy the file speakingurl.min.js to your script directory
 #### [CDN/cloudflare](https://www.cloudflare.com/)
 
 -	available versions: http://cdnjs.com/libraries/speakingurl/
--	use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.18.1/speakingurl.min.js
+-	use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.19.0/speakingurl.min.js
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
 -	available versions: http://www.jsdelivr.com/#!speakingurl
--	use //cdn.jsdelivr.net/speakingurl/0.18.1/speakingurl.min.js
+-	use //cdn.jsdelivr.net/speakingurl/0.19.0/speakingurl.min.js
 
 Usage
 -----
@@ -73,30 +73,31 @@ Usage
 	-	`separator` {string} default: '-'
 		-	char that replace the whitespaces
 	-	`lang` {string} default: 'en'
-		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
 		-	false -> don't convert symbols
+		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'my, 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
+		-	false -\> don't convert symbols
 	-	`maintainCase` {boolean} default: false
-		-	true -> maintain case chars
-		-	false -> convert all chars to lower case
+		-	true -\> maintain case chars
+		-	false -\> convert all chars to lower case
 	-	`titleCase` {boolean|array} default: false
-		-	true -> convert input string to title-case
-		-	array -> exclude words
+		-	true -\> convert input string to title-case
+		-	array -\> exclude words
 	-	`truncate` {number} default: 0
-		-	0 -> don't trim length
-		-	&gt;= 1 -> trim to max length while not breaking any words
+		-	0 -\> don't trim length
+		-	\>= 1 -\> trim to max length while not breaking any words
 	-	`uric` {boolean} default: false
-		-	true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ",", "/"
+		-	true -\> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "\$", ",", "/"
 		-	false
 	-	`uricNoSlash` {boolean} default: false
-		-	true -> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "$", ","
+		-	true -\> additionally allow chars: ";", "?", ":", "@", "&", "=", "+", "\$", ","
 	-	`mark` {boolean} default: false
-		-	true -> additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"
+		-	true -\> additionally allow chars: "-", "\_", ".", "!", "~", "\*", "'", "(", ")"
 	-	`custom` {object} default: {}
-		-	custom map for translation, overwrites all i.e. { '&': '#', '*': ' star ' }
+		-	custom map for translation, overwrites all i.e. { '&': '\#', '\*': ' star ' }
 
 -	`options` {string} separator
 
-notes: default only Base64 chars are allowed (/A-Za-z0-9_-/), setting `uric`, `uricNoSlash` or/and `mark` to `true` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
+notes: default only Base64 chars are allowed (/A-Za-z0-9\_-/), setting `uric`, `uricNoSlash` or/and `mark` to `true` will add the specified chars to the list of allowed characters. The separator-character is always allowed.
 
 ##### Node.js
 
@@ -155,6 +156,11 @@ slug = getSlug("Äpfel & Birnen!", {
     lang: 'de'
 });
 console.log(slug); // Output: aepfel-und-birnen
+
+slug = getSlug("မြန်မာ သာဓက", {
+    lang: 'my'
+});
+console.log(slug); // Output: myanma-thadak
 
 slug = getSlug("Apple & Pear!", {
     lang: 'en' // lang: "en" is default, just to clarify
@@ -223,6 +229,7 @@ var options = {
     maintainCase: true,
     separator: '_'
 };
+
 var mySlug = require('speakingurl').createSlug(options);
 // in browser:
 // var mySlug = createSlug(options);
@@ -241,6 +248,7 @@ var options = {
         "of","on","or","per","the","to","vs"
     ]
 };
+
 var mySlug = require('speakingurl').createSlug(options);
 // in browser:
 // var mySlug = createSlug(options);
@@ -252,7 +260,7 @@ console.log(slug); // Output: Welcome-to-the-Jungle
 Changelog
 ---------
 
-see [CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
+see[CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
 
 Tests
 -----
@@ -307,17 +315,16 @@ References
 -	http://tools.ietf.org/html/rfc3986
 -	http://en.wikipedia.org/wiki/Transliteration
 
-
 Use in other environments
 -------------------------
+
 -	[SpeakingURL with AngularJS](https://github.com/zappan/angular-speakingurl)
 -	[SpeakingURL with Meteor](https://github.com/ongoworks/meteor-speakingurl)
-
 
 Ports
 -----
 
--	Java https://github.com/Weltraumschaf/speakingurl thanks to [@Weltraumschaf](https://github.com/Weltraumschaf/)
+-	Java https://github.com/Weltraumschaf/speakingurl thanks to[@Weltraumschaf](https://github.com/Weltraumschaf/)
 
 Credits
 -------
@@ -331,7 +338,7 @@ Credits
 
 The BSD 3-Clause License (BSD3)
 
-Copyright (c) 2013-2014 Sascha Droste pid@posteo.net All rights reserved.
+Copyright (c) 2013-2015 Sascha Droste pid@posteo.net All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
