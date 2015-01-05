@@ -32,7 +32,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a id="speaking-url---" class="anchor" href="#speaking-url---" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speaking URL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a> <a href="https://gitter.im/pid/speakingurl?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+<a id="speakingurl---" class="anchor" href="#speakingurl---" aria-hidden="true"><span class="octicon octicon-link"></span></a>SpeakingURL <a href="http://badge.fury.io/js/speakingurl"><img src="https://badge.fury.io/js/speakingurl.png" alt="NPM version"></a> <a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a> <a href="https://gitter.im/pid/speakingurl?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
 </h1>
 
 <blockquote>
@@ -98,7 +98,7 @@
 <ul>
 <li>  available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.18.0/speakingurl.min.js</li>
+<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/0.19.0/speakingurl.min.js</li>
 </ul>
 
 <h4>
@@ -108,7 +108,7 @@
 <ul>
 <li>  available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>  use //cdn.jsdelivr.net/speakingurl/0.18.0/speakingurl.min.js</li>
+<li>  use //cdn.jsdelivr.net/speakingurl/0.19.0/speakingurl.min.js</li>
 </ul>
 
 <h2>
@@ -135,7 +135,8 @@
 <li>  <code>lang</code> {string} default: 'en'
 
 <ul>
-<li>  language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
+<li>  false -&gt; don't convert symbols</li>
+<li>  language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'my, 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
 <li>  false -&gt; don't convert symbols</li>
 </ul>
 </li>
@@ -163,14 +164,14 @@
 <li>  <code>uric</code> {boolean} default: false
 
 <ul>
-<li>  true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ",", "/"</li>
+<li>  true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "\$", ",", "/"</li>
 <li>  false</li>
 </ul>
 </li>
 <li>  <code>uricNoSlash</code> {boolean} default: false
 
 <ul>
-<li>  true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "$", ","</li>
+<li>  true -&gt; additionally allow chars: ";", "?", ":", "@", "&amp;", "=", "+", "\$", ","</li>
 </ul>
 </li>
 <li>  <code>mark</code> {boolean} default: false
@@ -248,6 +249,11 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
 });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: aepfel-und-birnen</span>
 
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>မြန်မာ သာဓက<span class="pl-pds">"</span></span>, {
+    lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>my<span class="pl-pds">'</span></span>
+});
+<span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: myanma-thadak</span>
+
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Apple &amp; Pear!<span class="pl-pds">"</span></span>, {
     lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>en<span class="pl-pds">'</span></span> <span class="pl-c">// lang: "en" is default, just to clarify</span>
 });
@@ -314,6 +320,7 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
     maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>,
     separator<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>_<span class="pl-pds">'</span></span>
 };
+
 <span class="pl-s">var</span> mySlug <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).createSlug(options);
 <span class="pl-c">// in browser:</span>
 <span class="pl-c">// var mySlug = createSlug(options);</span>
@@ -330,6 +337,7 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
         <span class="pl-s1"><span class="pl-pds">"</span>of<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>or<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>per<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>the<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>to<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>vs<span class="pl-pds">"</span></span>
     ]
 };
+
 <span class="pl-s">var</span> mySlug <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).createSlug(options);
 <span class="pl-c">// in browser:</span>
 <span class="pl-c">// var mySlug = createSlug(options);</span>
@@ -340,7 +348,7 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
 <h2>
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h2>
 
-<p>see <a href="https://raw.github.com/pid/speakingurl/master/CHANGELOG.md">CHANGELOG.md</a></p>
+<p>see<a href="https://raw.github.com/pid/speakingurl/master/CHANGELOG.md">CHANGELOG.md</a></p>
 
 <h2>
 <a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
@@ -407,7 +415,7 @@ $ gulp release</pre></div>
 <a id="ports" class="anchor" href="#ports" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ports</h2>
 
 <ul>
-<li>  Java <a href="https://github.com/Weltraumschaf/speakingurl">https://github.com/Weltraumschaf/speakingurl</a> thanks to <a href="https://github.com/Weltraumschaf/">@Weltraumschaf</a>
+<li>  Java <a href="https://github.com/Weltraumschaf/speakingurl">https://github.com/Weltraumschaf/speakingurl</a> thanks to<a href="https://github.com/Weltraumschaf/">@Weltraumschaf</a>
 </li>
 </ul>
 
@@ -429,7 +437,7 @@ $ gulp release</pre></div>
 
 <p>The BSD 3-Clause License (BSD3)</p>
 
-<p>Copyright (c) 2013-2014 Sascha Droste <a href="mailto:pid@posteo.net">pid@posteo.net</a> All rights reserved.</p>
+<p>Copyright (c) 2013-2015 Sascha Droste <a href="mailto:pid@posteo.net">pid@posteo.net</a> All rights reserved.</p>
 
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 
