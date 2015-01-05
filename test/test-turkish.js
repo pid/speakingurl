@@ -5,7 +5,7 @@ var getSlug = require('../lib');
 describe('getSlug translate turkish letters', function () {
     'use strict';
 
-    it('should be ', function (done) {
+    it('umlaut should be single letter transliteration', function (done) {
 
         getSlug('ÜÄÖüäö', {
                 lang: 'tr'
