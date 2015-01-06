@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v0.20.0 add support for hungarian #45
 -	v0.19.0 add support for burmese #44
 -	v0.18.1 cleanup, update dev dependencies
 -	v0.18.0 fix #43; add chars to turkish langCharMap; language specific character transliteration
