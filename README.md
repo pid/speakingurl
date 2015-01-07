@@ -74,7 +74,7 @@ Usage
 		-	char that replace the whitespaces
 	-	`lang` {string} default: 'en'
 		-	false -> don't convert symbols
-		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'it', 'my, 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
+		-	language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'hu', 'it', 'my, 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
 		-	false -\> don't convert symbols
 	-	`maintainCase` {boolean} default: false
 		-	true -\> maintain case chars
