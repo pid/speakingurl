@@ -46,7 +46,7 @@
     "dependencies": {},
     "devDependencies": {
         "gulp": "^3.8.8",
-        "gulp-bump": "^0.1.11",
+        "gulp-bump": "^0.2.2",
         "gulp-header": "^1.2.2",
         "gulp-jsbeautifier": "^0.0.4",
         "gulp-jshint": "^1.8.5",
@@ -58,7 +58,7 @@
         "jshint-stylish": "^1.0.0",
         "minimist": "^1.1.0",
         "mocha": "^2.0.1",
-        "should": "^4.1.0"
+        "should": "^5.0.1"
     },
     "jam": {
         "dependencies": {},
