@@ -5,16 +5,16 @@ var getSlug = require('../lib');
 describe('getSlug with custom replacement', function () {
     'use strict';
 
-    it('should be added to allowed chars', function (done) {
+    it('should be transliterated', function (done) {
 
         getSlug('буу', {
                 lang: false,
                 custom: {
                     'б': 'б',
-                    'у': 'y'
+                    'у': 'у'
                 }
             })
-            .should.eql('бyy');
+            .should.eql('буу');
 
         getSlug('[nodejs]', {
                 custom: {
@@ -40,6 +40,16 @@ describe('getSlug with custom replacement', function () {
                 }
             })
             .should.eql('[aepfel]');
+
+        done();
+    });
+
+    it('should be extended with allowed chars', function (done) {
+
+        getSlug('буу', {
+                custom: ['б', 'у']
+            })
+            .should.eql('буу');
 
         getSlug('[Knöpfe]', {
                 custom: ['[', ']']
