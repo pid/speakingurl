@@ -98,7 +98,7 @@
 <ul>
 <li>  available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/1.0.0/speakingurl.min.js</li>
+<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/1.1.0/speakingurl.min.js</li>
 </ul>
 
 <h4>
@@ -108,7 +108,7 @@
 <ul>
 <li>  available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>  use //cdn.jsdelivr.net/speakingurl/1.0.0/speakingurl.min.js</li>
+<li>  use //cdn.jsdelivr.net/speakingurl/1.1.0/speakingurl.min.js</li>
 </ul>
 
 <h2>
@@ -151,7 +151,7 @@
 
 <ul>
 <li>  true -&gt; convert input string to title-case</li>
-<li>  array -&gt; exclude words</li>
+<li>  array -&gt; titlecase = true, but omit the words from in the array</li>
 </ul>
 </li>
 <li>  <code>truncate</code> {number} default: 0
@@ -180,10 +180,11 @@
 <li>  true -&gt; additionally allow chars: "-", "_", ".", "!", "~", "*", "'", "(", ")"</li>
 </ul>
 </li>
-<li>  <code>custom</code> {object} default: {}
+<li>  <code>custom</code> {object|array} default: {}
 
 <ul>
-<li>  custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
+<li>  object -&gt; custom map for translation, overwrites all i.e. { '&amp;': '#', '*': ' star ' }</li>
+<li>  array -&gt; add chars to allowed charMap (see example)</li>
 </ul>
 </li>
 </ul>
@@ -216,97 +217,105 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         separator<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>_<span class="pl-pds">'</span></span>
-});
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: schoener_titel_laesst_gruessen_bel_ete</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         uric<span class="pl-k">:</span> <span class="pl-c1">true</span>
-});
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
-    uricNoSlash<span class="pl-k">:</span> <span class="pl-c1">true</span>
-});
+        uricNoSlash<span class="pl-k">:</span> <span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
-    mark<span class="pl-k">:</span> <span class="pl-c1">true</span>
-});
+        mark<span class="pl-k">:</span> <span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen!-bel-ete-!</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
-    truncate<span class="pl-k">:</span> <span class="pl-c1">20</span>
-});
+        truncate<span class="pl-k">:</span> <span class="pl-c1">20</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: schoener-titel</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
-    maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
-});
+        maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: Schoener-Titel-laesst-gruessen-Bel-ete</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Äpfel &amp; Birnen!<span class="pl-pds">"</span></span>, {
-    lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>de<span class="pl-pds">'</span></span>
-});
+        lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>de<span class="pl-pds">'</span></span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: aepfel-und-birnen</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>မြန်မာ သာဓက<span class="pl-pds">"</span></span>, {
-    lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>my<span class="pl-pds">'</span></span>
-});
+        lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>my<span class="pl-pds">'</span></span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: myanma-thadak</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">"</span>Apple &amp; Pear!<span class="pl-pds">"</span></span>, {
-    lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>en<span class="pl-pds">'</span></span> <span class="pl-c">// lang: "en" is default, just to clarify</span>
-});
+        lang<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>en<span class="pl-pds">'</span></span> <span class="pl-c">// lang: "en" is default, just to clarify</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: apple-and-pear</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Foo &amp; Bar * Baz<span class="pl-pds">'</span></span>, {
-    custom<span class="pl-k">:</span> {
-        <span class="pl-s1"><span class="pl-pds">'</span>&amp;<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span> doo <span class="pl-pds">'</span></span>
-    },
-    uric<span class="pl-k">:</span><span class="pl-c1">true</span>
-});
+        custom<span class="pl-k">:</span> {
+            <span class="pl-s1"><span class="pl-pds">'</span>&amp;<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span> doo <span class="pl-pds">'</span></span>
+        },
+        uric<span class="pl-k">:</span><span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: foo-doo-bar-baz</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Foo ♥ Bar<span class="pl-pds">'</span></span>);
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: foo-love-bar</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Foo &amp; Bar | (Baz) * Doo<span class="pl-pds">'</span></span>, {
-    custom<span class="pl-k">:</span> {
-        <span class="pl-s1"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Boo<span class="pl-pds">'</span></span>
-    },
-    mark<span class="pl-k">:</span><span class="pl-c1">true</span>
-});
+        custom<span class="pl-k">:</span> {
+            <span class="pl-s1"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Boo<span class="pl-pds">'</span></span>
+        },
+        mark<span class="pl-k">:</span><span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: foo-and-bar-or-(baz)-boo-doo</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Foo and Bar or Baz<span class="pl-pds">'</span></span>, {
-    custom<span class="pl-k">:</span> {
-        <span class="pl-s1"><span class="pl-pds">'</span>and<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>und<span class="pl-pds">'</span></span>,
-        <span class="pl-s1"><span class="pl-pds">'</span>or<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>
-    }
-});
+        custom<span class="pl-k">:</span> {
+            <span class="pl-s1"><span class="pl-pds">'</span>and<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>und<span class="pl-pds">'</span></span>,
+            <span class="pl-s1"><span class="pl-pds">'</span>or<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>
+        }
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: foo-und-bar-baz</span>
+
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>[Knöpfe]<span class="pl-pds">'</span></span>, {
+        custom<span class="pl-k">:</span> [
+            <span class="pl-s1"><span class="pl-pds">'</span>[<span class="pl-pds">'</span></span>,
+            <span class="pl-s1"><span class="pl-pds">'</span>]<span class="pl-pds">'</span></span>
+        ]
+    });
+<span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: [knoepfe]</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>NEXUS4 only $299<span class="pl-pds">'</span></span>);
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: nexus-4-only-usd299</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>NEXUS4 only €299<span class="pl-pds">'</span></span>, {
-    maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
-});
+        maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: NEXUS-4-only-EUR299</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Don<span class="pl-cce">\'</span>t drink and drive<span class="pl-pds">'</span></span>, {
-    titleCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
-});
+        titleCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: Don-t-Drink-And-Drive</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Don<span class="pl-cce">\'</span>t drink and drive<span class="pl-pds">'</span></span>, {
-    titleCase<span class="pl-k">:</span> [<span class="pl-s1"><span class="pl-pds">'</span>and<span class="pl-pds">'</span></span>]
-});
+        titleCase<span class="pl-k">:</span> [<span class="pl-s1"><span class="pl-pds">'</span>and<span class="pl-pds">'</span></span>]
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: Don-t-Drink-and-Drive</span>
 
 slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds">'</span>Foo &amp; Bar ♥ Foo &lt; Bar<span class="pl-pds">'</span></span>, {
-    lang<span class="pl-k">:</span> <span class="pl-c1">false</span>
-});
+        lang<span class="pl-k">:</span> <span class="pl-c1">false</span>
+    });
 <span class="pl-en">console</span><span class="pl-s3">.log</span>(slug); <span class="pl-c">// Output: foo-bar-foo-bar</span></pre></div>
 
 <h3>
@@ -317,9 +326,9 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
 <p>Create your own specially configured function.</p>
 
 <div class="highlight highlight-js"><pre><span class="pl-s">var</span> options <span class="pl-k">=</span> {
-    maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>,
-    separator<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>_<span class="pl-pds">'</span></span>
-};
+        maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+        separator<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>_<span class="pl-pds">'</span></span>
+    };
 
 <span class="pl-s">var</span> mySlug <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).createSlug(options);
 <span class="pl-c">// in browser:</span>
@@ -331,12 +340,12 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
 <p>Create your own specially configured function with title-case feature.</p>
 
 <div class="highlight highlight-js"><pre><span class="pl-s">var</span> options <span class="pl-k">=</span> {
-    titleCase<span class="pl-k">:</span> [
-        <span class="pl-s1"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>an<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>and<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>as<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>at<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>but<span class="pl-pds">"</span></span>,
-        <span class="pl-s1"><span class="pl-pds">"</span>by<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>for<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>if<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>in<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>nor<span class="pl-pds">"</span></span>,
-        <span class="pl-s1"><span class="pl-pds">"</span>of<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>or<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>per<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>the<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>to<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>vs<span class="pl-pds">"</span></span>
-    ]
-};
+        titleCase<span class="pl-k">:</span> [
+            <span class="pl-s1"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>an<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>and<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>as<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>at<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>but<span class="pl-pds">"</span></span>,
+            <span class="pl-s1"><span class="pl-pds">"</span>by<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>for<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>if<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>in<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>nor<span class="pl-pds">"</span></span>,
+            <span class="pl-s1"><span class="pl-pds">"</span>of<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>or<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>per<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>the<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>to<span class="pl-pds">"</span></span>,<span class="pl-s1"><span class="pl-pds">"</span>vs<span class="pl-pds">"</span></span>
+        ]
+    };
 
 <span class="pl-s">var</span> mySlug <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).createSlug(options);
 <span class="pl-c">// in browser:</span>
@@ -348,7 +357,7 @@ slug <span class="pl-k">=</span> getSlug(<span class="pl-s1"><span class="pl-pds
 <h2>
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h2>
 
-<p>see<a href="https://raw.github.com/pid/speakingurl/master/CHANGELOG.md">CHANGELOG.md</a></p>
+<p>see <a href="https://raw.github.com/pid/speakingurl/master/CHANGELOG.md">CHANGELOG.md</a></p>
 
 <h2>
 <a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
