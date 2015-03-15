@@ -41,6 +41,36 @@ describe('getSlug with custom replacement', function () {
             })
             .should.eql('[aepfel]');
 
+        getSlug('[Knöpfe]', {
+                custom: ['[', ']']
+            })
+            .should.eql('[knoepfe]');
+
+        getSlug('[Knöpfe]', {
+                maintainCase: true,
+                custom: ['[', ']']
+            })
+            .should.eql('[Knoepfe]');
+
+        getSlug('[Knöpfe haben Löcher]', {
+                titleCase: true,
+                custom: ['[', ']']
+            })
+            .should.eql('[Knoepfe-Haben-Loecher]');
+
+        getSlug('[knöpfe haben runde löcher]', {
+                titleCase: ['haben', 'runde'],
+                custom: ['[', ']']
+            })
+            .should.eql('[Knoepfe-haben-runde-Loecher]');
+
+        getSlug('[knöpfe haben runde löcher]', {
+                titleCase: ['haben', 'runde'],
+                maintainCase: true,
+                custom: ['[', ']']
+            })
+            .should.eql('[Knoepfe-haben-runde-Loecher]');
+
         done();
     });
 

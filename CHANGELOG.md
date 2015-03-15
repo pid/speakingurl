@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v1.1.0 custom config can be an array, all chars are added to allowed chars
 -	v1.0.0 fix #47; bumpup to semver ;-)
 -	v0.20.0 add support for hungarian #45
 -	v0.19.0 add support for burmese #44
