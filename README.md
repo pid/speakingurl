@@ -260,7 +260,7 @@ console.log(slug); // Output: Welcome-to-the-Jungle
 Changelog
 ---------
 
-see[CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
+see [CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
 
 Tests
 -----
