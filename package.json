@@ -1,6 +1,6 @@
 {
     "name": "speakingurl",
-    "version": "0.20.1",
+    "version": "1.0.0",
     "description": "Generate a slug – transliteration with a lot of options",
     "homepage": "http://pid.github.io/speakingurl/",
     "github": "http://github.com/pid/speakingurl",
@@ -46,9 +46,9 @@
     "dependencies": {},
     "devDependencies": {
         "gulp": "^3.8.8",
-        "gulp-bump": "^0.2.2",
+        "gulp-bump": "^0.3.0",
         "gulp-header": "^1.2.2",
-        "gulp-jsbeautifier": "^0.0.4",
+        "gulp-jsbeautifier": "0.0.6",
         "gulp-jshint": "^1.8.5",
         "gulp-load-plugins": "^0.8.0",
         "gulp-mocha": "^2.0.0",
