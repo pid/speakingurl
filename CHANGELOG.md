@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v1.1.2 add Rails asset pipeline support (thanks to @retrorubies / https://github.com/simi\)
 -	v1.1.1 cleanup, update dev dependencies
 -	v1.1.0 custom config can be an array, all chars are added to allowed chars
 -	v1.0.0 fix #47; bumpup to semver ;-)
