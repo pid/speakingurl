@@ -80,6 +80,16 @@
 <div class="highlight highlight-shell"><pre>jam install speakingurl</pre></div>
 
 <h4>
+<a id="ruby-on-rails" class="anchor" href="#ruby-on-rails" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://rubyonrails.org/">Ruby on Rails</a>
+</h4>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-c"># Add to Gemfile</span>
+<span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">'</span>speakingurl-rails<span class="pl-pds">'</span></span></pre></div>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-c"># Add to application.js</span>
+<span class="pl-sr"><span class="pl-pds">//</span></span><span class="pl-k">=</span> <span class="pl-k">require</span> speakingurl</pre></div>
+
+<h4>
 <a id="download-package" class="anchor" href="#download-package" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/pid/speakingurl/releases">Download Package</a>
 </h4>
 
@@ -92,7 +102,7 @@
 <ul>
 <li>  available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/1.1.1/speakingurl.min.js</li>
+<li>  use //cdnjs.cloudflare.com/ajax/libs/speakingurl/1.1.2/speakingurl.min.js</li>
 </ul>
 
 <h4>
@@ -102,7 +112,7 @@
 <ul>
 <li>  available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a>
 </li>
-<li>  use //cdn.jsdelivr.net/speakingurl/1.1.1/speakingurl.min.js</li>
+<li>  use //cdn.jsdelivr.net/speakingurl/1.1.2/speakingurl.min.js</li>
 </ul>
 
 <h2>
@@ -391,6 +401,13 @@ $</pre></div>
 <div class="highlight highlight-shell"><pre>$ gulp bumpup --patch
 $ gulp
 $ gulp release</pre></div>
+
+<h2>
+<a id="release-to-rubygemsorg" class="anchor" href="#release-to-rubygemsorg" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release to RubyGems.org</h2>
+
+<div class="highlight highlight-shell"><pre>$ gulp
+$ gem build speakingurl-rails.gemspec
+$ gem push speakingurl-rails-x.x.x.gem</pre></div>
 
 <p><a href="http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr"></a></p>
 
