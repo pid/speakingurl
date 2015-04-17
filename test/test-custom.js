@@ -1,6 +1,6 @@
 /* global describe,it */
 
-var getSlug = require('../lib');
+var getSlug = require('../lib/speakingurl');
 
 describe('getSlug with custom replacement', function () {
     'use strict';

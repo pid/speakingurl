@@ -1,6 +1,6 @@
 /* global describe,it */
 
-var getSlug = require('../lib');
+var getSlug = require('../lib/speakingurl');
 
 describe('getSlug symbols', function () {
     'use strict';

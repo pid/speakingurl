@@ -1,17 +1,20 @@
 /* global describe,it */
 
+var getSlug = require('../lib/speakingurl');
+
 describe('getSlug create', function () {
     'use strict';
 
     it('with symbols', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                lang: 'en',
-                uric: true,
-                uricNoSlash: true,
-                mark: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            lang: 'en',
+            uric: true,
+            uricNoSlash: true,
+            mark: true
+        });
 
         getSlug('Foo (♥) ; Baz=Bar')
             .should.eql('foo-(love)-;-baz=bar');
@@ -21,8 +24,9 @@ describe('getSlug create', function () {
 
     it('without options', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug();
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug();
 
         getSlug('Foo Bar Baz')
             .should.eql('foo-bar-baz');
@@ -32,8 +36,9 @@ describe('getSlug create', function () {
 
     it('with empty options', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({});
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({});
 
         getSlug('Foo Bar Baz')
             .should.eql('foo-bar-baz');
@@ -43,10 +48,11 @@ describe('getSlug create', function () {
 
     it('with maintainCase', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                maintainCase: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            maintainCase: true
+        });
 
         getSlug('Foo Bar Baz')
             .should.eql('Foo-Bar-Baz');
@@ -56,10 +62,11 @@ describe('getSlug create', function () {
 
     it('with uric', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                uric: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            uric: true
+        });
 
         getSlug(' :80:/Foo/Bar/Baz:Foo')
             .should.eql(':80:/foo/bar/baz:foo');
@@ -69,10 +76,11 @@ describe('getSlug create', function () {
 
     it('with uricNoSlash', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                uricNoSlash: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            uricNoSlash: true
+        });
 
         getSlug('Foo/ Bar= Baz')
             .should.eql('foo-bar=-baz');
@@ -82,10 +90,11 @@ describe('getSlug create', function () {
 
     it('with mark', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                mark: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            mark: true
+        });
 
         getSlug('Foo* Bar Baz')
             .should.eql('foo*-bar-baz');
@@ -95,10 +104,11 @@ describe('getSlug create', function () {
 
     it('with truncate', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                truncate: 15
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            truncate: 15
+        });
 
         getSlug('Foo* Foobar FooBarBaz')
             .should.eql('foo-foobar');
@@ -108,10 +118,11 @@ describe('getSlug create', function () {
 
     it('with separator', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                separator: '_'
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            separator: '_'
+        });
 
         getSlug('Foo* Foobar FooBarBaz')
             .should.eql('foo_foobar_foobarbaz');
@@ -121,11 +132,12 @@ describe('getSlug create', function () {
 
     it('with mark and maintainCase', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                mark: true,
-                maintainCase: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            mark: true,
+            maintainCase: true
+        });
 
         getSlug('Foo* Bar Baz')
             .should.eql('Foo*-Bar-Baz');
@@ -135,12 +147,13 @@ describe('getSlug create', function () {
 
     it('with custom chars replacement', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    '*': 'o'
-                }
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                '*': 'o'
+            }
+        });
 
         getSlug('xyl*ph*n')
             .should.eql('xylophon');
@@ -150,20 +163,21 @@ describe('getSlug create', function () {
 
     it('with custom chars leet replacement', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    'a': '4',
-                    'b': '8',
-                    'e': '3',
-                    'g': '6',
-                    'l': '1',
-                    'o': '0',
-                    's': '5',
-                    't': '7'
-                },
-                lang: false
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                'a': '4',
+                'b': '8',
+                'e': '3',
+                'g': '6',
+                'l': '1',
+                'o': '0',
+                's': '5',
+                't': '7'
+            },
+            lang: false
+        });
 
         getSlug('apbpepgplpopspt')
             .should.eql('4p8p3p6p1p0p5p7');
@@ -179,12 +193,13 @@ describe('getSlug create', function () {
 
     it('with custom chars replacement with not allowed target char', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    'o': '*'
-                }
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                'o': '*'
+            }
+        });
 
         getSlug('xylophon')
             .should.eql('xyl-ph-n');
@@ -194,13 +209,14 @@ describe('getSlug create', function () {
 
     it('with custom chars replacement with allowed target char, option mark', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    'o': '*'
-                },
-                mark: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                'o': '*'
+            },
+            mark: true
+        });
 
         getSlug('xylophon')
             .should.eql('xyl*ph*n');
@@ -210,13 +226,14 @@ describe('getSlug create', function () {
 
     it('with custom chars replacement with option mark', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    '*': 'o'
-                },
-                mark: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                '*': 'o'
+            },
+            mark: true
+        });
 
         getSlug('xyl*ph*n')
             .should.eql('xylophon');
@@ -226,15 +243,16 @@ describe('getSlug create', function () {
 
     it('with custom char to string replacement', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    '*': 'STAR',
-                    'q': 'qqq',
-                    'and': '',
-                    'or': ''
-                }
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                '*': 'STAR',
+                'q': 'qqq',
+                'and': '',
+                'or': ''
+            }
+        });
 
         getSlug('xyl*ph*n')
             .should.eql('xylstarphstarn');
@@ -248,14 +266,15 @@ describe('getSlug create', function () {
 
     it('with custom string replacement', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    'and': 'und',
-                    'or': 'oder',
-                    '*': ' and '
-                }
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                'and': 'und',
+                'or': 'oder',
+                '*': ' and '
+            }
+        });
 
         getSlug('bus and train')
             .should.eql('bus-und-train');
@@ -282,15 +301,16 @@ describe('getSlug create', function () {
 
     it('with custom string replacement with option mark', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    '*': 'STAR',
-                    'q': 'qqq',
-                    'z': ''
-                },
-                mark: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                '*': 'STAR',
+                'q': 'qqq',
+                'z': ''
+            },
+            mark: true
+        });
 
         getSlug('xyl*ph*n')
             .should.eql('xylstarphstarn');
@@ -312,14 +332,15 @@ describe('getSlug create', function () {
 
     it('with custom string replacement with option maintainCase', function (done) {
 
-        var getSlug = require('../lib')
-            .createSlug({
-                custom: {
-                    '*': 'STAR',
-                    'q': 'qqq',
-                },
-                maintainCase: true
-            });
+        var getSlug = require('../lib/speakingurl')
+
+        .createSlug({
+            custom: {
+                '*': 'STAR',
+                'q': 'qqq',
+            },
+            maintainCase: true
+        });
 
         getSlug('xyl*ph*n')
             .should.eql('xylSTARphSTARn');

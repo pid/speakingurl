@@ -48,6 +48,18 @@ component install pid/speakingurl
 jam install speakingurl
 ```
 
+#### [Ruby on Rails](http://rubyonrails.org/)
+
+```ruby
+# Add to Gemfile
+gem 'speakingurl-rails'
+```
+
+```ruby
+# Add to application.js
+//= require speakingurl
+```
+
 #### [Download Package](https://github.com/pid/speakingurl/releases)
 
 copy the file speakingurl.min.js to your script directory
@@ -317,6 +329,15 @@ Release
 $ gulp bumpup --patch
 $ gulp
 $ gulp release
+```
+
+Release to RubyGems.org
+-----------------------
+
+```shell
+$ gulp
+$ gem build speakingurl-rails.gemspec
+$ gem push speakingurl-rails-x.x.x.gem
 ```
 
 [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)

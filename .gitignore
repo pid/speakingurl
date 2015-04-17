@@ -38,6 +38,7 @@ dev-*.js
 *.tar
 *.zip
 *.tgz
+*.gem
 
 # Logs and databases #
 ######################

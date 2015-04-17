@@ -1,6 +1,6 @@
 'use strict';
-var getSlug = require('../lib'),
-    slug;
+var getSlug = require('../lib/speakingurl');
+var slug;
 
 console.log("\n");
 
