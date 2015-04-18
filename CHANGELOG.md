@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v1.1.5 cleanup horror
 -	v1.1.4 forgot to generate the v1.1.3 minified version, but nevermind, there wasn't any code changes ;-)
 -	v1.1.3 cleanup
 -	v1.1.2 add Rails asset pipeline support (thanks to @retrorubies / https://github.com/simi\)
