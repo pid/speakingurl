@@ -1,8 +1,11 @@
-# SpeakingURL 
+SpeakingURL
+===========
+
 [![Package Quality](http://npm.packagequality.com/badge/speakingurl.png)](http://packagequality.com/#?package=speakingurl)
 
-[![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-================================================================================================================================================================================================================================================================================================================================================================
+[![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](http://badge.fury.io/rb/speakingurl-rails) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
+
+====================================================================================================================================================================================================================================================================================================================================================
 
 > Generate a slug with a lot of options; create of so called 'static' or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string. This module aims to transliterate the input string.
 
@@ -55,24 +58,17 @@ jam install speakingurl
 gem 'speakingurl-rails'
 ```
 
-```ruby
-# Add to application.js
-//= require speakingurl
-```
-
 #### [Download Package](https://github.com/pid/speakingurl/releases)
 
 copy the file speakingurl.min.js to your script directory
 
 #### [CDN/cloudflare](https://www.cloudflare.com/)
 
--	available versions: http://cdnjs.com/libraries/speakingurl/
--	use //cdnjs.cloudflare.com/ajax/libs/speakingurl/1.1.2/speakingurl.min.js
+available versions: http://cdnjs.com/libraries/speakingurl/ use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/1.1.2/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/1.1.2/speakingurl.min.js)
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
--	available versions: http://www.jsdelivr.com/#!speakingurl
--	use //cdn.jsdelivr.net/speakingurl/1.1.2/speakingurl.min.js
+available versions: http://www.jsdelivr.com/#!speakingurl use [//cdn.jsdelivr.net/speakingurl/1.1.2/speakingurl.min.js](httos://cdn.jsdelivr.net/speakingurl/1.1.2/speakingurl.min.js)
 
 Usage
 -----
@@ -125,6 +121,13 @@ var getSlug = require('speakingurl');
 
 ```html
 <script src="bower_components/speakingurl/speakingurl.min.js"></script>
+```
+
+#### Ruby on Rails
+
+```ruby
+# Add to application.js
+//= require speakingurl
 ```
 
 #### Examples
@@ -340,8 +343,6 @@ $ gem build speakingurl-rails.gemspec
 $ gem push speakingurl-rails-x.x.x.gem
 ```
 
-[![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
-
 References
 ----------
 
@@ -353,6 +354,7 @@ Use in other environments
 
 -	[SpeakingURL with AngularJS](https://github.com/zappan/angular-speakingurl)
 -	[SpeakingURL with Meteor](https://github.com/ongoworks/meteor-speakingurl)
+-	[SpeakingURL with Ruby on Rails](https://rubygems.org/gems/speakingurl-rails)
 
 Ports
 -----
