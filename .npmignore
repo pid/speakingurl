@@ -38,6 +38,7 @@ dev-*.js
 *.tar
 *.zip
 *.tgz
+*.gem
 
 # Logs and databases #
 ######################
@@ -50,11 +51,5 @@ logs/
 
 # OS generated files #
 ######################
-.DS_Store
+.DS_Store*
 Icon?
-
-.editorconfig
-.git*
-.jshint*
-.npmignore
-.travis.yml
