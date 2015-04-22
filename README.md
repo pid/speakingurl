@@ -68,7 +68,7 @@ available versions: http://cdnjs.com/libraries/speakingurl/ use [//cdnjs.cloudfl
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
-available versions: http://www.jsdelivr.com/#!speakingurl use [//cdn.jsdelivr.net/speakingurl/2.0.0/speakingurl.min.js](httos://cdn.jsdelivr.net/speakingurl/2.0.0/speakingurl.min.js)
+available versions: http://www.jsdelivr.com/#!speakingurl use [//cdn.jsdelivr.net/speakingurl/2.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/2.0.0/speakingurl.min.js)
 
 Usage
 -----
