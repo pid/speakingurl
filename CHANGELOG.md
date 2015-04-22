@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v2.0.0 update charmap with Vietnamese chars) thanks to Lê Anh Tuấn https://github.com/lATAl
 -	v1.1.5 cleanup horror
 -	v1.1.4 forgot to generate the v1.1.3 minified version, but nevermind, there wasn't any code changes ;-)
 -	v1.1.3 cleanup
