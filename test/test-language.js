@@ -69,6 +69,18 @@ describe('getSlug languages', function () {
                 '¤': 'monnaie'
             },
 
+            'pl': {
+                '∆': 'delta',
+                '∞': 'nieskonczonosc',
+                '♥': 'milosc',
+                '&': 'i',
+                '|': 'lub',
+                '<': 'mniejsze niz',
+                '>': 'wieksze niz',
+                '∑': 'suma',
+                '¤': 'waluta'
+            },
+
             'pt': {
                 '∆': 'delta',
                 '∞': 'infinito',
