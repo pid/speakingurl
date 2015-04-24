@@ -34,18 +34,6 @@
 
 <p>For use in browser and server - no dependencies!</p>
 
-<h6>
-<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h6>
-
-<p>Never use the slug to reference to the unique page in the database – if the title will change, you want to change the slug – you run into problems.</p>
-
-<ol>
-<li> Use a unique reference to the record – e.g. a unique key "12345" =&gt; /my-little-title-12345.html</li>
-<li> Store all historical slugs in the page record; but you have to re-calculate the slug from all pages – every time you update speakingurl</li>
-</ol>
-
-<p>Redirect with 301 to the last/current slug.</p>
-
 <h5>
 <a id="npm-badge" class="anchor" href="#npm-badge" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM Badge</h5>
 
@@ -95,13 +83,13 @@
 <a id="cdncloudflare" class="anchor" href="#cdncloudflare" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.cloudflare.com/">CDN/cloudflare</a>
 </h4>
 
-<p>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a> use <a href="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/2.0.0/speakingurl.min.js">//cdnjs.cloudflare.com/ajax/libs/speakingurl/2.0.0/speakingurl.min.js</a></p>
+<p>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a> use <a href="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/3.0.0/speakingurl.min.js">//cdnjs.cloudflare.com/ajax/libs/speakingurl/3.0.0/speakingurl.min.js</a></p>
 
 <h4>
 <a id="cdnmaxcdn" class="anchor" href="#cdnmaxcdn" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.maxcdn.com/">CDN/maxcdn</a>
 </h4>
 
-<p>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a> use //cdn.jsdelivr.net/speakingurl/2.0.0/speakingurl.min.js</p>
+<p>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a> use <a href="https://cdn.jsdelivr.net/speakingurl/3.0.0/speakingurl.min.js">//cdn.jsdelivr.net/speakingurl/3.0.0/speakingurl.min.js</a></p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -128,7 +116,7 @@
 
 <ul>
 <li>  false -&gt; don't convert symbols</li>
-<li>  language for symbol translation ('ar', 'cz', 'de', 'en', 'es', 'fr', 'hu', 'it', 'my, 'nl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
+<li>  language specific transliteration ('ar', 'az', 'cz', 'de', 'en', 'es', 'fr', 'hu', 'it', 'lt', 'lv', 'my, 'nl', 'pl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
 <li>  false -&gt; don't convert symbols</li>
 </ul>
 </li>
