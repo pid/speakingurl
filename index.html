@@ -83,13 +83,26 @@
 <a id="cdncloudflare" class="anchor" href="#cdncloudflare" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.cloudflare.com/">CDN/cloudflare</a>
 </h4>
 
-<p>available versions: <a href="http://cdnjs.com/libraries/speakingurl/">http://cdnjs.com/libraries/speakingurl/</a> use <a href="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/3.0.0/speakingurl.min.js">//cdnjs.cloudflare.com/ajax/libs/speakingurl/3.0.0/speakingurl.min.js</a></p>
+<p>available versions:</p>
+
+<ul>
+<li>  <a href="http://cdnjs.com/libraries/speakingurl/">www.cdnjs.com/libraries/speakingurl/</a>
+</li>
+<li>  use <a href="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/4.0.0/speakingurl.min.js">//cdnjs.cloudflare.com/ajax/libs/speakingurl/4.0.0/speakingurl.min.js</a>
+</li>
+</ul>
 
 <h4>
 <a id="cdnmaxcdn" class="anchor" href="#cdnmaxcdn" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.maxcdn.com/">CDN/maxcdn</a>
 </h4>
 
-<p>available versions: <a href="http://www.jsdelivr.com/#!speakingurl">http://www.jsdelivr.com/#!speakingurl</a> use <a href="https://cdn.jsdelivr.net/speakingurl/3.0.0/speakingurl.min.js">//cdn.jsdelivr.net/speakingurl/3.0.0/speakingurl.min.js</a></p>
+<p>available versions:</p>
+
+<ul>
+<li>  www.jsdelivr.com/#!speakingurl</li>
+<li>  use <a href="https://cdn.jsdelivr.net/speakingurl/4.0.0/speakingurl.min.js">//cdn.jsdelivr.net/speakingurl/4.0.0/speakingurl.min.js</a>
+</li>
+</ul>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -115,9 +128,14 @@
 <li>  <code>lang</code> {string} default: 'en'
 
 <ul>
+<li>  language specific transliteration ('ar', 'az', 'cs', 'de', 'en', 'es', 'fr', 'hu', 'it', 'lt', 'lv', 'my, 'nl', 'pl', pt', 'ro', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
+</ul>
+</li>
+<li>  'symbols' {boolean} default: true
+
+<ul>
 <li>  false -&gt; don't convert symbols</li>
-<li>  language specific transliteration ('ar', 'az', 'cz', 'de', 'en', 'es', 'fr', 'hu', 'it', 'lt', 'lv', 'my, 'nl', 'pl', pt', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)</li>
-<li>  false -&gt; don't convert symbols</li>
+<li>  true -&gt; convert symbols according to the 'lang' setting</li>
 </ul>
 </li>
 <li>  <code>maintainCase</code> {boolean} default: false
@@ -368,20 +386,12 @@ $ npm install
 $ gulp
 $ commit files (speakingurl.min.js,...)
 <span class="pl-c"># if everything works fine, commit, push to your repository</span>
-<span class="pl-c"># create pull request</span>
-
-<span class="pl-c"># release new version / only for maintainer</span>
-$ gulp bumpup --minor
-$ gulp
-$ gulp release
-
-
-$</pre></div>
+<span class="pl-c"># create pull request</span></pre></div>
 
 <h2>
 <a id="release" class="anchor" href="#release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release</h2>
 
-<div class="highlight highlight-shell"><pre>$ gulp bumpup --patch
+<div class="highlight highlight-shell"><pre>$ gulp bumpup --patch  <span class="pl-c"># --minor # --major</span>
 $ gulp
 $ gulp release</pre></div>
 
