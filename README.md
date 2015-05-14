@@ -241,6 +241,17 @@ slug = getSlug('Foo & Bar ♥ Foo < Bar', {
 	    lang: false
 	});
 console.log(slug); // Output: foo-bar-foo-bar
+
+slug = getSlug('Foo & Bar ♥ Foo < Bar', {
+	    symbols: false
+	});
+console.log(slug); // Output: foo-bar-foo-bar
+
+slug = getSlug('ä♥ä', {
+		lang: 'tr',
+	    symbols: false
+	});
+console.log(slug); // Output: a
 ```
 
 ### createSlug([options])
