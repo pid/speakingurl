@@ -10,6 +10,11 @@ describe('getSlug symbols', function () {
             .should.eql('foo-and-bar-or-baz');
 
         getSlug('Foo & Bar | Baz', {
+                lang: 'cz'
+            })
+            .should.eql('foo-a-bar-nebo-baz');
+
+        getSlug('Foo & Bar | Baz', {
                 lang: 'en'
             })
             .should.eql('foo-and-bar-or-baz');
@@ -37,12 +42,7 @@ describe('getSlug symbols', function () {
         getSlug('Foo & Bar | Baz', {
                 lang: 'ro'
             })
-            .should.eql('foo-and-bar-or-baz');
-
-        getSlug('Foo & Bar | Baz', {
-                lang: 'cz'
-            })
-            .should.eql('foo-a-bar-nebo-baz');
+            .should.eql('foo-si-bar-sau-baz');
 
         getSlug('Foo & Bar | Baz', {
                 lang: 'sk'
