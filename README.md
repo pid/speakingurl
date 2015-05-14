@@ -82,7 +82,7 @@ Usage
 		-	char that replace the whitespaces
 	-	`lang` {string} default: 'en'
 		-	language specific transliteration ('ar', 'az', 'cs', 'de', 'en', 'es', 'fr', 'hu', 'it', 'lt', 'lv', 'my, 'nl', 'pl', pt', 'ro', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
-	-	'symbols' {boolean} default: true
+	-	`symbols` {boolean} default: true
 		-	false -> don't convert symbols
 		-	true -> convert symbols according to the 'lang' setting
 	-	`maintainCase` {boolean} default: false
