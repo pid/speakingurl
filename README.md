@@ -58,14 +58,14 @@ copy the file speakingurl.min.js to your script directory
 available versions:
 
 -	[www.cdnjs.com/libraries/speakingurl/](http://cdnjs.com/libraries/speakingurl/)
--	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/4.0.0/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/4.0.0/speakingurl.min.js)
+-	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/4.0.1/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/4.0.1/speakingurl.min.js)
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
 available versions:
 
 -	[www.jsdelivr.com/#!speakingurl](]http://www.jsdelivr.com/#!speakingurl)
--	use [//cdn.jsdelivr.net/speakingurl/4.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/4.0.0/speakingurl.min.js)
+-	use [//cdn.jsdelivr.net/speakingurl/4.0.1/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/4.0.1/speakingurl.min.js)
 
 Usage
 -----
@@ -81,7 +81,31 @@ Usage
 	-	`separator` {string} default: '-'
 		-	char that replace the whitespaces
 	-	`lang` {string} default: 'en'
-		-	language specific transliteration ('ar', 'az', 'cs', 'de', 'en', 'es', 'fr', 'hu', 'it', 'lt', 'lv', 'my, 'nl', 'pl', pt', 'ro', 'ru', 'sk', 'tr' and 'vn'; more coming soon, please help!)
+		-	language specific transliteration (
+			-	'ar' // Arabic
+			-	'az' // Azerbaijani\*
+			-	'cs' // Czech
+			-	'de' // German
+			-	'en' // English
+			-	'es' // Spanish
+			-	'fr' // French
+			-	'gr' // Greek\*
+			-	'hu' // Hungarian
+			-	'it' // Italian
+			-	'lt' // Lithuanian\*
+			-	'lv' // Latvian\*
+			-	'my' // Burmese
+			-	'mk' // Macedonian\*
+			-	'nl' // Dutch
+			-	'pl' // Polish
+			-	'pt' // Portuguese
+			-	'ro' // Romanian
+			-	'ru' // Russian
+			-	'sk' // Slovak
+			-	'sr' // Serbian\*
+			-	'tr' // Turkish
+			-	'uk' // Ukranian\*
+			-	'vn' // Vietnamese
 	-	`symbols` {boolean} default: true
 		-	false -> don't convert symbols
 		-	true -> convert symbols according to the 'lang' setting
