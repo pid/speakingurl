@@ -1,5 +1,4 @@
 /* global describe,it */
-
 var getSlug = require('../lib/speakingurl');
 
 describe('getSlug symbols', function () {
@@ -36,6 +35,11 @@ describe('getSlug symbols', function () {
             .should.eql('foo-i-bar-ili-baz');
 
         getSlug('Foo & Bar | Baz', {
+                lang: 'ro'
+            })
+            .should.eql('foo-and-bar-or-baz');
+
+        getSlug('Foo & Bar | Baz', {
                 lang: 'cz'
             })
             .should.eql('foo-a-bar-nebo-baz');
@@ -44,6 +48,59 @@ describe('getSlug symbols', function () {
                 lang: 'sk'
             })
             .should.eql('foo-a-bar-alebo-baz');
+
+        done();
+    });
+
+    it('shouldn\'t convert symbols', function (done) {
+
+        getSlug('Foo & Bar | Baz', {
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'en',
+                symbols: false
+
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'de',
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'fr',
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'es',
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'ru',
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'cz',
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
+
+        getSlug('Foo & Bar | Baz', {
+                lang: 'sk',
+                symbols: false
+            })
+            .should.eql('foo-bar-baz');
 
         done();
     });
@@ -66,7 +123,6 @@ describe('getSlug symbols', function () {
                 uric: true
             })
             .should.eql('foo-&-bar-oder-baz');
-
         getSlug('Foo & Bar | Baz', {
                 lang: 'fr',
                 uric: true
@@ -155,8 +211,7 @@ describe('getSlug symbols', function () {
     it('should not convert symbols with mark flag true', function (done) {
 
         getSlug('Foo (Bar) . Baz', {
-                mark: true,
-                symbols: false
+                mark: true
             })
             .should.eql('foo-(bar)-.-baz');
 
@@ -165,12 +220,6 @@ describe('getSlug symbols', function () {
                 mark: true
             })
             .should.eql('foo-(bar)-.-baz');
-
-        getSlug('Foo (Bar) . & Baz', {
-                lang: 'en',
-                mark: true
-            })
-            .should.eql('foo-(bar)-.-and-baz');
 
         getSlug('Foo (Bar) . Baz', {
                 lang: 'de',
@@ -221,20 +270,6 @@ describe('getSlug symbols', function () {
                 mark: true
             })
             .should.eql('foo-(love)-;-baz=bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'en',
-                uric: true,
-                uricNoSlash: true,
-                mark: true
-            })
-            .should.eql('foo-(love)-;-baz=&-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'en',
-                mark: true
-            })
-            .should.eql('foo-(love)-baz-and-bar');
 
         getSlug('Foo (♥) ; Baz=Bar', {
                 lang: 'de',
@@ -298,84 +333,6 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should not convert symbols with flags true', function (done) {
-
-        getSlug('Foo (♥) ; Baz=Bar', {
-                lang: 'en',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'en',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'en',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz= & Bar', {
-                lang: 'de',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'fr',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'es',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'ru',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'cz',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'sk',
-                mark: true,
-                symbols: false
-            })
-            .should.eql('foo-(-)-baz-bar');
-
-        getSlug(' Sch(* )ner (♥)Ti♥tel ♥läßt grüßen!? Bel♥♥ été !', {
-                lang: 'en',
-                mark: true,
-                maintainCase: true,
-                symbols: false
-            })
-            .should.eql(
-                'Sch(*-)ner-(-)Ti-tel-laesst-gruessen!-Bel-ete-!'
-            );
-
-        done();
-    });
-
     it('should replace symbols (de)', function (done) {
 
         getSlug('Äpfel & Birnen', {
@@ -388,24 +345,6 @@ describe('getSlug symbols', function () {
                 maintainCase: true
             })
             .should.eql('AeOeUeaeoeuess');
-
-        done();
-    });
-
-    it('should not replace symbols (de)', function (done) {
-
-        getSlug('Äpfel & Birnen', {
-                lang: 'de',
-                symbols: false
-            })
-            .should.eql('aepfel-birnen');
-
-        getSlug('ÄÖÜäöüß & Äpfel', {
-                lang: 'de',
-                maintainCase: true,
-                symbols: false
-            })
-            .should.eql('AeOeUeaeoeuess-Aepfel');
 
         done();
     });

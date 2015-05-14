@@ -56,6 +56,17 @@ describe('getSlug with custom replacement', function () {
             })
             .should.eql('[knoepfe]');
 
+        getSlug('[Knöpfe & Ösen]', {
+                custom: ['[', ']']
+            })
+            .should.eql('[knoepfe-and-oesen]');
+
+        getSlug('[Knöpfe & Ösen]', {
+                custom: ['[', ']'],
+                lang: 'de'
+            })
+            .should.eql('[knoepfe-und-oesen]');
+
         getSlug('[Knöpfe]', {
                 maintainCase: true,
                 custom: ['[', ']']
