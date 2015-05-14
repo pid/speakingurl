@@ -314,21 +314,13 @@ $ gulp
 $ commit files (speakingurl.min.js,...)
 # if everything works fine, commit, push to your repository
 # create pull request
-
-# release new version / only for maintainer
-$ gulp bumpup --minor
-$ gulp
-$ gulp release
-
-
-$
 ```
 
 Release
 -------
 
 ```shell
-$ gulp bumpup --patch
+$ gulp bumpup --patch  # --minor # --major
 $ gulp
 $ gulp release
 ```
