@@ -80,7 +80,7 @@ Usage
 
 	-	`separator` {string} default: '-'
 		-	char that replace the whitespaces
-	-	`lang` {string} default: 'en'
+	-	`lang` {string} default: 'en' // ISO 639-1 Codes
 		-	language specific transliteration (
 			-	'ar' // Arabic
 			-	'az' // Azerbaijani\*
@@ -93,7 +93,7 @@ Usage
 			-	'hu' // Hungarian
 			-	'it' // Italian
 			-	'lt' // Lithuanian\*
-			-	'lv' // Latvian\*
+			-	'lv' // Latvian
 			-	'my' // Burmese
 			-	'mk' // Macedonian\*
 			-	'nl' // Dutch
@@ -104,7 +104,7 @@ Usage
 			-	'sk' // Slovak
 			-	'sr' // Serbian\*
 			-	'tr' // Turkish
-			-	'uk' // Ukranian\*
+			-	'uk' // Ukranian
 			-	'vn' // Vietnamese
 	-	`symbols` {boolean} default: true
 		-	false -> don't convert symbols
