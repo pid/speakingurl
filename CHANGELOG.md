@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v5.0.0 add Ukranian #60, Latvian #57 symbol translations; update devDependencies
 -	v4.0.0 add new 'symbols' option, now you can explicit disable converting symbols, but use 'lang' specific transliteration; add romanian chars/symbol translation #52
 -	v3.0.0 add Romanian,Polish,Czech,Serbian,Latvian,Azerbaijani,add support for polish symbols
 -	v2.0.0 update charmap with Vietnamese chars) thanks to Lê Anh Tuấn https://github.com/lATAl
