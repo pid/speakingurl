@@ -1,6 +1,6 @@
 {
     "name": "speakingurl",
-    "version": "5.0.1",
+    "version": "6.0.0",
     "description": "Generate a slug – transliteration with a lot of options",
     "homepage": "http://pid.github.io/speakingurl/",
     "github": "http://github.com/pid/speakingurl",
