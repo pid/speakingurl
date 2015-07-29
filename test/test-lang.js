@@ -371,6 +371,20 @@ describe('getSlug symbols', function () {
         done();
     });
 
+    it('should replace chars by fi language standards', function (done) {
+
+        getSlug(
+                'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzÅåÄäÖö', {
+                    lang: 'fi',
+                    maintainCase: true
+                })
+            .should.eql(
+                'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaAaOo'
+            );
+
+        done();
+    });
+
     it('should replace chars by sk language standards', function (done) {
 
         getSlug(
