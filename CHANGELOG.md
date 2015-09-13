@@ -1,6 +1,7 @@
 Changelog
 =========
 
+-	v7.0.0 Add Dhivehi translations; thanks to https://github.com/jawish/;
 -	v6.0.0 Add Catalan translations #64; thanks to https://github.com/alexandernst/; Add Finnish char map #65; thanks to https://github.com/jmheik/
 -	v5.0.1 bugfix #62; thanks to https://github.com/jdiprizio
 -	v5.0.0 add Ukranian #60, Latvian #57 symbol translations; update devDependencies

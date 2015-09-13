@@ -107,3 +107,9 @@ slug = getSlug('မြန်မာစာ သာဓက', {
 });
 console.log(slug); // Output: myanma-thadak
 console.log('\n');
+
+slug = getSlug('މިއަދަކީ ހދ ރީތި ދވހކވ', {
+    lang: 'dv'
+});
+console.log(slug); // Output: miadhakee hd reethi dvhkv
+console.log('\n');

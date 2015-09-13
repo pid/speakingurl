@@ -86,6 +86,7 @@ Usage
 			-	'az' // Azerbaijani\*
 			-	'cs' // Czech
 			-	'de' // German
+			-	'dv' // Divehi
 			-	'en' // English
 			-	'es' // Spanish
 			-	'fr' // French
@@ -202,6 +203,11 @@ slug = getSlug("မြန်မာ သာဓက", {
 	    lang: 'my'
 	});
 console.log(slug); // Output: myanma-thadak
+
+slug = getSlug('މިއަދަކީ ހދ ރީތި ދވހކވ', {
+        lang: 'dv'
+    });
+console.log(slug); // Output: miadhakee hd reethi dvhkv
 
 slug = getSlug("Apple & Pear!", {
 	    lang: 'en' // lang: "en" is default, just to clarify
