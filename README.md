@@ -203,6 +203,11 @@ slug = getSlug("မြန်မာ သာဓက", {
 	});
 console.log(slug); // Output: myanma-thadak
 
+slug = getSlug('މިއަދަކީ ހދ ރީތި ދވހކވ', {
+        lang: 'dv'
+    });
+console.log(slug); // Output: miadhakee hd reethi dvhkv
+
 slug = getSlug("Apple & Pear!", {
 	    lang: 'en' // lang: "en" is default, just to clarify
 	});
