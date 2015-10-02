@@ -8,7 +8,7 @@ describe('getSlug translate cyrillic letters', function () {
     it('should be ', function (done) {
 
         getSlug('Пью')
-            .should.eql('pyu');
+            .should.eql('pyyu');
 
         done();
     });
