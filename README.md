@@ -79,7 +79,7 @@ Usage
 -	`options` {object}
 
 	-	`separator` {string} default: '-'
-		-	char that replace the whitespaces
+		-	char that replaces the whitespaces
 	-	`lang` {string} default: 'en' // ISO 639-1 Codes
 		-	language specific transliteration (
 			-	'ar' // Arabic
