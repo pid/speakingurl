@@ -46,31 +46,31 @@
 <a id="npm" class="anchor" href="#npm" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://npmjs.org/package/speakingurl">npm</a>
 </h4>
 
-<div class="highlight highlight-shell"><pre>npm install speakingurl --save</pre></div>
+<div class="highlight highlight-source-shell"><pre>npm install speakingurl --save</pre></div>
 
 <h4>
 <a id="bower" class="anchor" href="#bower" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://bower.io">Bower</a>
 </h4>
 
-<div class="highlight highlight-shell"><pre>bower install --save speakingurl</pre></div>
+<div class="highlight highlight-source-shell"><pre>bower install --save speakingurl</pre></div>
 
 <h4>
 <a id="component" class="anchor" href="#component" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/component/component">Component</a>
 </h4>
 
-<div class="highlight highlight-shell"><pre>component install pid/speakingurl</pre></div>
+<div class="highlight highlight-source-shell"><pre>component install pid/speakingurl</pre></div>
 
 <h4>
 <a id="jamjs" class="anchor" href="#jamjs" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://jamjs.org/">jamjs</a>
 </h4>
 
-<div class="highlight highlight-shell"><pre>jam install speakingurl</pre></div>
+<div class="highlight highlight-source-shell"><pre>jam install speakingurl</pre></div>
 
 <h4>
 <a id="ruby-on-rails" class="anchor" href="#ruby-on-rails" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://rubyonrails.org/">Ruby on Rails</a>
 </h4>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c"># Add to Gemfile</span>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c"># Add to Gemfile</span>
 <span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">'</span>speakingurl-rails<span class="pl-pds">'</span></span></pre></div>
 
 <h4>
@@ -88,7 +88,7 @@
 <ul>
 <li>  <a href="http://cdnjs.com/libraries/speakingurl/">www.cdnjs.com/libraries/speakingurl/</a>
 </li>
-<li>  use <a href="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/6.0.0/speakingurl.min.js">//cdnjs.cloudflare.com/ajax/libs/speakingurl/6.0.0/speakingurl.min.js</a>
+<li>  use <a href="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/7.0.0/speakingurl.min.js">//cdnjs.cloudflare.com/ajax/libs/speakingurl/7.0.0/speakingurl.min.js</a>
 </li>
 </ul>
 
@@ -100,7 +100,7 @@
 
 <ul>
 <li>  www.jsdelivr.com/#!speakingurl</li>
-<li>  use <a href="https://cdn.jsdelivr.net/speakingurl/6.0.0/speakingurl.min.js">//cdn.jsdelivr.net/speakingurl/6.0.0/speakingurl.min.js</a>
+<li>  use <a href="https://cdn.jsdelivr.net/speakingurl/7.0.0/speakingurl.min.js">//cdn.jsdelivr.net/speakingurl/7.0.0/speakingurl.min.js</a>
 </li>
 </ul>
 
@@ -122,7 +122,7 @@
 <li>  <code>separator</code> {string} default: '-'
 
 <ul>
-<li>  char that replace the whitespaces</li>
+<li>  char that replaces the whitespaces</li>
 </ul>
 </li>
 <li>  <code>lang</code> {string} default: 'en' // ISO 639-1 Codes
@@ -135,6 +135,7 @@
 <li>  'az' // Azerbaijani*</li>
 <li>  'cs' // Czech</li>
 <li>  'de' // German</li>
+<li>  'dv' // Divehi</li>
 <li>  'en' // English</li>
 <li>  'es' // Spanish</li>
 <li>  'fr' // French</li>
@@ -223,143 +224,148 @@
 <h5>
 <a id="nodejs" class="anchor" href="#nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Node.js</h5>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> getSlug <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> getSlug <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>);</pre></div>
 
 <h5>
 <a id="browser" class="anchor" href="#browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser</h5>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/speakingurl/speakingurl.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/speakingurl/speakingurl.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
 <h4>
 <a id="ruby-on-rails-1" class="anchor" href="#ruby-on-rails-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby on Rails</h4>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c"># Add to application.js</span>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c"># Add to application.js</span>
 <span class="pl-sr"><span class="pl-pds">//</span></span><span class="pl-k">=</span> <span class="pl-k">require</span> speakingurl</pre></div>
 
 <h4>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h4>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> slug;
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> slug;
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>);
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen-bel-ete</span>
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen-bel-ete</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span>);
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener*titel*laesst*gruessen*bel*ete</span>
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener*titel*laesst*gruessen*bel*ete</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         separator<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>_<span class="pl-pds">'</span></span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener_titel_laesst_gruessen_bel_ete</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener_titel_laesst_gruessen_bel_ete</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         uric<span class="pl-k">:</span> <span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         uricNoSlash<span class="pl-k">:</span> <span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen?-bel-ete</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         mark<span class="pl-k">:</span> <span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen!-bel-ete-!</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener-titel-laesst-gruessen!-bel-ete-!</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         truncate<span class="pl-k">:</span> <span class="pl-c1">20</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: schoener-titel</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: schoener-titel</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>, {
         maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: Schoener-Titel-laesst-gruessen-Bel-ete</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: Schoener-Titel-laesst-gruessen-Bel-ete</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Äpfel &amp; Birnen!<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Äpfel &amp; Birnen!<span class="pl-pds">"</span></span>, {
         lang<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>de<span class="pl-pds">'</span></span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: aepfel-und-birnen</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: aepfel-und-birnen</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>မြန်မာ သာဓက<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>မြန်မာ သာဓက<span class="pl-pds">"</span></span>, {
         lang<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>my<span class="pl-pds">'</span></span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: myanma-thadak</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: myanma-thadak</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Apple &amp; Pear!<span class="pl-pds">"</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>މިއަދަކީ ހދ ރީތި ދވހކވ<span class="pl-pds">'</span></span>, {
+        lang<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>dv<span class="pl-pds">'</span></span>
+    });
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: miadhakee hd reethi dvhkv</span>
+
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">"</span>Apple &amp; Pear!<span class="pl-pds">"</span></span>, {
         lang<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>en<span class="pl-pds">'</span></span> <span class="pl-c">// lang: "en" is default, just to clarify</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: apple-and-pear</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: apple-and-pear</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar * Baz<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar * Baz<span class="pl-pds">'</span></span>, {
         custom<span class="pl-k">:</span> {
             <span class="pl-s"><span class="pl-pds">'</span>&amp;<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span> doo <span class="pl-pds">'</span></span>
         },
         uric<span class="pl-k">:</span><span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: foo-doo-bar-baz</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: foo-doo-bar-baz</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Foo ♥ Bar<span class="pl-pds">'</span></span>);
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: foo-love-bar</span>
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Foo ♥ Bar<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: foo-love-bar</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar | (Baz) * Doo<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar | (Baz) * Doo<span class="pl-pds">'</span></span>, {
         custom<span class="pl-k">:</span> {
             <span class="pl-s"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Boo<span class="pl-pds">'</span></span>
         },
         mark<span class="pl-k">:</span><span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: foo-and-bar-or-(baz)-boo-doo</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: foo-and-bar-or-(baz)-boo-doo</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Foo and Bar or Baz<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Foo and Bar or Baz<span class="pl-pds">'</span></span>, {
         custom<span class="pl-k">:</span> {
             <span class="pl-s"><span class="pl-pds">'</span>and<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>und<span class="pl-pds">'</span></span>,
             <span class="pl-s"><span class="pl-pds">'</span>or<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>
         }
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: foo-und-bar-baz</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: foo-und-bar-baz</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>[Knöpfe]<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>[Knöpfe]<span class="pl-pds">'</span></span>, {
         custom<span class="pl-k">:</span> [
             <span class="pl-s"><span class="pl-pds">'</span>[<span class="pl-pds">'</span></span>,
             <span class="pl-s"><span class="pl-pds">'</span>]<span class="pl-pds">'</span></span>
         ]
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: [knoepfe]</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: [knoepfe]</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>NEXUS4 only $299<span class="pl-pds">'</span></span>);
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: nexus-4-only-usd299</span>
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>NEXUS4 only $299<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: nexus-4-only-usd299</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>NEXUS4 only €299<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>NEXUS4 only €299<span class="pl-pds">'</span></span>, {
         maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: NEXUS-4-only-EUR299</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: NEXUS-4-only-EUR299</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Don<span class="pl-cce">\'</span>t drink and drive<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Don<span class="pl-cce">\'</span>t drink and drive<span class="pl-pds">'</span></span>, {
         titleCase<span class="pl-k">:</span> <span class="pl-c1">true</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: Don-t-Drink-And-Drive</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: Don-t-Drink-And-Drive</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Don<span class="pl-cce">\'</span>t drink and drive<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Don<span class="pl-cce">\'</span>t drink and drive<span class="pl-pds">'</span></span>, {
         titleCase<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>and<span class="pl-pds">'</span></span>]
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: Don-t-Drink-and-Drive</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: Don-t-Drink-and-Drive</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar ♥ Foo &lt; Bar<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar ♥ Foo &lt; Bar<span class="pl-pds">'</span></span>, {
         lang<span class="pl-k">:</span> <span class="pl-c1">false</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: foo-bar-foo-bar</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: foo-bar-foo-bar</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar ♥ Foo &lt; Bar<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>Foo &amp; Bar ♥ Foo &lt; Bar<span class="pl-pds">'</span></span>, {
         symbols<span class="pl-k">:</span> <span class="pl-c1">false</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: foo-bar-foo-bar</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: foo-bar-foo-bar</span>
 
-slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class="pl-s"><span class="pl-pds">'</span>ä♥ä<span class="pl-pds">'</span></span>, {
+slug <span class="pl-k">=</span> getSlug(<span class="pl-s"><span class="pl-pds">'</span>ä♥ä<span class="pl-pds">'</span></span>, {
         lang<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>tr<span class="pl-pds">'</span></span>,
         symbols<span class="pl-k">:</span> <span class="pl-c1">false</span>
     });
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: a</span></pre></div>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: a</span></pre></div>
 
 <h3>
 <a id="createslugoptions" class="anchor" href="#createslugoptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>createSlug([options])</h3>
@@ -368,21 +374,21 @@ slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class=
 
 <p>Create your own specially configured function.</p>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> options <span class="pl-k">=</span> {
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> options <span class="pl-k">=</span> {
         maintainCase<span class="pl-k">:</span> <span class="pl-c1">true</span>,
         separator<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>_<span class="pl-pds">'</span></span>
     };
 
-<span class="pl-k">var</span> mySlug <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).<span class="pl-c1">createSlug</span>(options);
+<span class="pl-k">var</span> mySlug <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).createSlug(options);
 <span class="pl-c">// in browser:</span>
 <span class="pl-c">// var mySlug = createSlug(options);</span>
 
-<span class="pl-k">var</span> slug <span class="pl-k">=</span> <span class="pl-c1">mySlug</span>(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>);
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: Schoener_Titel_laesst_gruessen_Bel_ete</span></pre></div>
+<span class="pl-k">var</span> slug <span class="pl-k">=</span> mySlug(<span class="pl-s"><span class="pl-pds">"</span>Schöner Titel läßt grüßen!? Bel été !<span class="pl-pds">"</span></span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: Schoener_Titel_laesst_gruessen_Bel_ete</span></pre></div>
 
 <p>Create your own specially configured function with title-case feature.</p>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> options <span class="pl-k">=</span> {
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> options <span class="pl-k">=</span> {
         titleCase<span class="pl-k">:</span> [
             <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>an<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>and<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>as<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>at<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>but<span class="pl-pds">"</span></span>,
             <span class="pl-s"><span class="pl-pds">"</span>by<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>for<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>if<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>in<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>nor<span class="pl-pds">"</span></span>,
@@ -390,12 +396,12 @@ slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class=
         ]
     };
 
-<span class="pl-k">var</span> mySlug <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).<span class="pl-c1">createSlug</span>(options);
+<span class="pl-k">var</span> mySlug <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>speakingurl<span class="pl-pds">'</span></span>).createSlug(options);
 <span class="pl-c">// in browser:</span>
 <span class="pl-c">// var mySlug = createSlug(options);</span>
 
-<span class="pl-k">var</span> slug <span class="pl-k">=</span> <span class="pl-c1">mySlug</span>(<span class="pl-s"><span class="pl-pds">'</span>welcome to the jungle<span class="pl-pds">'</span></span>);
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(slug); <span class="pl-c">// Output: Welcome-to-the-Jungle</span></pre></div>
+<span class="pl-k">var</span> slug <span class="pl-k">=</span> mySlug(<span class="pl-s"><span class="pl-pds">'</span>welcome to the jungle<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(slug); <span class="pl-c">// Output: Welcome-to-the-Jungle</span></pre></div>
 
 <h2>
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h2>
@@ -407,12 +413,12 @@ slug <span class="pl-k">=</span> <span class="pl-c1">getSlug</span>(<span class=
 
 <p><a href="https://travis-ci.org/pid/speakingurl"><img src="https://travis-ci.org/pid/speakingurl.png" alt="Build Status"></a></p>
 
-<div class="highlight highlight-shell"><pre>npm <span class="pl-c1">test</span></pre></div>
+<div class="highlight highlight-source-shell"><pre>npm <span class="pl-c1">test</span></pre></div>
 
 <h2>
 <a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribution</h2>
 
-<div class="highlight highlight-shell"><pre>
+<div class="highlight highlight-source-shell"><pre>
 <span class="pl-c"># fork pid/speakingurl on Github</span>
 $ git clone git@github.com:<span class="pl-k">&lt;</span>YOUR_USER<span class="pl-k">&gt;</span>/speakingurl.git
 $ <span class="pl-c1">cd</span> speakingurl
@@ -430,14 +436,14 @@ $ commit files (speakingurl.min.js,...)
 <h2>
 <a id="release" class="anchor" href="#release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release</h2>
 
-<div class="highlight highlight-shell"><pre>$ gulp bumpup --patch  <span class="pl-c"># --minor # --major</span>
+<div class="highlight highlight-source-shell"><pre>$ gulp bumpup --patch  <span class="pl-c"># --minor # --major</span>
 $ gulp
 $ gulp release</pre></div>
 
 <h2>
 <a id="release-to-rubygemsorg" class="anchor" href="#release-to-rubygemsorg" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release to RubyGems.org</h2>
 
-<div class="highlight highlight-shell"><pre>$ gulp
+<div class="highlight highlight-source-shell"><pre>$ gulp
 $ gem build speakingurl-rails.gemspec
 $ gem push speakingurl-rails-x.x.x.gem</pre></div>
 
