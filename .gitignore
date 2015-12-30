@@ -6,6 +6,7 @@ npm-debug.log
 *.old
 .idea
 .zedstate
+.vscode
 
 coverage
 coverage.html
