@@ -57,14 +57,14 @@ copy the file speakingurl.min.js to your script directory
 available versions:
 
 -	[www.cdnjs.com/libraries/speakingurl/](http://cdnjs.com/libraries/speakingurl/)
--	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/8.0.0/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/8.0.0/speakingurl.min.js)
+-	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/8.0.2/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/8.0.2/speakingurl.min.js)
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
 available versions:
 
 -	[www.jsdelivr.com/#!speakingurl](]http://www.jsdelivr.com/#!speakingurl)
--	use [//cdn.jsdelivr.net/speakingurl/8.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/8.0.0/speakingurl.min.js)
+-	use [//cdn.jsdelivr.net/speakingurl/8.0.2/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/8.0.2/speakingurl.min.js)
 
 Usage
 -----
@@ -404,7 +404,7 @@ Credits
 
 The BSD 3-Clause License (BSD3)
 
-Copyright (c) 2013-2015 Sascha Droste pid@posteo.net All rights reserved.
+Copyright (c) 2013-2016 Sascha Droste pid@posteo.net All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

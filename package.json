@@ -1,6 +1,6 @@
 {
     "name": "speakingurl",
-    "version": "8.0.0",
+    "version": "8.0.2",
     "description": "Generate a slug – transliteration with a lot of options",
     "homepage": "http://pid.github.io/speakingurl/",
     "github": "http://github.com/pid/speakingurl",
@@ -9,6 +9,7 @@
         "url": "git://github.com:pid/speakingurl.git"
     },
     "bugs": "https://github.com/pid/speakingurl/issues",
+    "license": "BSD-3-Clause",
     "licenses": [{
         "type": "BSD",
         "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
@@ -55,6 +56,7 @@
         "gulp-rename": "^1.2.0",
         "gulp-replace": "^0.5.0",
         "gulp-uglify": "^1.0.1",
+        "jshint": "^2.8.0",
         "jshint-stylish": "^2.0.0",
         "minimist": "^1.1.0",
         "mocha": "^2.0.1",
