@@ -1,6 +1,6 @@
 {
     "name": "speakingurl",
-    "version": "8.0.2",
+    "version": "9.0.0",
     "description": "Generate a slug – transliteration with a lot of options",
     "main": "speakingurl.min.js",
     "homepage": "http://pid.github.io/speakingurl/",
