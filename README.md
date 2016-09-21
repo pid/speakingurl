@@ -88,6 +88,7 @@ Usage
 			-	'dv' // Divehi
 			-	'en' // English
 			-	'es' // Spanish
+            -   'fa' // Persian
 			-	'fr' // French
 			-	'gr' // Greek\*
 			-	'hu' // Hungarian
