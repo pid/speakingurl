@@ -20,14 +20,14 @@ describe('getSlug languages', function () {
                 '¤': 'omla'
             },
 
-            'cz': {
+            'cs': {
                 '∆': 'delta',
                 '∞': 'nekonecno',
                 '♥': 'laska',
                 '&': 'a',
                 '|': 'nebo',
-                '<': 'mene jako',
-                '>': 'vice jako',
+                '<': 'mensi nez',
+                '>': 'vetsi nez',
                 '∑': 'soucet',
                 '¤': 'mena'
             },
