@@ -36,7 +36,7 @@ describe('getSlug symbols', function () {
             .should.eql('foo-i-bar-ili-baz');
 
         getSlug('Foo & Bar | Baz', {
-                lang: 'cz'
+                lang: 'cs'
             })
             .should.eql('foo-a-bar-nebo-baz');
 
@@ -86,7 +86,7 @@ describe('getSlug symbols', function () {
             .should.eql('foo-&-bar-ili-baz');
 
         getSlug('Foo & Bar | Baz', {
-                lang: 'cz',
+                lang: 'cs',
                 uric: true
             })
             .should.eql('foo-&-bar-nebo-baz');
@@ -138,7 +138,7 @@ describe('getSlug symbols', function () {
             .should.eql('foo-&-bar-ili-baz');
 
         getSlug('Foo & Bar | Baz', {
-                lang: 'cz',
+                lang: 'cs',
                 uricNoSlash: true
             })
             .should.eql('foo-&-bar-nebo-baz');
@@ -197,7 +197,7 @@ describe('getSlug symbols', function () {
             .should.eql('foo-(bar)-.-baz');
 
         getSlug('Foo (Bar) . Baz', {
-                lang: 'cz',
+                lang: 'cs',
                 mark: true
             })
             .should.eql('foo-(bar)-.-baz');
@@ -269,7 +269,7 @@ describe('getSlug symbols', function () {
             .should.eql('foo-(lubov)-;-baz=bar');
 
         getSlug('Foo (♥) ; Baz=Bar', {
-                lang: 'cz',
+                lang: 'cs',
                 uric: true,
                 uricNoSlash: true,
                 mark: true
@@ -350,7 +350,7 @@ describe('getSlug symbols', function () {
             .should.eql('foo-(-)-baz-bar');
 
         getSlug('Foo (♥) ; Baz=& Bar', {
-                lang: 'cz',
+                lang: 'cs',
                 mark: true,
                 symbols: false
             })
@@ -410,11 +410,11 @@ describe('getSlug symbols', function () {
         done();
     });
 
-    it('should replace chars by cz language standards', function (done) {
+    it('should replace chars by cs language standards', function (done) {
 
         getSlug(
                 'AaÁáBbCcČčDdĎďEeÉéĚěFfGgHhChchIiÍíJjKkLlMmNnŇňOoÓóPpQqRrŘřSsŠšTtŤťUuÚúŮůVvWwXxYyÝýZzŽž', {
-                    lang: 'cz'
+                    lang: 'cs'
                 })
             .should.eql(
                 'aaaabbccccddddeeeeeeffgghhchchiiiijjkkllmmnnnnooooppqqrrrrssssttttuuuuuuvvwwxxyyyyzzzz'
@@ -422,7 +422,7 @@ describe('getSlug symbols', function () {
 
         getSlug(
                 'AaÁáBbCcČčDdĎďEeÉéĚěFfGgHhChchIiÍíJjKkLlMmNnŇňOoÓóPpQqRrŘřSsŠšTtŤťUuÚúŮůVvWwXxYyÝýZzŽž', {
-                    lang: 'cz',
+                    lang: 'cs',
                     maintainCase: true
                 })
             .should.eql(
