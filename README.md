@@ -1,7 +1,12 @@
 SpeakingURL
 ===========
 
-[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl) [![NPM version](https://badge.fury.io/js/speakingurl.png)](http://badge.fury.io/js/speakingurl) [![Bower version](https://badge.fury.io/bo/speakingurl.svg)](http://badge.fury.io/bo/speakingurl) [![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](http://badge.fury.io/rb/speakingurl-rails) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
+[![Build Status](https://travis-ci.org/pid/speakingurl.svg)](https://travis-ci.org/pid/speakingurl) 
+[![NPM version](https://badge.fury.io/js/speakingurl.svg)](http://badge.fury.io/js/speakingurl) 
+[![Bower version](https://badge.fury.io/bo/speakingurl.svg)](http://badge.fury.io/bo/speakingurl) 
+[![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](http://badge.fury.io/rb/speakingurl-rails) 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+[![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
 
 
 ====================================================================================================================================================================================================================================================================================================================================================
@@ -12,7 +17,7 @@ For use in browser and server - no dependencies!
 
 ##### NPM Badge
 
-[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
+[![Module Status](https://nodei.co/npm/speakingurl.svg?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
 
 Installation
 ------------
@@ -331,7 +336,7 @@ see [CHANGELOG.md](https://raw.github.com/pid/speakingurl/master/CHANGELOG.md)
 Tests
 -----
 
-[![Build Status](https://travis-ci.org/pid/speakingurl.png)](https://travis-ci.org/pid/speakingurl)
+[![Build Status](https://travis-ci.org/pid/speakingurl.svg)](https://travis-ci.org/pid/speakingurl)
 
 ```shell
 npm test
