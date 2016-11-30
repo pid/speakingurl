@@ -1,5 +1,6 @@
 Changelog
 =========
+-   v11.0.0 #87 Add Finnish transliteration for symbols; #85 Added new currencies; #84 Update README.md; #83 Various czech language fixes;#82 Add lithuanian transliteration for symbols; Fix: Ω should be transliterated to O
 -   v10.0.0 Add persian; Update dependencies 
 -   v9.0.0 fix of "Title Case error while accent on First Character for each word #72"
 -   v8.0.2 fix the fix; problems with release v8.0.1 with building speakingurl-min.js
