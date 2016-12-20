@@ -9,8 +9,6 @@ SpeakingURL
 [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
 
 
-====================================================================================================================================================================================================================================================================================================================================================
-
 > Generate a slug with a lot of options; create a so-called [Semantic URL](https://en.wikipedia.org/wiki/Semantic_URL) or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string. This module aims to transliterate the input string.
 
 For use in browser and server - no dependencies!
