@@ -82,7 +82,7 @@ Usage
 
 	-	`separator` {string} default: '-'
 		-	char that replaces the whitespaces
-	-	`lang` {string} default: 'en' // ISO 639-1 Codes
+	-	`lang` {string|boolean} default: 'en' // ISO 639-1 Codes
 		-	language specific transliteration (
 			-	'ar' // Arabic
 			-	'az' // Azerbaijani\*
