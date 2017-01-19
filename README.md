@@ -15,7 +15,7 @@ For use in browser and server - no dependencies!
 
 ##### NPM Badge
 
-[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
+[![Module Status](https://nodei.co/npm/speakingurl.svg?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
 
 Installation
 ------------
