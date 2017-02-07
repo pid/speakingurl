@@ -26,6 +26,12 @@ Installation
 npm install speakingurl --save
 ```
 
+#### [yarn](https://yarnpkg.com)
+
+```shell
+yarn add speakingurl --dev
+```
+
 #### [Bower](http://bower.io)
 
 ```shell
