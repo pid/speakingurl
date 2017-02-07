@@ -44,12 +44,6 @@ bower install --save speakingurl
 component install pid/speakingurl
 ```
 
-#### [jamjs](http://jamjs.org/)
-
-```shell
-jam install speakingurl
-```
-
 #### [Ruby on Rails](http://rubyonrails.org/)
 
 ```ruby
