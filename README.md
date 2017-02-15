@@ -60,14 +60,14 @@ copy the file speakingurl.min.js to your script directory
 available versions:
 
 -	[www.cdnjs.com/libraries/speakingurl/](https://cdnjs.com/libraries/speakingurl/)
--	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/10.0.0/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/10.0.0/speakingurl.min.js)
+-	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/13.0.0/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/13.0.0/speakingurl.min.js)
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
 available versions:
 
 -	[www.jsdelivr.com/#!speakingurl](https://www.jsdelivr.com/#!speakingurl)
--	use [//cdn.jsdelivr.net/speakingurl/10.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/10.0.0/speakingurl.min.js)
+-	use [//cdn.jsdelivr.net/speakingurl/13.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/13.0.0/speakingurl.min.js)
 
 Usage
 -----
