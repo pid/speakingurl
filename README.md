@@ -94,6 +94,7 @@ Usage
             -   'fa' // Persian
             -   'fi' // Finnish
 			-	'fr' // French
+            -   'ge' // Georgian
 			-	'gr' // Greek\*
 			-	'hu' // Hungarian
 			-	'it' // Italian
@@ -409,7 +410,7 @@ Credits
 
 The BSD 3-Clause License (BSD3)
 
-Copyright (c) 2013-2016 Sascha Droste pid@posteo.net All rights reserved.
+Copyright (c) 2013-2017 Sascha Droste pid@posteo.net All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
