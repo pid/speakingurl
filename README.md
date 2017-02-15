@@ -2,11 +2,11 @@ SpeakingURL
 ===========
 
 [![Build Status](https://travis-ci.org/pid/speakingurl.svg)](https://travis-ci.org/pid/speakingurl) 
-[![NPM version](https://badge.fury.io/js/speakingurl.svg)](http://badge.fury.io/js/speakingurl) 
-[![Bower version](https://badge.fury.io/bo/speakingurl.svg)](http://badge.fury.io/bo/speakingurl) 
-[![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](http://badge.fury.io/rb/speakingurl-rails) 
+[![NPM version](https://badge.fury.io/js/speakingurl.svg)](https://badge.fury.io/js/speakingurl) 
+[![Bower version](https://badge.fury.io/bo/speakingurl.svg)](https://badge.fury.io/bo/speakingurl) 
+[![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](https://badge.fury.io/rb/speakingurl-rails) 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
-[![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
+[![Flattr](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
 
 
 > Generate a slug with a lot of options; create a so-called [Semantic URL](https://en.wikipedia.org/wiki/Semantic_URL) or 'Clean URL' or 'Pretty URL' or 'nice-looking URL' or 'Speaking URL' or 'user-friendly URL' or 'SEO-friendly URL' from a string. This module aims to transliterate the input string.
@@ -15,7 +15,7 @@ For use in browser and server - no dependencies!
 
 ##### NPM Badge
 
-[![Module Status](https://nodei.co/npm/speakingurl.svg?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
+[![Module Status](https://nodei.co/npm/speakingurl.png?downloads=true&stars=true)](https://npmjs.org/package/speakingurl)
 
 Installation
 ------------
@@ -26,7 +26,13 @@ Installation
 npm install speakingurl --save
 ```
 
-#### [Bower](http://bower.io)
+#### [yarn](https://yarnpkg.com)
+
+```shell
+yarn add speakingurl --dev
+```
+
+#### [Bower](https://bower.io)
 
 ```shell
 bower install --save speakingurl
@@ -36,12 +42,6 @@ bower install --save speakingurl
 
 ```shell
 component install pid/speakingurl
-```
-
-#### [jamjs](http://jamjs.org/)
-
-```shell
-jam install speakingurl
 ```
 
 #### [Ruby on Rails](http://rubyonrails.org/)
@@ -59,15 +59,15 @@ copy the file speakingurl.min.js to your script directory
 
 available versions:
 
--	[www.cdnjs.com/libraries/speakingurl/](http://cdnjs.com/libraries/speakingurl/)
--	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/10.0.0/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/10.0.0/speakingurl.min.js)
+-	[www.cdnjs.com/libraries/speakingurl/](https://cdnjs.com/libraries/speakingurl/)
+-	use [//cdnjs.cloudflare.com/ajax/libs/speakingurl/13.0.0/speakingurl.min.js](https://cdnjs.cloudflare.com/ajax/libs/speakingurl/13.0.0/speakingurl.min.js)
 
 #### [CDN/maxcdn](https://www.maxcdn.com/)
 
 available versions:
 
--	[www.jsdelivr.com/#!speakingurl](]http://www.jsdelivr.com/#!speakingurl)
--	use [//cdn.jsdelivr.net/speakingurl/10.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/10.0.0/speakingurl.min.js)
+-	[www.jsdelivr.com/#!speakingurl](https://www.jsdelivr.com/#!speakingurl)
+-	use [//cdn.jsdelivr.net/speakingurl/13.0.0/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/13.0.0/speakingurl.min.js)
 
 Usage
 -----
@@ -82,7 +82,7 @@ Usage
 
 	-	`separator` {string} default: '-'
 		-	char that replaces the whitespaces
-	-	`lang` {string} default: 'en' // ISO 639-1 Codes
+	-	`lang` {string|boolean} default: 'en' // ISO 639-1 Codes
 		-	language specific transliteration (
 			-	'ar' // Arabic
 			-	'az' // Azerbaijani\*
@@ -94,6 +94,7 @@ Usage
             -   'fa' // Persian
             -   'fi' // Finnish
 			-	'fr' // French
+            -   'ge' // Georgian
 			-	'gr' // Greek\*
 			-	'hu' // Hungarian
 			-	'it' // Italian
@@ -382,8 +383,8 @@ $ gem push speakingurl-rails-x.x.x.gem
 References
 ----------
 
--	http://tools.ietf.org/html/rfc3986
--	http://en.wikipedia.org/wiki/Transliteration
+-	https://tools.ietf.org/html/rfc3986
+-	https://en.wikipedia.org/wiki/Transliteration
 
 Use in other environments
 -------------------------
@@ -409,7 +410,7 @@ Credits
 
 The BSD 3-Clause License (BSD3)
 
-Copyright (c) 2013-2016 Sascha Droste pid@posteo.net All rights reserved.
+Copyright (c) 2013-2017 Sascha Droste pid@posteo.net All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
