@@ -2,7 +2,7 @@
     "name": "speakingurl",
     "version": "12.0.0",
     "description": "Generate a slug – transliteration with a lot of options",
-    "main": "speakingurl.min.js",
+    "main": "lib/speakingurl.js",
     "homepage": "http://pid.github.io/speakingurl/",
     "bugs": "https://github.com/pid/speakingurl/issues",
     "repository": {
