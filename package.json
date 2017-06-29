@@ -6,7 +6,7 @@
     "github": "http://github.com/pid/speakingurl",
     "repository": {
         "type": "git",
-        "url": "git://github.com:pid/speakingurl.git"
+        "url": "https://github.com/pid/speakingurl.git"
     },
     "bugs": "https://github.com/pid/speakingurl/issues",
     "license": "BSD-3-Clause",
