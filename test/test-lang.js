@@ -375,7 +375,7 @@ describe('getSlug symbols', function () {
 
         getSlug(
                 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzÅåÄäÖö', {
-                    lang: 'se',
+                    lang: 'sv',
                     maintainCase: true
                 })
             .should.eql(

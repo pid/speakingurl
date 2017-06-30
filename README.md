@@ -107,7 +107,7 @@ Usage
 			-	'pt' // Portuguese
 			-	'ro' // Romanian
 			-	'ru' // Russian
-			-	'se' // Swedish
+			-	'sv' // Swedish
 			-	'sk' // Slovak
 			-	'sr' // Serbian\*
 			-	'tr' // Turkish
