@@ -1,11 +1,11 @@
 SpeakingURL
 ===========
 
-[![Build Status](https://travis-ci.org/pid/speakingurl.svg)](https://travis-ci.org/pid/speakingurl) 
-[![NPM version](https://badge.fury.io/js/speakingurl.svg)](https://badge.fury.io/js/speakingurl) 
-[![Bower version](https://badge.fury.io/bo/speakingurl.svg)](https://badge.fury.io/bo/speakingurl) 
-[![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](https://badge.fury.io/rb/speakingurl-rails) 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+[![Build Status](https://travis-ci.org/pid/speakingurl.svg)](https://travis-ci.org/pid/speakingurl)
+[![NPM version](https://badge.fury.io/js/speakingurl.svg)](https://badge.fury.io/js/speakingurl)
+[![Bower version](https://badge.fury.io/bo/speakingurl.svg)](https://badge.fury.io/bo/speakingurl)
+[![Gem Version](https://badge.fury.io/rb/speakingurl-rails.svg)](https://badge.fury.io/rb/speakingurl-rails)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pid/speakingurl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Flattr](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/thing/1418477/pidspeakingurl-on-GitHub)
 
 
@@ -107,6 +107,7 @@ Usage
 			-	'pt' // Portuguese
 			-	'ro' // Romanian
 			-	'ru' // Russian
+			-	'sv' // Swedish
 			-	'sk' // Slovak
 			-	'sr' // Serbian\*
 			-	'tr' // Turkish
