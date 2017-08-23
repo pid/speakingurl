@@ -2,7 +2,6 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "moduleResolution": "node",
     "noImplicitAny": false,
     "sourceMap": true,
     "declaration": true,
@@ -10,8 +9,7 @@
     "outDir": "lib",
     "lib": [
       "dom",
-      "es5",
-      "es2015"
+      "es5"
     ]
   },
   "include": [

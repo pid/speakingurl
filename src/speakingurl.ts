@@ -332,19 +332,19 @@ declare var window: any;
   // Node: Export function
   if (typeof module !== "undefined" && module.exports) {
     exportables.forEach(exp => {
-      module.exports[nameof(exp)] = exp;
+      return module.exports[nameof(exp)] = exp;
     });
   }
   // AMD/requirejs: Define the module
   else if (typeof define === 'function' && define.amd) {
     exportables.forEach(exp => {
-      define(() => exp);
+      return define(() => exp);
     });
   }
   //expose it through Window
   else if (window) {
     exportables.forEach((exp) => {
-      (window as any)[nameof(exp)] = exp;
+      return (window as any)[nameof(exp)] = exp;
     });
   }
 
