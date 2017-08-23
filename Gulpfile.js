@@ -6,7 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 
 var path = {
     rootdir: './',
-    lib: ['./lib/**/speakingurl.js','./lib/**/charmap.js', '!./lib/**/*.js.map'],
+    lib: ['./lib/**/*.js', '!./lib/**/*.js.map'],
     libdir: './lib/',
     test: ['./test/**/*.js'],
     testdir: './test/',
