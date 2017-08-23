@@ -12,10 +12,12 @@
         "url": "https://github.com/pid/speakingurl/issues"
     },
     "license": "BSD-3-Clause",
-    "licenses": [{
-        "type": "BSD",
-        "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
-    }],
+    "licenses": [
+        {
+            "type": "BSD",
+            "url": "https://raw.github.com/pid/speakingurl/master/LICENSE"
+        }
+    ],
     "keywords": [
         "slug",
         "slugify",
