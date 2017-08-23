@@ -1,16 +1,9 @@
-import { diatricMap } from './utils/charmap';
-import { lookAheadCharArray } from './utils/charmap';
-import { charMap } from './utils/charmap';
-import { markChars } from './utils/charmap';
-import { uricNoSlashChars } from './utils/charmap';
-import { uricChars } from './utils/charmap';
-import { langCharMap } from './utils/charmap';
-import { symbolMap } from './utils/charmap';
+import * as charMapper from './utils/charmap';
 /**
  * Interface for the SpeakingURL options
  * @see {@link https://github.com/pid/speakingurl#usage}
  */
-export interface ISpeakingurlOptions {
+export interface speakingurlOptions {
   /**
   * Character that replaces the whitespaces
   *  @default '-'
@@ -88,7 +81,7 @@ export interface ISpeakingurlOptions {
     * @api    public
     * @return {string}  sluggified string
     */
-export const getSlug = (input: string, opts: ISpeakingurlOptions | string): string => {
+export const getSlug = (input: string, opts: speakingurlOptions | string): string => {
   let separator = '-';
   let result = '';
   let diatricString = '';
@@ -118,11 +111,11 @@ export const getSlug = (input: string, opts: ISpeakingurlOptions | string): stri
     separator = <string>opts;
   }
 
-  symbol = symbolMap.en;
-  langChar = langCharMap.en;
+  symbol = charMapper.symbolMap.en;
+  langChar = charMapper.langCharMap.en;
 
   if (typeof opts === 'object') {
-    opts = <ISpeakingurlOptions>opts;
+    opts = <speakingurlOptions>opts;
     maintainCase = opts.maintainCase || false;
     customReplacements = (opts.custom && typeof opts.custom === 'object') ? opts.custom : customReplacements;
     truncate = (+opts.truncate > 1 && opts.truncate) || false;
@@ -133,23 +126,23 @@ export const getSlug = (input: string, opts: ISpeakingurlOptions | string): stri
     separator = opts.separator || separator;
 
     if (uricFlag) {
-      allowedChars += uricChars;
+      allowedChars += charMapper.uricChars;
     }
 
     if (uricNoSlashFlag) {
-      allowedChars += uricNoSlashChars;
+      allowedChars += charMapper.uricNoSlashChars;
     }
 
     if (markFlag) {
-      allowedChars += markChars;
+      allowedChars += charMapper.markChars;
     }
 
-    symbol = (opts.lang && symbolMap[<string>opts.lang] && convertSymbols) ?
-      symbolMap[<string>opts.lang] : (convertSymbols ? symbolMap.en : {});
+    symbol = (opts.lang && charMapper.symbolMap[<string>opts.lang] && convertSymbols) ?
+      charMapper.symbolMap[<string>opts.lang] : (convertSymbols ? charMapper.symbolMap.en : {});
 
-    langChar = (opts.lang && langCharMap[<string>opts.lang]) ?
-      langCharMap[<string>opts.lang] :
-      opts.lang === false || opts.lang === true ? {} : langCharMap.en;
+    langChar = (opts.lang && charMapper.langCharMap[<string>opts.lang]) ?
+      charMapper.langCharMap[<string>opts.lang] :
+      opts.lang === false || opts.lang === true ? {} : charMapper.langCharMap.en;
 
     // if titleCase config is an Array, rewrite to object format
     if (opts.titleCase && Array.isArray(opts.titleCase) && typeof opts.titleCase.length === 'number' && Array.prototype.toString.call(opts.titleCase)) {
@@ -212,34 +205,34 @@ export const getSlug = (input: string, opts: ISpeakingurlOptions | string): stri
       ch = lastCharWasSymbol && langChar[ch].match(/[A-Za-z0-9]/) ? ' ' + langChar[ch] : langChar[ch];
 
       lastCharWasSymbol = false;
-    } else if (ch in charMap) {
+    } else if (ch in charMapper.charMap) {
       // the transliteration changes entirely when some special characters are added
-      if (i + 1 < l && lookAheadCharArray.indexOf(input[i + 1]) >= 0) {
+      if (i + 1 < l && charMapper.lookAheadCharArray.indexOf(input[i + 1]) >= 0) {
         diatricString += ch;
         ch = '';
       } else if (lastCharWasDiatric === true) {
-        ch = diatricMap[diatricString] + charMap[ch];
+        ch = charMapper.diatricMap[diatricString] + charMapper.charMap[ch];
         diatricString = '';
       } else {
         // process diactrics chars
-        ch = lastCharWasSymbol && charMap[ch].match(/[A-Za-z0-9]/) ? ' ' + charMap[ch] : charMap[ch];
+        ch = lastCharWasSymbol && charMapper.charMap[ch].match(/[A-Za-z0-9]/) ? ' ' + charMapper.charMap[ch] : charMapper.charMap[ch];
       }
 
       lastCharWasSymbol = false;
       lastCharWasDiatric = false;
-    } else if (ch in diatricMap) {
+    } else if (ch in charMapper.diatricMap) {
       diatricString += ch;
       ch = '';
       // end of string, put the whole meaningful word
       if (i === l - 1) {
-        ch = diatricMap[diatricString];
+        ch = charMapper.diatricMap[diatricString];
       }
       lastCharWasDiatric = true;
     } else if (
       // process symbol chars
-      symbol[ch] && !(uricFlag && uricChars
-        .indexOf(ch) !== -1) && !(uricNoSlashFlag && uricNoSlashChars
-          // .indexOf(ch) !== -1) && !(markFlag && markChars
+      symbol[ch] && !(uricFlag && charMapper.uricChars
+        .indexOf(ch) !== -1) && !(uricNoSlashFlag && charMapper.uricNoSlashChars
+          // .indexOf(ch) !== -1) && !(markFlag && charMapper.markChars
           .indexOf(ch) !== -1)) {
       ch = lastCharWasSymbol || result.substr(-1).match(/[A-Za-z0-9]/) ? separator + symbol[ch] : symbol[ch];
       ch += input[i + 1] !== void 0 && input[i + 1].match(/[A-Za-z0-9]/) ? separator : '';
@@ -247,7 +240,7 @@ export const getSlug = (input: string, opts: ISpeakingurlOptions | string): stri
       lastCharWasSymbol = true;
     } else {
       if (lastCharWasDiatric === true) {
-        ch = diatricMap[diatricString] + ch;
+        ch = charMapper.diatricMap[diatricString] + ch;
         diatricString = '';
         lastCharWasDiatric = false;
       } else if (lastCharWasSymbol && (/[A-Za-z0-9]/.test(ch) || result.substr(-1).match(/A-Za-z0-9]/))) {
@@ -296,7 +289,7 @@ export const getSlug = (input: string, opts: ISpeakingurlOptions | string): stri
   * @param   {object|string} opts config object or input string
   * @return  {Function} function getSlugWithConfig()
   **/
-export const createSlug = (opts: {}|string) => {
+export const createSlug = (opts: {} | string) => {
   /**
    * getSlugWithConfig
    * @param   {string} input string
@@ -329,31 +322,37 @@ export const isReplacedCustomChar = (ch: string, customReplacements: {}) => {
 };
 
 /* modules, require and stuff like that */
-declare var define: any;
+export declare var define: any;
 declare var module: any;
- 
+declare var window: any;
 (function () {
- 
-    let exportables = [createSlug, getSlug, isReplacedCustomChar, escapeChars];
- 
-    // Node: Export function
-    if (typeof module !== "undefined" && module.exports) {
-        exportables.forEach(exp => module.exports[nameof(exp)] = exp);
-    }
-    // AMD/requirejs: Define the module
-    else if (typeof define === 'function' && define.amd) {
-        exportables.forEach(exp => define(() => exp));
-    }
-    //expose it through Window
-    else if (window) {
-        exportables.forEach(exp => (window as any)[nameof(exp)] = exp);
-    }
- 
-    function nameof(fn: any): string {
-        return typeof fn === 'undefined' ? '' : fn.name ? fn.name : (() => {
-            let result = /^function\s+([\w\$]+)\s*\(/.exec(fn.toString());
-            return !result ? '' : result[1];
-        })();
-    }
- 
-} ());
+
+  let exportables = [createSlug, getSlug, isReplacedCustomChar, escapeChars];
+
+  // Node: Export function
+  if (typeof module !== "undefined" && module.exports) {
+    exportables.forEach(exp => {
+      module.exports[nameof(exp)] = exp;
+    });
+  }
+  // AMD/requirejs: Define the module
+  else if (typeof define === 'function' && define.amd) {
+    exportables.forEach(exp => {
+      define(() => exp);
+    });
+  }
+  //expose it through Window
+  else if (window) {
+    exportables.forEach((exp) => {
+      (window as any)[nameof(exp)] = exp;
+    });
+  }
+
+  function nameof(fn: any): string {
+    return typeof fn === 'undefined' ? '' : fn.name ? fn.name : (() => {
+      let result = /^function\s+([\w\$]+)\s*\(/.exec(fn.toString());
+      return !result ? '' : result[1];
+    })();
+  }
+
+}());

@@ -2,7 +2,7 @@
  * Interface for the SpeakingURL options
  * @see {@link https://github.com/pid/speakingurl#usage}
  */
-export interface ISpeakingurlOptions {
+export interface speakingurlOptions {
     /**
     * Character that replaces the whitespaces
     *  @default '-'
@@ -66,7 +66,7 @@ export interface ISpeakingurlOptions {
     * @api    public
     * @return {string}  sluggified string
     */
-export declare const getSlug: (input: string, opts: string | ISpeakingurlOptions) => string;
+export declare const getSlug: (input: string, opts: string | speakingurlOptions) => string;
 /**
   * createSlug curried(opts)(input)
   * @param   {object|string} opts config object or input string
@@ -84,3 +84,4 @@ export declare const escapeChars: (input: string) => string;
  * @param   {object} customReplacements custom translation map
  */
 export declare const isReplacedCustomChar: (ch: string, customReplacements: {}) => boolean;
+export declare var define: any;

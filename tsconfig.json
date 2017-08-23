@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2015",
+    "target": "es5",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "sourceMap": true,
     "declaration": true,
     "declarationDir": "typings/speakingurl",
-    "outDir": "lib"
+    "outDir": "lib",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015"
+    ]
   },
   "include": [
     "src/**.ts"
