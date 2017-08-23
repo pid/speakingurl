@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "umd",
     "target": "es5",
     "noImplicitAny": false,
     "sourceMap": true,
