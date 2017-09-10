@@ -66,8 +66,8 @@ available versions:
 
 available versions:
 
--	[www.jsdelivr.com/#!speakingurl](https://www.jsdelivr.com/#!speakingurl)
--	use [//cdn.jsdelivr.net/speakingurl/14.0.1/speakingurl.min.js](https://cdn.jsdelivr.net/speakingurl/14.0.1/speakingurl.min.js)
+-	[www.jsdelivr.com/#!speakingurl](https://www.jsdelivr.com/package/npm/speakingurl)
+-	use [//cdn.jsdelivr.net/npm/speakingurl@14.0.1/speakingurl.min.js](https://cdn.jsdelivr.net/npm/speakingurl@14.0.1/speakingurl.min.js)
 
 Usage
 -----
