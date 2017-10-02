@@ -1,7 +1,7 @@
 Changelog
 =========
--   v14.0.1 Empty minified file; Thanks to https://github.com/redaxmedia
--   v14.0.0 Add Swedish #101 Thanks to https://github.com/simison
+-   v14.0.1 Fix empty minified file in v14.0.0 BROKEN BUILD; Thanks to https://github.com/redaxmedia
+-   v14.0.0 !BROKEN BUILD! Add Swedish #101 Thanks to https://github.com/simison
 -   v13.0.0 Add Vietnamese missing charMap key #88; Thanks to https://github.com/aduycuong // [Bower] invalid-meta The "main" field cannot contain minified files #91 Thanks to https://github.com/stonio
 -   v12.0.0 Georgian Support Added! #95 Thanks to https://github.com/vdanelia and support from https://github.com/redaxmedia // Improved README (yarn install option, https links, etc.) #97 Thanks to https://github.com/apepper // Move static maps outside getSlug (performance) #96 Thanks to https://github.com/kwiatkk1 // Improved docs - lang option can be string or boolean #89 Thanks to https://github.com/stonio
 -   v11.0.0 #87 Add Finnish transliteration for symbols; #85 Added new currencies; #84 Update README.md; #83 Various czech language fixes;#82 Add lithuanian transliteration for symbols; Fix: Ω should be transliterated to O
