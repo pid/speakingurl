@@ -1,6 +1,6 @@
 /* global describe,it */
 
-var getSlug = require('../lib/speakingurl');
+var getSlug = require('../lib/speakingurl').getSlug;
 
 describe('getSlug smart truncate', function () {
     'use strict';

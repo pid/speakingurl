@@ -1,6 +1,6 @@
 /* global describe,it */
 
-var getSlug = require('../lib/speakingurl');
+var getSlug = require('../lib/speakingurl').getSlug;
 
 describe('getSlug translate dhivehi letters', function () {
     'use strict';

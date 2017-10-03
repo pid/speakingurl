@@ -43,6 +43,7 @@
     "author": "Sascha Droste <pid@posteo.net> (https://twitter.com/SaschaDroste)",
     "main": "index",
     "filename": "speakingurl.min.js",
+    "types": "./typings/speakingurl/speakingurl.d.ts",
     "dependencies": {},
     "devDependencies": {
         "gulp": "^3.8.8",
