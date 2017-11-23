@@ -95,4 +95,13 @@ describe('getSlug with custom replacement', function () {
         done();
     });
 
+    it('adding allowed chars should not overwrite numbers', function (done) {
+        getSlug('буу0123456789', {
+                custom: ['б', 'у']
+            })
+            .should.eql('буу0123456789');
+
+        done();
+    });
+
 });
