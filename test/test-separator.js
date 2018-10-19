@@ -170,6 +170,21 @@ describe('getSlug separator', function () {
 
     });
 
+    it('should work the same regardless the method it was passed', function (done) {
+        // given
+        var testString = '-ä ß üö,.';
+        var emptySeparator = '';
+
+        // when
+        var resultAsOption = getSlug(testString, { separator: emptySeparator });
+        var resultDirect = getSlug(testString, emptySeparator);
+
+        // then
+        resultAsOption.should.eql(resultDirect);
+
+        done();
+    });
+
     it('should return empty string because of non string input', function (done) {
 
         getSlug(true)
