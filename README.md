@@ -86,6 +86,7 @@ Usage
 		-	language specific transliteration (
 			-	'ar' // Arabic
 			-	'az' // Azerbaijani\*
+            -   'bs' // Bosnian
 			-	'cs' // Czech
 			-	'de' // German
 			-	'dv' // Divehi
