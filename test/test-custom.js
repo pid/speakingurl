@@ -16,6 +16,12 @@ describe('getSlug with custom replacement', function () {
             })
             .should.eql('буу');
 
+        getSlug('top 100 waterfalls', {
+                custom: ['.']
+            })
+            .should.eql('top-100-waterfalls');
+
+
         getSlug('[nodejs]', {
                 custom: {
                     '[': '[',
