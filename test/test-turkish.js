@@ -7,15 +7,15 @@ describe('getSlug translate turkish letters', function () {
 
     it('umlaut should be single letter transliteration', function (done) {
 
-        getSlug('ÜÄÖüäö', {
+        getSlug('ÜÄÖŞĞüäöşğ', {
                 lang: 'tr'
             })
-            .should.eql('uaeouaeo');
+            .should.eql('uaeosuaeos');
 
-        getSlug('ÜÖÄ äüö', {
+        getSlug('ÜÖÄŞĞ äüöşğ', {
                 lang: 'tr'
             })
-            .should.eql('uoae-aeuo');
+            .should.eql('uoaesg-aeuosg');
 
         done();
     });
