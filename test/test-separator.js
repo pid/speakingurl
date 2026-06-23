@@ -35,6 +35,27 @@ describe('getSlug separator', function () {
 
     });
 
+    it('should separate with a multi-character separator', function (done) {
+
+        getSlug('Foo Bar Baz', {
+                separator: '..'
+            })
+            .should.eql('foo..bar..baz');
+
+        getSlug('Foo Bar Baz', {
+                separator: '++'
+            })
+            .should.eql('foo++bar++baz');
+
+        getSlug('Foo Bar Baz', {
+                separator: '()'
+            })
+            .should.eql('foo()bar()baz');
+
+        done();
+
+    });
+
     it('should separate with non-whitespace, with trailing spaces', function (done) {
 
         getSlug(' Foo Bar Baz ', {
