@@ -5,6 +5,43 @@ var getSlug = require('../lib/speakingurl');
 describe('getSlug symbols', function () {
     'use strict';
 
+    describe('circled characters', function () {
+        var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+        alphabet.split('').forEach(function (letter, letterIndex) {
+            var lower = String.fromCharCode(0x24D0 + letterIndex);
+            var upper = String.fromCharCode(0x24B6 + letterIndex);
+
+            it('should transliterate ' + lower + ' and ' + upper, function () {
+                getSlug(lower).should.eql(letter);
+                getSlug(upper).should.eql(letter);
+                getSlug(upper, { maintainCase: true }).should.eql(letter.toUpperCase());
+            });
+        });
+
+        it('should transliterate circled zero', function () {
+            getSlug('⓪').should.eql('0');
+        });
+
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].forEach(function (value) {
+            var circled = String.fromCharCode(0x2460 + value - 1);
+
+            it('should transliterate circled ' + value, function () {
+                getSlug(circled).should.eql(String(value));
+            });
+        });
+
+        it('should preserve letters and numbers in a title slug', function () {
+            getSlug('Version ⓥ Week ⓦ Part ⑲ of ⑳').should.eql('version-v-week-w-part-19-of-20');
+        });
+
+        it('should use the same mappings in the browser bundle', function () {
+            var bundledSlug = require('../speakingurl.min');
+            var text = 'Version ⓥ Week ⓦ Part ⑲ of ⑳';
+            bundledSlug(text).should.eql(getSlug(text));
+        });
+    });
+
     it('should convert symbols', function (done) {
 
         getSlug('Foo & Bar | Baz')
